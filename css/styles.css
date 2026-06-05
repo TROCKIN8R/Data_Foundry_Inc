@@ -509,71 +509,66 @@ a:hover {
 .gold-ingot {
   position: absolute;
   display: block;
-  width: 5.9rem;
-  height: 1.55rem;
+  width: 2.35rem;
+  height: 4.85rem;
   background:
-    linear-gradient(90deg, rgba(255, 210, 77, 0.28), transparent 32%),
-    linear-gradient(180deg, #a26203, #754300 72%, #5c3400);
+    linear-gradient(135deg, rgba(255, 240, 166, 0.58) 0 12%, transparent 13%),
+    linear-gradient(225deg, rgba(255, 240, 166, 0.4) 0 12%, transparent 13%),
+    linear-gradient(315deg, rgba(80, 46, 0, 0.42) 0 14%, transparent 15%),
+    linear-gradient(45deg, rgba(112, 64, 0, 0.44) 0 14%, transparent 15%),
+    linear-gradient(90deg, #a76508 0 16%, #e4a32a 17% 50%, #8e5304 84% 100%);
   border: 1px solid rgba(255, 186, 46, 0.18);
-  border-radius: 0.22rem;
+  border-radius: 0.5rem;
   box-shadow:
-    0 12px 18px rgba(0, 0, 0, 0.35),
-    inset 0 1px 0 rgba(255, 198, 67, 0.45);
+    0 12px 20px rgba(0, 0, 0, 0.38),
+    0 0 16px rgba(201, 132, 18, 0.12),
+    inset 0 1px 0 rgba(255, 233, 156, 0.45);
   animation: ingot-glow 4s ease-in-out infinite;
 }
 
 .gold-ingot::before {
   content: "";
   position: absolute;
-  top: -0.72rem;
-  left: 0.72rem;
-  right: 0;
-  height: 0.75rem;
-  background: linear-gradient(180deg, var(--color-gold), #9b5d06);
-  clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
-  border-radius: 0.16rem 0.16rem 0 0;
+  inset: 0.72rem 0.38rem;
+  background:
+    radial-gradient(ellipse at 35% 18%, rgba(255, 246, 196, 0.42), transparent 42%),
+    linear-gradient(180deg, #f1bd48, #cf8d18 55%, #a76408);
+  border: 1px solid rgba(76, 42, 0, 0.32);
+  border-radius: 0.28rem;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 231, 143, 0.12),
+    inset 0 -0.35rem 0.65rem rgba(76, 42, 0, 0.16);
+  filter: saturate(1.08);
 }
 
 .gold-ingot::after {
   content: "";
   position: absolute;
-  top: 0.65rem;
-  right: 0.8rem;
-  width: 0.45rem;
-  height: 0.45rem;
-  background: rgba(255, 190, 48, 0.45);
-  border-radius: 50%;
+  inset: 0.24rem;
+  background:
+    linear-gradient(135deg, rgba(255, 242, 173, 0.48), transparent 22%),
+    linear-gradient(225deg, rgba(255, 222, 103, 0.28), transparent 18%),
+    linear-gradient(315deg, rgba(68, 38, 0, 0.32), transparent 20%),
+    linear-gradient(45deg, rgba(101, 59, 0, 0.34), transparent 20%);
+  border-radius: 0.38rem;
+  pointer-events: none;
 }
 
 .gold-ingot--1 {
-  top: 5.05rem;
-  left: 1rem;
+  top: 1.25rem;
+  left: 1.75rem;
 }
 
 .gold-ingot--2 {
-  top: 4rem;
-  left: 2.55rem;
+  top: 1.25rem;
+  left: 4.8rem;
   animation-delay: 0.25s;
 }
 
 .gold-ingot--3 {
-  top: 2.95rem;
-  left: 4.1rem;
+  top: 1.25rem;
+  left: 7.85rem;
   animation-delay: 0.5s;
-}
-
-.gold-ingot--4 {
-  top: 1.9rem;
-  left: 5.65rem;
-  width: 5.1rem;
-  animation-delay: 0.75s;
-}
-
-.gold-ingot--5 {
-  top: 0.85rem;
-  left: 7rem;
-  width: 3.6rem;
-  animation-delay: 1s;
 }
 
 /* Stage action markers */
