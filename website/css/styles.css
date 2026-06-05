@@ -193,7 +193,11 @@ a:hover {
   position: relative;
   max-width: var(--content-max);
   margin: 0 auto;
-  padding: clamp(2.5rem, 7vw, 5rem) 1.5rem clamp(3rem, 8vw, 5.5rem);
+  padding: clamp(3rem, 8vw, 6rem) 1.5rem clamp(3.5rem, 9vw, 6.5rem);
+  min-height: calc(100vh - var(--nav-height));
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
 
 .hero::before {
@@ -209,10 +213,10 @@ a:hover {
 .hero__inner {
   position: relative;
   z-index: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(2.5rem, 5vw, 3.5rem);
 }
 
 .hero__content {
@@ -252,281 +256,139 @@ a:hover {
   margin-top: 2rem;
 }
 
-/* ── The Forge — big hero animation ── */
-.hero__forge {
-  position: relative;
-  width: 100%;
-  height: clamp(280px, 38vw, 460px);
-  border-radius: 1.25rem;
-  overflow: hidden;
-  background: #070809;
-  border: 1px solid rgba(244, 239, 230, 0.055);
-  box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.52),
-    inset 0 1px 0 rgba(255, 255, 255, 0.02);
-}
-
-.forge__ambient {
+/* ── Hero background floating elements ── */
+.hero__bg {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse 42% 58% at 50% 62%, rgba(201, 132, 18, 0.22), transparent 60%),
-    radial-gradient(ellipse 22% 34% at 50% 50%, rgba(255, 155, 28, 0.16), transparent 55%),
-    radial-gradient(ellipse 28% 40% at 22% 58%, rgba(169, 99, 46, 0.1), transparent 62%),
-    radial-gradient(ellipse 22% 30% at 76% 56%, rgba(200, 130, 18, 0.09), transparent 62%);
-  animation: forge-ambient 4.5s ease-in-out infinite;
+  overflow: hidden;
 }
 
-/* Left zone: raw ore */
-.forge__raw {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 28%;
-  height: 100%;
-}
-
-/* Center: the crucible */
-.forge__crucible {
-  position: absolute;
-  left: 50%;
-  top: 48%;
-  transform: translate(-50%, -50%);
-  width: clamp(90px, 13vw, 155px);
-  height: clamp(72px, 10vw, 124px);
-  background:
-    linear-gradient(170deg, rgba(244, 239, 230, 0.05), transparent 28%),
-    linear-gradient(162deg, #2e1208, var(--color-bronze-dark) 44%, #190a04);
-  clip-path: polygon(14% 0%, 86% 0%, 100% 100%, 0% 100%);
-  border: 1px solid rgba(239, 179, 58, 0.2);
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.58),
-    inset 0 -2rem 2.5rem rgba(255, 158, 28, 0.18),
-    0 0 55px rgba(201, 132, 18, 0.14);
-}
-
-.forge__crucible::before {
-  content: "";
-  position: absolute;
-  top: -6px;
-  left: 10%;
-  right: 10%;
-  height: 10px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 198, 60, 0.7) 32%,
-    rgba(255, 215, 80, 0.88) 50%,
-    rgba(255, 198, 60, 0.7) 68%,
-    transparent
-  );
-  filter: blur(3px);
-  animation: forge-fire-pulse 3s ease-in-out infinite;
-}
-
-.forge__crucible::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 150%;
-  height: 80px;
-  background: radial-gradient(ellipse 65% 100% at 50% 0%, rgba(255, 158, 28, 0.18), transparent 72%);
-  pointer-events: none;
-}
-
-.forge__fire {
-  position: absolute;
-  left: 50%;
-  bottom: 12%;
-  width: 70%;
-  height: 58%;
-  background: radial-gradient(
-    ellipse,
-    rgba(255, 205, 65, 0.78),
-    rgba(255, 145, 22, 0.44) 30%,
-    rgba(201, 132, 18, 0.16) 56%,
-    transparent 72%
-  );
-  transform: translateX(-50%);
-  filter: blur(5px);
-  animation: forge-fire-pulse 3s ease-in-out infinite;
-}
-
-/* Right zone: gold output */
-.forge__gold {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 32%;
-  height: 100%;
-}
-
-/* Data river — thin line + flowing particles */
-.forge__river {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: calc(50% - 1px);
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(169, 99, 46, 0.28) 8%,
-    rgba(200, 132, 18, 0.46) 36%,
-    rgba(255, 188, 52, 0.7) 50%,
-    rgba(239, 179, 58, 0.44) 64%,
-    rgba(200, 132, 18, 0.24) 86%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-/* Zone labels */
-.f-label {
-  position: absolute;
-  bottom: clamp(0.75rem, 2vw, 1.2rem);
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.58rem;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(239, 179, 58, 0.38);
-  white-space: nowrap;
-  pointer-events: none;
-}
-
-/* Ore chunks */
-.f-ore {
+.hb {
   position: absolute;
   display: block;
+  animation: hb-float var(--dur, 6s) ease-in-out infinite var(--delay, 0s);
+}
+
+/* Bronze ore chunks */
+.hb--bronze {
   background:
-    linear-gradient(135deg, rgba(255, 183, 101, 0.14), transparent 38%),
+    linear-gradient(135deg, rgba(255, 183, 101, 0.12), transparent 38%),
     linear-gradient(148deg, #4a2308, var(--color-bronze) 55%, #9e5e2a);
   clip-path: polygon(var(--p1), var(--p2), var(--p3), var(--p4), var(--p5));
-  box-shadow:
-    0 8px 20px rgba(0, 0, 0, 0.55),
-    inset -3px -3px 0 rgba(40, 20, 5, 0.32);
-  animation: f-ore-float var(--dur, 5.2s) ease-in-out infinite var(--delay, 0s);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.5), inset -3px -3px 0 rgba(40, 20, 5, 0.28);
+  opacity: 0.3;
 }
 
-.f-ore--1 {
-  top: 15%; left: 5%;
-  width: 3.4rem; height: 2.9rem;
-  transform: rotate(12deg);
-  --rot: 12deg;
+.hb--b1 {
+  top: 8%; left: 3%;
+  width: 3.6rem; height: 3.1rem;
+  --rot: 14deg;
   --p1: 20% 0; --p2: 92% 14%; --p3: 82% 90%; --p4: 12% 100%; --p5: 0 52%;
-  --dur: 5.4s;
+  --dur: 5.2s; --fy: -0.75rem; --fx: 0.5rem; --dr: 4deg;
 }
-.f-ore--2 {
-  top: 32%; left: 30%;
-  width: 2.5rem; height: 2.7rem;
-  transform: rotate(-18deg);
-  --rot: -18deg;
+.hb--b2 {
+  top: 60%; left: 2%;
+  width: 2.6rem; height: 2.8rem;
+  --rot: -20deg;
   --p1: 10% 15%; --p2: 70% 0; --p3: 100% 55%; --p4: 62% 100%; --p5: 0 78%;
-  --dur: 4.8s; --delay: 0.5s;
+  --dur: 4.8s; --delay: 0.9s; --fy: -0.65rem; --fx: -0.4rem; --dr: -3deg;
 }
-.f-ore--3 {
-  top: 52%; left: 7%;
-  width: 3rem; height: 2.3rem;
-  transform: rotate(24deg);
-  --rot: 24deg;
+.hb--b3 {
+  top: 10%; right: 3%;
+  width: 3rem; height: 2.6rem;
+  --rot: 28deg;
   --p1: 28% 0; --p2: 100% 22%; --p3: 78% 88%; --p4: 22% 100%; --p5: 0 40%;
-  --dur: 5.8s; --delay: 0.9s;
+  --dur: 5.6s; --delay: 0.4s; --fy: -0.8rem; --fx: -0.55rem; --dr: 5deg;
 }
-.f-ore--4 {
-  top: 64%; left: 32%;
-  width: 2.3rem; height: 2.6rem;
-  transform: rotate(-8deg);
-  --rot: -8deg;
+.hb--b4 {
+  top: 70%; right: 5%;
+  width: 2.2rem; height: 2.4rem;
+  --rot: -10deg;
   --p1: 15% 8%; --p2: 88% 0; --p3: 100% 68%; --p4: 44% 100%; --p5: 0 60%;
-  --dur: 4.5s; --delay: 1.3s;
+  --dur: 4.4s; --delay: 1.8s; --fy: -0.55rem; --fx: 0.35rem; --dr: -3deg;
 }
-.f-ore--5 {
-  top: 24%; left: 52%;
-  width: 2rem; height: 2.1rem;
-  transform: rotate(35deg);
-  --rot: 35deg;
+.hb--b5 {
+  top: 38%; left: 1%;
+  width: 2rem; height: 1.8rem;
+  --rot: 22deg;
   --p1: 32% 0; --p2: 100% 28%; --p3: 68% 96%; --p4: 8% 82%; --p5: 0 30%;
-  --dur: 6.2s; --delay: 0.6s;
-}
-.f-ore--6 {
-  top: 72%; left: 3%;
-  width: 1.8rem; height: 1.7rem;
-  transform: rotate(-22deg);
-  --rot: -22deg;
-  --p1: 18% 0; --p2: 100% 18%; --p3: 85% 92%; --p4: 30% 100%; --p5: 0 55%;
-  --dur: 5.5s; --delay: 1.6s;
+  --dur: 5s; --delay: 2.6s; --fy: -0.6rem; --fx: 0.45rem; --dr: 4deg;
 }
 
-/* Flowing data drops */
-.f-drop {
-  position: absolute;
-  top: 50%;
-  left: -0.5rem;
+/* Silver spheres */
+.hb--silver {
   border-radius: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  animation: f-drop-flow var(--dur, 4s) linear infinite var(--delay, 0s);
+  background:
+    radial-gradient(circle at 30% 26%, rgba(228, 230, 233, 0.9), transparent 24%),
+    radial-gradient(circle at 33% 28%, var(--color-silver-light), var(--color-silver) 55%, var(--color-silver-dark));
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35), inset -3px -4px 0 rgba(58, 60, 64, 0.22);
+  opacity: 0.35;
 }
 
-.f-drop--1 { width: 5px; height: 5px; background: var(--color-bronze); --dur: 4.2s; --delay: 0s; }
-.f-drop--2 { width: 4px; height: 4px; background: #c87030; --dur: 3.8s; --delay: -0.5s; }
-.f-drop--3 { width: 6px; height: 6px; background: var(--color-gold); --dur: 4.5s; --delay: -1s; }
-.f-drop--4 { width: 4px; height: 4px; background: var(--color-gold-light); top: calc(50% - 2px); --dur: 3.9s; --delay: -1.5s; }
-.f-drop--5 { width: 5px; height: 5px; background: var(--color-bronze); top: calc(50% + 1px); --dur: 4.3s; --delay: -2s; }
-.f-drop--6 { width: 4px; height: 4px; background: #d07828; --dur: 4.8s; --delay: -2.5s; }
-.f-drop--7 { width: 6px; height: 6px; background: var(--color-gold); top: calc(50% - 1px); --dur: 4.1s; --delay: -3s; }
-.f-drop--8 { width: 4px; height: 4px; background: var(--color-gold-light); --dur: 3.7s; --delay: -3.5s; }
-
-/* Embers (positioned relative to .hero__forge, floating up from crucible) */
-.f-ember {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0;
-  animation: f-ember-rise var(--dur, 2.5s) ease-out infinite var(--delay, 0s);
+.hb--s1 {
+  top: 6%; left: 20%;
+  width: 2.6rem; height: 2.6rem;
+  --dur: 5.8s; --delay: 0.3s; --fy: -0.7rem; --fx: -0.35rem; --dr: 0deg;
 }
-
-.f-ember--1 { left: 46.5%; top: 34%; width: 4px; height: 4px; background: #efb33a; --dur: 2.3s; --delay: 0s; }
-.f-ember--2 { left: 50.5%; top: 30%; width: 3px; height: 3px; background: #ffc84a; --dur: 2.9s; --delay: 0.45s; --dx: -6px; }
-.f-ember--3 { left: 53.5%; top: 35%; width: 4px; height: 4px; background: #c88412; --dur: 2.5s; --delay: 0.85s; --dx: 5px; }
-.f-ember--4 { left: 47.5%; top: 28%; width: 3px; height: 3px; background: #efb33a; --dur: 3.1s; --delay: 1.3s; }
-.f-ember--5 { left: 51%; top: 33%; width: 3px; height: 3px; background: #ffc84a; --dur: 2.2s; --delay: 1.7s; --dx: 4px; }
-.f-ember--6 { left: 48%; top: 31%; width: 2px; height: 2px; background: #efb33a; --dur: 2.7s; --delay: 0.6s; --dx: -4px; }
+.hb--s2 {
+  top: 58%; right: 1%;
+  width: 3.2rem; height: 3.2rem;
+  --dur: 5.2s; --delay: 1.3s; --fy: -0.6rem; --fx: -0.5rem; --dr: 0deg;
+}
+.hb--s3 {
+  top: 80%; left: 28%;
+  width: 2rem; height: 2rem;
+  --dur: 4.6s; --delay: 2.2s; --fy: -0.5rem; --fx: 0.3rem; --dr: 0deg;
+}
+.hb--s4 {
+  top: 30%; right: 18%;
+  width: 1.7rem; height: 1.7rem;
+  --dur: 5s; --delay: 0.7s; --fy: -0.65rem; --fx: 0.4rem; --dr: 0deg;
+}
 
 /* Gold ingots */
-.f-ingot {
-  position: absolute;
-  width: clamp(2.6rem, 5vw, 5rem);
-  height: clamp(1.1rem, 2vw, 2rem);
+.hb--gold {
+  border-radius: 0.28rem;
   background:
-    linear-gradient(135deg, rgba(255, 242, 165, 0.5) 0 10%, transparent 11%),
-    linear-gradient(225deg, rgba(255, 228, 100, 0.34) 0 10%, transparent 11%),
-    linear-gradient(315deg, rgba(68, 38, 0, 0.4) 0 12%, transparent 13%),
-    linear-gradient(90deg, #8c5205 0 13%, #dca020 16% 48%, #8c5205 82% 100%);
-  border-radius: 0.3rem;
-  border: 1px solid rgba(255, 184, 46, 0.22);
-  box-shadow:
-    0 8px 22px rgba(0, 0, 0, 0.55),
-    0 0 18px rgba(201, 132, 18, 0.18),
-    inset 0 1px 0 rgba(255, 228, 130, 0.38);
-  animation: f-ingot-glow var(--dur, 4s) ease-in-out infinite var(--delay, 0s);
+    linear-gradient(135deg, rgba(255, 242, 165, 0.45) 0 10%, transparent 11%),
+    linear-gradient(225deg, rgba(255, 228, 100, 0.3) 0 10%, transparent 11%),
+    linear-gradient(90deg, #8c5205 0 12%, #dca020 15% 50%, #8c5205 82% 100%);
+  border: 1px solid rgba(255, 184, 46, 0.18);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 14px rgba(201, 132, 18, 0.12), inset 0 1px 0 rgba(255, 228, 130, 0.3);
+  opacity: 0.32;
 }
 
-.f-ingot::before {
-  content: "";
-  position: absolute;
-  inset: 0.22rem 0.45rem;
-  background: linear-gradient(180deg, rgba(255, 235, 145, 0.3), transparent 62%);
-  border-radius: 0.15rem;
+.hb--g1 {
+  top: 16%; left: 36%;
+  width: 3.8rem; height: 1.25rem;
+  --rot: -6deg;
+  --dur: 4.8s; --delay: 0.2s; --fy: -0.7rem; --fx: -0.3rem; --dr: 3deg;
 }
-
-.f-ingot--1 { top: 24%; left: 8%; --dur: 4.4s; }
-.f-ingot--2 { top: 46%; left: 32%; --dur: 4.8s; --delay: 0.55s; }
-.f-ingot--3 { top: 65%; left: 10%; --dur: 4.1s; --delay: 1.1s; }
+.hb--g2 {
+  top: 44%; right: 13%;
+  width: 3.2rem; height: 1.05rem;
+  --rot: 7deg;
+  --dur: 5.4s; --delay: 0.9s; --fy: -0.65rem; --fx: 0.5rem; --dr: -3deg;
+}
+.hb--g3 {
+  top: 74%; right: 22%;
+  width: 3rem; height: 1.1rem;
+  --rot: -13deg;
+  --dur: 4.6s; --delay: 1.7s; --fy: -0.55rem; --fx: -0.4rem; --dr: 4deg;
+}
+.hb--g4 {
+  top: 52%; left: 10%;
+  width: 2.5rem; height: 0.95rem;
+  --rot: 9deg;
+  --dur: 5.2s; --delay: 0.6s; --fy: -0.6rem; --fx: 0.35rem; --dr: -2deg;
+}
+.hb--g5 {
+  top: 24%; right: 32%;
+  width: 2.8rem; height: 1rem;
+  --rot: -4deg;
+  --dur: 4.4s; --delay: 2.4s; --fy: -0.75rem; --fx: -0.5rem; --dr: 3deg;
+}
 
 /* Vision / schema */
 .vision {
@@ -1478,6 +1340,163 @@ a:hover {
   transform: rotate(-38deg);
 }
 
+/* ── Services ── */
+.services {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 5vw, 3.5rem) 1.5rem clamp(3rem, 6vw, 4.5rem);
+  border-top: 1px solid var(--color-border);
+  scroll-margin-top: var(--nav-height);
+}
+
+.services__header {
+  max-width: 52rem;
+  margin: 0 auto clamp(2rem, 4.5vw, 3rem);
+  text-align: center;
+}
+
+.services__eyebrow {
+  margin: 0 0 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(239, 179, 58, 0.72);
+}
+
+.services__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 3.8vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.services__title span {
+  display: block;
+  margin-top: 0.4rem;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
+  font-style: normal;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-gold-light);
+}
+
+.services__intro {
+  max-width: 42rem;
+  margin: 1.15rem auto 0;
+  font-size: clamp(0.95rem, 2vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--color-muted);
+}
+
+.services__grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .services__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .services__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+}
+
+.service-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.35rem 1.35rem 1.45rem;
+  background: rgba(244, 239, 230, 0.025);
+  border: 1px solid rgba(244, 239, 230, 0.07);
+  border-radius: 0.85rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1.35rem;
+  right: 1.35rem;
+  height: 2px;
+  border-radius: 999px;
+  opacity: 0.85;
+}
+
+.service-card--bronze::before {
+  background: linear-gradient(90deg, var(--color-bronze), rgba(169, 99, 46, 0.2));
+}
+
+.service-card--silver::before {
+  background: linear-gradient(90deg, var(--color-silver-light), rgba(122, 126, 131, 0.2));
+}
+
+.service-card--governance::before {
+  background: linear-gradient(90deg, var(--color-gold-light), rgba(239, 179, 58, 0.15));
+}
+
+.service-card--gold::before {
+  background: linear-gradient(90deg, var(--color-gold-light), rgba(201, 132, 18, 0.2));
+}
+
+.service-card--platinum::before {
+  background: linear-gradient(90deg, var(--color-platinum-light), rgba(95, 133, 163, 0.2));
+}
+
+.service-card:hover {
+  background: rgba(244, 239, 230, 0.04);
+  border-color: rgba(244, 239, 230, 0.12);
+}
+
+.service-card__layer {
+  margin: 0.35rem 0 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-dim);
+}
+
+.service-card--bronze .service-card__layer { color: rgba(169, 99, 46, 0.85); }
+.service-card--silver .service-card__layer { color: rgba(179, 183, 188, 0.75); }
+.service-card--governance .service-card__layer { color: rgba(239, 179, 58, 0.65); }
+.service-card--gold .service-card__layer { color: rgba(239, 179, 58, 0.78); }
+.service-card--platinum .service-card__layer { color: rgba(180, 207, 227, 0.78); }
+
+.service-card__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.service-card__desc {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-muted);
+}
+
+.services__cta {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+  text-align: center;
+}
+
 /* ── Founder / About ── */
 .founder {
   max-width: var(--content-max);
@@ -1616,7 +1635,7 @@ a:hover {
 .founder__timeline::before {
   content: "";
   position: absolute;
-  left: 0.55rem;
+  left: calc(1.25rem / 2);
   top: 0.7rem;
   bottom: 0.7rem;
   width: 1px;
@@ -1638,6 +1657,7 @@ a:hover {
   width: 0.62rem;
   height: 0.62rem;
   margin-top: 0.18rem;
+  justify-self: center;
   border-radius: 50%;
   background: var(--color-dim);
   border: 1px solid rgba(239, 179, 58, 0.3);
@@ -1727,44 +1747,12 @@ a:hover {
   margin-left: 0.5rem;
 }
 
-@keyframes forge-ambient {
-  0%, 100% { opacity: 0.78; }
-  50% { opacity: 1; }
-}
-
-@keyframes forge-fire-pulse {
-  0%, 100% { opacity: 0.7; filter: blur(5px) brightness(0.88); }
-  50% { opacity: 1; filter: blur(4px) brightness(1.28); }
-}
-
-@keyframes f-ore-float {
-  0%, 100% { transform: rotate(var(--rot, 0deg)) translateY(0); }
-  50% { transform: rotate(var(--rot, 0deg)) translateY(-0.4rem); }
-}
-
-@keyframes f-drop-flow {
-  0%   { transform: translateY(-50%) translateX(0);     opacity: 0; }
-  6%   { opacity: 1; }
-  88%  { opacity: 0.85; }
-  100% { transform: translateY(-50%) translateX(80rem); opacity: 0; }
-}
-
-@keyframes f-ember-rise {
-  0%   { transform: translate(0, 0) scale(1);                             opacity: 0; }
-  10%  { opacity: 0.95; }
-  70%  { opacity: 0.5; }
-  100% { transform: translate(var(--dx, 3px), -58px) scale(0.22);        opacity: 0; }
-}
-
-@keyframes f-ingot-glow {
-  0%, 100% {
-    filter: brightness(0.92);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.55), 0 0 14px rgba(201,132,18,0.15), inset 0 1px 0 rgba(255,228,130,0.35);
-  }
-  50% {
-    filter: brightness(1.15);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.5), 0 0 30px rgba(201,132,18,0.3), inset 0 1px 0 rgba(255,228,130,0.52);
-  }
+@keyframes hb-float {
+  0%   { transform: rotate(var(--rot, 0deg)) translate(0, 0) scale(1); }
+  22%  { transform: rotate(calc(var(--rot, 0deg) + var(--dr, 3deg)))  translate(var(--fx, 0.4rem), calc(var(--fy, -0.7rem) * 0.55)) scale(1.03); }
+  50%  { transform: rotate(calc(var(--rot, 0deg) - var(--dr, 2deg)))  translate(calc(var(--fx, 0.4rem) * -0.35), var(--fy, -0.7rem)) scale(0.97); }
+  78%  { transform: rotate(calc(var(--rot, 0deg) + calc(var(--dr, 3deg) * 0.5))) translate(calc(var(--fx, 0.4rem) * 0.5), calc(var(--fy, -0.7rem) * 0.35)) scale(1.02); }
+  100% { transform: rotate(var(--rot, 0deg)) translate(0, 0) scale(1); }
 }
 
 @keyframes ore-drift {
@@ -1853,13 +1841,7 @@ a:hover {
   .gold-ingot,
   .consumer-card,
   .stage-action__arrow,
-  .forge__ambient,
-  .forge__fire,
-  .forge__crucible::before,
-  .f-ore,
-  .f-drop,
-  .f-ember,
-  .f-ingot {
+  .hb {
     animation: none;
   }
 

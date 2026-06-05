@@ -30,6 +30,7 @@
         </a>
         <nav class="nav__links" aria-label="Primary">
           <a href="#schema">Vision</a>
+          <a href="#services">Services</a>
           <a href="#founder">About Us</a>
         </nav>
         <a class="btn btn--nav" href="mailto:adrienyvin@datafoundry.inc">Let's talk</a>
@@ -45,8 +46,8 @@
               <span>Golden decisions.</span>
             </h1>
             <p class="hero__sub">
-              End-to-end data architecture and BI — medallion layers from
-              ingestion to insights you trust.
+              From the pipeline to the boardroom.<br />
+              Every layer owned, every decision trusted.
             </p>
             <div class="hero__actions">
               <a class="btn" href="mailto:adrienyvin@datafoundry.inc">Let's talk</a>
@@ -54,47 +55,24 @@
             </div>
           </div>
 
-          <div class="hero__forge" aria-hidden="true">
-            <div class="forge__ambient"></div>
-
-            <div class="forge__raw">
-              <span class="f-ore f-ore--1"></span>
-              <span class="f-ore f-ore--2"></span>
-              <span class="f-ore f-ore--3"></span>
-              <span class="f-ore f-ore--4"></span>
-              <span class="f-ore f-ore--5"></span>
-              <span class="f-ore f-ore--6"></span>
-              <span class="f-label">Raw Data</span>
-            </div>
-
-            <div class="forge__river">
-              <span class="f-drop f-drop--1"></span>
-              <span class="f-drop f-drop--2"></span>
-              <span class="f-drop f-drop--3"></span>
-              <span class="f-drop f-drop--4"></span>
-              <span class="f-drop f-drop--5"></span>
-              <span class="f-drop f-drop--6"></span>
-              <span class="f-drop f-drop--7"></span>
-              <span class="f-drop f-drop--8"></span>
-            </div>
-
-            <div class="forge__crucible">
-              <div class="forge__fire"></div>
-            </div>
-
-            <span class="f-ember f-ember--1"></span>
-            <span class="f-ember f-ember--2"></span>
-            <span class="f-ember f-ember--3"></span>
-            <span class="f-ember f-ember--4"></span>
-            <span class="f-ember f-ember--5"></span>
-            <span class="f-ember f-ember--6"></span>
-
-            <div class="forge__gold">
-              <span class="f-ingot f-ingot--1"></span>
-              <span class="f-ingot f-ingot--2"></span>
-              <span class="f-ingot f-ingot--3"></span>
-              <span class="f-label">Pure Gold</span>
-            </div>
+          <div class="hero__bg" aria-hidden="true">
+            <!-- bronze ore chunks -->
+            <span class="hb hb--bronze hb--b1"></span>
+            <span class="hb hb--bronze hb--b2"></span>
+            <span class="hb hb--bronze hb--b3"></span>
+            <span class="hb hb--bronze hb--b4"></span>
+            <span class="hb hb--bronze hb--b5"></span>
+            <!-- silver spheres -->
+            <span class="hb hb--silver hb--s1"></span>
+            <span class="hb hb--silver hb--s2"></span>
+            <span class="hb hb--silver hb--s3"></span>
+            <span class="hb hb--silver hb--s4"></span>
+            <!-- gold ingots -->
+            <span class="hb hb--gold hb--g1"></span>
+            <span class="hb hb--gold hb--g2"></span>
+            <span class="hb hb--gold hb--g3"></span>
+            <span class="hb hb--gold hb--g4"></span>
+            <span class="hb hb--gold hb--g5"></span>
           </div>
         </div>
       </section>
@@ -268,6 +246,84 @@
               </li>
             </ol>
           </nav>
+        </div>
+      </section>
+
+      <section class="services" id="services" aria-labelledby="services-heading">
+        <header class="services__header">
+          <p class="services__eyebrow">Our services</p>
+          <h2 id="services-heading" class="services__title">
+            From raw feeds to golden decisions
+            <span>One specialist, end to end — ingestion through agents.</span>
+          </h2>
+          <p class="services__intro">
+            Data Foundry handles every medallion layer hands-on: connect your
+            sources, govern and model the data, deliver trusted reporting and
+            self-service, then automate what comes next.
+          </p>
+        </header>
+
+        <div class="services__grid">
+          <article class="service-card service-card--bronze">
+            <p class="service-card__layer">Bronze</p>
+            <h3 class="service-card__title">Data ingestion &amp; pipelines</h3>
+            <p class="service-card__desc">
+              Connect APIs, databases, files, and SaaS into a reliable bronze
+              layer with clear ingest policies and cataloging from day one.
+            </p>
+          </article>
+
+          <article class="service-card service-card--silver">
+            <p class="service-card__layer">Silver</p>
+            <h3 class="service-card__title">Transformation &amp; modeling</h3>
+            <p class="service-card__desc">
+              Clean, standardize, and model data into silver and gold layers —
+              dimensional models and semantic layers people and tools can trust.
+            </p>
+          </article>
+
+          <article class="service-card service-card--governance">
+            <p class="service-card__layer">Every layer</p>
+            <h3 class="service-card__title">Governance &amp; quality</h3>
+            <p class="service-card__desc">
+              Catalog, lineage, quality checks, ownership, and access —
+              governance as process and practice, not just a tool rollout.
+            </p>
+          </article>
+
+          <article class="service-card service-card--gold">
+            <p class="service-card__layer">Gold</p>
+            <h3 class="service-card__title">Reporting &amp; analytics</h3>
+            <p class="service-card__desc">
+              Dashboards, KPIs, and boardroom-ready reports built on a single
+              source of truth — plus reporting templates and structure so new
+              reports stay consistent and on-brand.
+            </p>
+          </article>
+
+          <article class="service-card service-card--gold">
+            <p class="service-card__layer">Gold</p>
+            <h3 class="service-card__title">Self-service BI</h3>
+            <p class="service-card__desc">
+              Once the SSoT is in place, business users pull from governed
+              semantic models directly in Excel, Power BI, and the analytical
+              tools they already use — no shadow copies, no broken lineage.
+            </p>
+          </article>
+
+          <article class="service-card service-card--platinum">
+            <p class="service-card__layer">Platinum</p>
+            <h3 class="service-card__title">Agents &amp; automations</h3>
+            <p class="service-card__desc">
+              Workflow automations and AI agents that run on governed data —
+              Power Automate, Zapier-style flows, and agent setup that keeps
+              working after delivery.
+            </p>
+          </article>
+        </div>
+
+        <div class="services__cta">
+          <a class="btn" href="mailto:adrienyvin@datafoundry.inc">Let's talk</a>
         </div>
       </section>
 
