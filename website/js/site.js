@@ -1,0 +1,74 @@
+(function () {
+  var bookingMeta = document.querySelector('meta[name="booking-url"]');
+  var bookingUrl = bookingMeta && bookingMeta.content;
+  if (bookingUrl) {
+    document.querySelectorAll('.booking-link').forEach(function (link) {
+      link.href = bookingUrl;
+    });
+  }
+})();
+
+(function () {
+  var subjectMeta = document.querySelector('meta[name="email-subject"]');
+  var subject = subjectMeta && subjectMeta.content;
+  if (subject) {
+    document.querySelectorAll('.email-link').forEach(function (link) {
+      var base = link.getAttribute('href').split('?')[0];
+      link.href = base + '?subject=' + encodeURIComponent(subject);
+    });
+  }
+})();
+
+(function () {
+  var nav = document.querySelector('.nav');
+  if (!nav) {
+    return;
+  }
+
+  var fadeEnd = 120;
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function updateNav() {
+    var progress = Math.min(Math.max(window.scrollY / fadeEnd, 0), 1);
+    if (reducedMotion) {
+      progress = window.scrollY > 0 ? 1 : 0;
+    }
+    nav.style.setProperty('--nav-opacity', progress);
+    nav.classList.toggle('nav--ready', progress > 0.05);
+  }
+
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+})();
+
+(function () {
+  var nav = document.querySelector('.nav');
+  var toggle = document.querySelector('.nav__toggle');
+  var menu = document.getElementById('nav-menu');
+  if (!nav || !toggle || !menu) {
+    return;
+  }
+
+  function setMenuOpen(open) {
+    nav.classList.toggle('nav--open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('nav-menu-open', open);
+  }
+
+  toggle.addEventListener('click', function () {
+    setMenuOpen(!nav.classList.contains('nav--open'));
+  });
+
+  menu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      setMenuOpen(false);
+    });
+  });
+
+  window.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      setMenuOpen(false);
+    }
+  });
+})();
