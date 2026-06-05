@@ -42,8 +42,8 @@
         <div class="hero__inner">
           <div class="hero__content">
             <h1 id="hero-heading">
-              Raw data.<br />
-              <span>Golden decisions.</span>
+              <span class="hero__link-word">from</span> Raw data<br />
+              <span class="hero__link-word">to</span> <span class="hero__gold">Golden decisions.</span>
             </h1>
             <p class="hero__sub">
               From the pipeline to the boardroom.<br />
@@ -250,75 +250,109 @@
       </section>
 
       <section class="services" id="services" aria-labelledby="services-heading">
-        <header class="services__header">
-          <p class="services__eyebrow">Our services</p>
-          <h2 id="services-heading" class="services__title">
-            From raw feeds to golden decisions
-            <span>One specialist, end to end — ingestion through agents.</span>
-          </h2>
-          <p class="services__intro">
-            Data Foundry handles every medallion layer hands-on: connect your
-            sources, govern and model the data, deliver trusted reporting and
-            self-service, then automate what comes next.
-          </p>
-        </header>
+        <h2 id="services-heading" class="services__title">Our Services</h2>
 
         <div class="services__grid">
           <article class="service-card service-card--bronze">
             <p class="service-card__layer">Bronze</p>
-            <h3 class="service-card__title">Data ingestion &amp; pipelines</h3>
-            <p class="service-card__desc">
-              Connect APIs, databases, files, and SaaS into a reliable bronze
-              layer with clear ingest policies and cataloging from day one.
-            </p>
+            <h3 class="service-card__name">Data Ingestion &amp; Pipelines</h3>
+            <div class="service-card__swap">
+              <p class="service-card__outcome">
+                Your sources flow reliably — governed, cataloged, and trustworthy
+                before anything downstream touches them.
+              </p>
+              <ul class="service-card__list">
+                <li>APIs, databases, files, and SaaS into a clean bronze layer</li>
+                <li>Ingest policies, scheduling, and failure alerting</li>
+                <li>Catalog entries from the first load — no retrofitting</li>
+              </ul>
+            </div>
+            <span class="service-card__arrow" aria-hidden="true">→</span>
           </article>
 
           <article class="service-card service-card--silver">
             <p class="service-card__layer">Silver</p>
-            <h3 class="service-card__title">Transformation &amp; modeling</h3>
-            <p class="service-card__desc">
-              Clean, standardize, and model data into silver and gold layers —
-              dimensional models and semantic layers people and tools can trust.
-            </p>
+            <h3 class="service-card__name">Transformation &amp; Modeling</h3>
+            <div class="service-card__swap">
+              <p class="service-card__outcome">
+                Raw data shaped into dimensional models your whole org builds
+                on — one version of truth, no more conflicting numbers.
+              </p>
+              <ul class="service-card__list">
+                <li>Cleaned, standardized silver layer with quality checks</li>
+                <li>Dimensional models and semantic layer in Fabric or dbt</li>
+                <li>Auditable logic — every transformation documented</li>
+              </ul>
+            </div>
+            <span class="service-card__arrow" aria-hidden="true">→</span>
+          </article>
+
+          <article class="service-card service-card--gold">
+            <p class="service-card__layer">Gold</p>
+            <h3 class="service-card__name">Reporting &amp; Analytics</h3>
+            <div class="service-card__swap">
+              <p class="service-card__outcome">
+                Boardroom-ready dashboards executives trust — built on a
+                certified SSoT so every number means the same thing.
+              </p>
+              <ul class="service-card__list">
+                <li>Power BI dashboards and KPIs tied to your single source</li>
+                <li>Report templates so new builds stay consistent and on-brand</li>
+                <li>Self-documenting DAX measures — auditable and maintainable</li>
+              </ul>
+            </div>
+            <span class="service-card__arrow" aria-hidden="true">→</span>
+          </article>
+
+          <article class="service-card service-card--gold">
+            <p class="service-card__layer">Gold</p>
+            <h3 class="service-card__name">Self-service BI</h3>
+            <div class="service-card__swap">
+              <p class="service-card__outcome">
+                Business users pull answers themselves — from governed data,
+                in the tools they already use, without waiting on IT.
+              </p>
+              <ul class="service-card__list">
+                <li>Semantic models connecting directly to Excel and Power BI</li>
+                <li>No shadow copies, broken pivots, or stale exports</li>
+                <li>Adoption support so the change actually sticks</li>
+              </ul>
+            </div>
+            <span class="service-card__arrow" aria-hidden="true">→</span>
           </article>
 
           <article class="service-card service-card--governance">
             <p class="service-card__layer">Every layer</p>
-            <h3 class="service-card__title">Governance &amp; quality</h3>
-            <p class="service-card__desc">
-              Catalog, lineage, quality checks, ownership, and access —
-              governance as process and practice, not just a tool rollout.
-            </p>
-          </article>
-
-          <article class="service-card service-card--gold">
-            <p class="service-card__layer">Gold</p>
-            <h3 class="service-card__title">Reporting &amp; analytics</h3>
-            <p class="service-card__desc">
-              Dashboards, KPIs, and boardroom-ready reports built on a single
-              source of truth — plus reporting templates and structure so new
-              reports stay consistent and on-brand.
-            </p>
-          </article>
-
-          <article class="service-card service-card--gold">
-            <p class="service-card__layer">Gold</p>
-            <h3 class="service-card__title">Self-service BI</h3>
-            <p class="service-card__desc">
-              Once the SSoT is in place, business users pull from governed
-              semantic models directly in Excel, Power BI, and the analytical
-              tools they already use — no shadow copies, no broken lineage.
-            </p>
+            <h3 class="service-card__name">Governance &amp; Quality</h3>
+            <div class="service-card__swap">
+              <p class="service-card__outcome">
+                Data people actually trust — documented, owned, and enforced
+                as a daily practice, not a one-time audit.
+              </p>
+              <ul class="service-card__list">
+                <li>Lineage, catalog, and ownership across every layer</li>
+                <li>Automated quality checks with threshold alerting</li>
+                <li>Access control and compliance baked in from the start</li>
+              </ul>
+            </div>
+            <span class="service-card__arrow" aria-hidden="true">→</span>
           </article>
 
           <article class="service-card service-card--platinum">
             <p class="service-card__layer">Platinum</p>
-            <h3 class="service-card__title">Agents &amp; automations</h3>
-            <p class="service-card__desc">
-              Workflow automations and AI agents that run on governed data —
-              Power Automate, Zapier-style flows, and agent setup that keeps
-              working after delivery.
-            </p>
+            <h3 class="service-card__name">Agents &amp; Automations</h3>
+            <div class="service-card__swap">
+              <p class="service-card__outcome">
+                Workflows and AI agents that run on data you trust — and keep
+                running long after the engagement ends.
+              </p>
+              <ul class="service-card__list">
+                <li>Automations in Power Automate, Fabric, or custom pipelines</li>
+                <li>AI agents grounded in your gold-layer SSoT</li>
+                <li>Documented, maintainable — and fully handed over to you</li>
+              </ul>
+            </div>
+            <span class="service-card__arrow" aria-hidden="true">→</span>
           </article>
         </div>
 
@@ -425,6 +459,82 @@
 
         </div>
       </section>
+
+      <section class="logo-lab" id="logo-lab" aria-labelledby="logo-lab-heading">
+        <header class="logo-lab__header">
+          <p class="logo-lab__eyebrow">Testing only</p>
+          <h2 id="logo-lab-heading" class="logo-lab__title">Logo ideas</h2>
+          <p class="logo-lab__note">Six mark concepts — remove this section before launch.</p>
+        </header>
+
+        <div class="logo-lab__grid">
+          <figure class="logo-lab__item">
+            <div class="logo-preview">
+              <span class="logo-mark logo-mark--current" aria-hidden="true"></span>
+              <span class="logo-preview__wordmark">
+                <span class="logo-preview__name">Data Foundry</span>
+                <span class="logo-preview__inc">Inc.</span>
+              </span>
+            </div>
+            <figcaption class="logo-lab__label">1 — Gradient block <em>(current)</em></figcaption>
+          </figure>
+
+          <figure class="logo-lab__item">
+            <div class="logo-preview">
+              <span class="logo-mark logo-mark--layers" aria-hidden="true"></span>
+              <span class="logo-preview__wordmark">
+                <span class="logo-preview__name">Data Foundry</span>
+                <span class="logo-preview__inc">Inc.</span>
+              </span>
+            </div>
+            <figcaption class="logo-lab__label">2 — Medallion layers</figcaption>
+          </figure>
+
+          <figure class="logo-lab__item">
+            <div class="logo-preview">
+              <span class="logo-mark logo-mark--ingot" aria-hidden="true"></span>
+              <span class="logo-preview__wordmark">
+                <span class="logo-preview__name">Data Foundry</span>
+                <span class="logo-preview__inc">Inc.</span>
+              </span>
+            </div>
+            <figcaption class="logo-lab__label">3 — Gold ingot</figcaption>
+          </figure>
+
+          <figure class="logo-lab__item">
+            <div class="logo-preview">
+              <span class="logo-mark logo-mark--monogram" aria-hidden="true">DF</span>
+              <span class="logo-preview__wordmark">
+                <span class="logo-preview__name">Data Foundry</span>
+                <span class="logo-preview__inc">Inc.</span>
+              </span>
+            </div>
+            <figcaption class="logo-lab__label">4 — Monogram</figcaption>
+          </figure>
+
+          <figure class="logo-lab__item">
+            <div class="logo-preview">
+              <span class="logo-mark logo-mark--crucible" aria-hidden="true"></span>
+              <span class="logo-preview__wordmark">
+                <span class="logo-preview__name">Data Foundry</span>
+                <span class="logo-preview__inc">Inc.</span>
+              </span>
+            </div>
+            <figcaption class="logo-lab__label">5 — Crucible</figcaption>
+          </figure>
+
+          <figure class="logo-lab__item">
+            <div class="logo-preview">
+              <span class="logo-mark logo-mark--forge" aria-hidden="true"></span>
+              <span class="logo-preview__wordmark">
+                <span class="logo-preview__name">Data Foundry</span>
+                <span class="logo-preview__inc">Inc.</span>
+              </span>
+            </div>
+            <figcaption class="logo-lab__label">6 — Forge ring</figcaption>
+          </figure>
+        </div>
+      </section>
     </main>
 
     <footer class="footer" id="contact">
@@ -436,6 +546,24 @@
     <script>
       document.getElementById('years-stat').textContent =
         (new Date().getFullYear() - 2021) + '+';
+
+      (function () {
+        var nav = document.querySelector('.nav');
+        var fadeEnd = 120;
+        var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function updateNav() {
+          var progress = Math.min(Math.max(window.scrollY / fadeEnd, 0), 1);
+          if (reducedMotion) {
+            progress = window.scrollY > 0 ? 1 : 0;
+          }
+          nav.style.setProperty('--nav-opacity', progress);
+          nav.classList.toggle('nav--ready', progress > 0.05);
+        }
+
+        window.addEventListener('scroll', updateNav, { passive: true });
+        updateNav();
+      })();
     </script>
   </body>
 </html>
