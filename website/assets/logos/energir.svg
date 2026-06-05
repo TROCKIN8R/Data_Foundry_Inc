@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" role="img" aria-label="Énergir">
+  <circle cx="16" cy="20" r="10" fill="#0095da"/>
+  <path fill="#fff" d="M16 13v14M11 20h10"/>
+  <text x="34" y="27" fill="#f4efe6" font-family="DM Sans, system-ui, sans-serif" font-size="19" font-weight="700">Énergir</text>
+</svg>

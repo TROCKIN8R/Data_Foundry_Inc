@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 40" role="img" aria-label="HEC Montréal">
+  <rect x="2" y="8" width="28" height="24" rx="2" fill="#006e3a"/>
+  <text x="6" y="25" fill="#fff" font-family="DM Sans, system-ui, sans-serif" font-size="13" font-weight="700">HEC</text>
+  <text x="38" y="27" fill="#f4efe6" font-family="DM Sans, system-ui, sans-serif" font-size="17" font-weight="600">HEC Montréal</text>
+</svg>

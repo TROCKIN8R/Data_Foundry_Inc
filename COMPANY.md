@@ -11,6 +11,8 @@ Concise reference for humans and AI agents working on this repository.
 | **Headline** | Refining your data into decisions |
 | **Positioning** | Solo BI and data architecture consultancy |
 | **Contact** | adrienyvin@datafoundry.inc |
+| **Email subject** | Our dashboards never match — can Data Foundry help? |
+| **Booking** | https://calendly.com/adrienyvin/30min |
 | **Founder** | Adrien Yvin |
 
 ## What we do
