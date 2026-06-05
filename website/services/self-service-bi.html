@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/favicon.svg" sizes="any" />
+    <meta name="description" content="Governed self-service in Power BI and Excel connected to Fabric semantic models or BigQuery — no shadow copies or stale exports." />
+    <meta name="author" content="Adrien Yvin" />
+    <meta name="theme-color" content="#0b0c08" />
+    <meta name="booking-url" content="https://calendly.com/adrienyvin/30min" />
+    <meta name="email-subject" content="Our dashboards never match — can Data Foundry help?" />
+    <link rel="canonical" href="https://trockin8r.github.io/Data_Foundry_Inc/services/self-service-bi.html" />
+    <title>Self-service BI | Data Foundry Inc.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="nav">
+      <div class="nav__inner">
+        <a class="nav__brand" href="../index.html" aria-label="Data Foundry Inc. home">
+          <span class="nav__mark" aria-hidden="true"></span>
+          <span class="nav__wordmark">
+            <span class="nav__name">Data Foundry</span>
+            <span class="nav__inc">Inc.</span>
+          </span>
+        </a>
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav class="nav__links" id="nav-menu" aria-label="Primary">
+          <a href="../index.html#schema">Vision</a>
+          <div class="nav__dropdown-wrap">
+            <a href="../index.html#services" class="nav__link">Services</a>
+            <div class="nav__dropdown" role="menu" aria-label="Services menu">
+            <a href="ingestion.html" class="nav__dropdown-item nav__dropdown-item--bronze" role="menuitem">
+              <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></span>
+              <span class="nav__dropdown-copy">
+                <span class="nav__dropdown-name">Data Ingestion & Pipelines</span>
+                <span class="nav__dropdown-desc">Reliable ingest — governed from the first load.</span>
+              </span>
+            </a>
+            <a href="modeling.html" class="nav__dropdown-item nav__dropdown-item--silver" role="menuitem">
+              <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg></span>
+              <span class="nav__dropdown-copy">
+                <span class="nav__dropdown-name">Transformation & Modeling</span>
+                <span class="nav__dropdown-desc">One model, one version of the truth.</span>
+              </span>
+            </a>
+            <a href="reporting.html" class="nav__dropdown-item nav__dropdown-item--gold" role="menuitem">
+              <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16v-5"/><path d="M12 16V8"/><path d="M17 16v-3"/></svg></span>
+              <span class="nav__dropdown-copy">
+                <span class="nav__dropdown-name">Reporting & Analytics</span>
+                <span class="nav__dropdown-desc">Dashboards executives trust.</span>
+              </span>
+            </a>
+            <a href="self-service-bi.html" class="nav__dropdown-item nav__dropdown-item--gold nav__dropdown-item--active" role="menuitem">
+              <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></span>
+              <span class="nav__dropdown-copy">
+                <span class="nav__dropdown-name">Self-service BI</span>
+                <span class="nav__dropdown-desc">Self-serve from governed data — no shadow copies.</span>
+              </span>
+            </a>
+            <a href="governance.html" class="nav__dropdown-item nav__dropdown-item--governance" role="menuitem">
+              <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+              <span class="nav__dropdown-copy">
+                <span class="nav__dropdown-name">Governance & Quality</span>
+                <span class="nav__dropdown-desc">Lineage, quality, and ownership built in.</span>
+              </span>
+            </a>
+            <a href="agents.html" class="nav__dropdown-item nav__dropdown-item--platinum" role="menuitem">
+              <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg></span>
+              <span class="nav__dropdown-copy">
+                <span class="nav__dropdown-name">Agents & Automations</span>
+                <span class="nav__dropdown-desc">Workflows and AI agents that keep running after handoff.</span>
+              </span>
+            </a>
+            </div>
+          </div>
+          <a href="../index.html#audience">Who we work with</a>
+          <a href="../index.html#founder">About Us</a>
+          <a href="../index.html#faq">FAQ</a>
+        </nav>
+        <a class="btn btn--nav booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+      </div>
+    </header>
+
+    <main id="main" class="service-page service-page--gold">
+      <div class="service-page__inner">
+        <nav class="service-page__crumb" aria-label="Breadcrumb">
+          <a href="../index.html#services">Services</a>
+          <span aria-hidden="true">/</span>
+          <span>Gold</span>
+        </nav>
+
+        <header class="service-page__header">
+          <p class="service-page__layer">Gold</p>
+          <h1 class="service-page__title">Self-service BI</h1>
+          <p class="service-page__intro">Self-serve from governed data — no shadow copies.</p>
+          <p class="service-page__overview">Business users need answers today — not a ticket to IT. We expose governed gold data through Fabric semantic models (Excel and Power BI Analyze in Excel), BigQuery connected sheets, and curated dataset endorsements so self-serve stays inside guardrails.</p>
+        </header>
+
+        <section class="service-page__stack" aria-labelledby="service-stack-heading">
+          <h2 id="service-stack-heading" class="service-page__label">Tools we work with</h2>
+          <ul class="service-page__tools">
+            <li>Power BI workspaces</li>
+            <li>Fabric semantic models</li>
+            <li>Excel Analyze in Excel</li>
+            <li>BigQuery + Connected Sheets</li>
+            <li>Microsoft Purview endorsements</li>
+          </ul>
+        </section>
+
+        <section class="service-page__body" aria-labelledby="service-detail-heading">
+          <h2 id="service-detail-heading" class="service-page__label">What we deliver</h2>
+          <ul class="service-page__list">
+            <li>Certified datasets with clear grain, filter context, and field descriptions — authors know what each column means</li>
+            <li>Excel live connections to Fabric semantic models; BigQuery views for Google-native teams</li>
+            <li>Workspace roles, build permissions, and golden dataset promotion workflows to prevent shadow IT</li>
+            <li>Office hours and short enablement guides so adoption sticks after launch</li>
+          </ul>
+        </section>
+
+        <section class="service-page__mockups" aria-labelledby="service-mockups-heading">
+          <h2 id="service-mockups-heading" class="service-page__label">Example outputs</h2>
+          <p class="service-page__mockups-note">Illustrative mockups — client deliverables are tailored to your Fabric, Power BI, and BigQuery estate.</p>
+          <div class="service-page__mockups-grid">
+<figure class="service-mock"><figcaption class="service-mock__caption">Certified semantic model — fields exposed to business users</figcaption><div class="service-mock__frame"><div class="service-ph__semantic"><p class="service-ph__badge service-ph__badge--inline">Fabric semantic model</p><div class="service-ph__semantic-table"><span class="service-ph__semantic-name">Sales</span><span class="service-ph__semantic-fields"><span></span><span></span><span></span></span></div><div class="service-ph__semantic-table"><span class="service-ph__semantic-name">Customer</span><span class="service-ph__semantic-fields"><span></span><span></span><span></span></span></div><div class="service-ph__semantic-table"><span class="service-ph__semantic-name">Date</span><span class="service-ph__semantic-fields"><span></span><span></span><span></span></span></div></div></div></figure>
+
+<figure class="service-mock"><figcaption class="service-mock__caption">Self-service report — drag fields from governed model</figcaption><div class="service-mock__frame"><div class="work-ph"><div class="work-ph__top"><span class="work-ph__chip work-ph__chip--w2"></span><span class="service-ph__badge">Power BI</span><span class="work-ph__redact">Mockup</span></div><p class="service-ph__report-title">Regional sales explorer</p><div class="work-ph__metrics"><span class="work-ph__metric"></span><span class="work-ph__metric"></span><span class="work-ph__metric"></span></div><div class="work-ph__chart"><span class="work-ph__bar" style="height:35%"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span></div></div></div></figure>
+          </div>
+        </section>
+
+        <div class="service-page__cta">
+          <a class="btn btn--ghost" href="../index.html#services">All services</a>
+          <a class="btn booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer" id="contact">
+      <p class="footer__copy">&copy; 2026 Data Foundry Inc.</p>
+      <div class="footer__links">
+        <a class="booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+        <a class="email-link" href="mailto:adrienyvin@datafoundry.inc">adrienyvin@datafoundry.inc</a>
+        <a href="https://www.linkedin.com/in/adrienyvin/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+    </footer>
+    <script src="../js/site.js"></script>
+  </body>
+</html>
