@@ -30,8 +30,8 @@
         </a>
         <nav class="nav__links" aria-label="Primary">
           <a href="#schema">Vision</a>
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a href="#services">Services</a>
+          <a href="#founder">About Us</a>
         </nav>
         <a class="btn btn--nav" href="mailto:adrienyvin@datafoundry.inc">Let's talk</a>
       </div>
@@ -41,34 +41,38 @@
       <section class="hero" id="about" aria-labelledby="hero-heading">
         <div class="hero__inner">
           <div class="hero__content">
-            <p class="hero__kicker">Data Foundry Inc.</p>
             <h1 id="hero-heading">
-              Refining your data<br />
-              into <span>decisions</span>
+              Raw data.<br />
+              <span>Golden decisions.</span>
             </h1>
-            <p class="hero__tagline">Turning raw data into gold.</p>
-            <p class="hero__lede">
-              Solo BI and data architecture — medallion layers, governance, and
-              automation from ingestion to dashboards and agents you trust.
+            <p class="hero__sub">
+              From the pipeline to the boardroom.<br />
+              Every layer owned, every decision trusted.
             </p>
-            <p class="hero__services">BI · Architecture · Governance · Automation</p>
-            <p class="hero__founder">Adrien Yvin · Founder</p>
             <div class="hero__actions">
               <a class="btn" href="mailto:adrienyvin@datafoundry.inc">Let's talk</a>
               <a class="btn btn--ghost" href="#schema">See our vision</a>
             </div>
           </div>
-          <div class="hero__visual" aria-hidden="true">
-            <div class="hero__glow"></div>
-            <div class="hero__foundry">
-              <span class="hero__ember hero__ember--1"></span>
-              <span class="hero__ember hero__ember--2"></span>
-              <span class="hero__ember hero__ember--3"></span>
-              <span class="hero__crucible"></span>
-              <span class="hero__stream hero__stream--bronze"></span>
-              <span class="hero__stream hero__stream--silver"></span>
-              <span class="hero__stream hero__stream--gold"></span>
-            </div>
+
+          <div class="hero__bg" aria-hidden="true">
+            <!-- bronze ore chunks -->
+            <span class="hb hb--bronze hb--b1"></span>
+            <span class="hb hb--bronze hb--b2"></span>
+            <span class="hb hb--bronze hb--b3"></span>
+            <span class="hb hb--bronze hb--b4"></span>
+            <span class="hb hb--bronze hb--b5"></span>
+            <!-- silver spheres -->
+            <span class="hb hb--silver hb--s1"></span>
+            <span class="hb hb--silver hb--s2"></span>
+            <span class="hb hb--silver hb--s3"></span>
+            <span class="hb hb--silver hb--s4"></span>
+            <!-- gold ingots -->
+            <span class="hb hb--gold hb--g1"></span>
+            <span class="hb hb--gold hb--g2"></span>
+            <span class="hb hb--gold hb--g3"></span>
+            <span class="hb hb--gold hb--g4"></span>
+            <span class="hb hb--gold hb--g5"></span>
           </div>
         </div>
       </section>
@@ -245,16 +249,181 @@
         </div>
       </section>
 
-      <section
-        id="how-we-work"
-        class="placeholder-section"
-        aria-labelledby="how-heading"
-      >
-        <h2 id="how-heading">What we do</h2>
-        <p>
-          BI, data architecture, governance, and automation—one specialist from raw
-          ingestion through medallion layers to dashboards you trust.
-        </p>
+      <section class="services" id="services" aria-labelledby="services-heading">
+        <header class="services__header">
+          <p class="services__eyebrow">Our services</p>
+          <h2 id="services-heading" class="services__title">
+            From raw feeds to golden decisions
+            <span>One specialist, end to end — ingestion through agents.</span>
+          </h2>
+          <p class="services__intro">
+            Data Foundry handles every medallion layer hands-on: connect your
+            sources, govern and model the data, deliver trusted reporting and
+            self-service, then automate what comes next.
+          </p>
+        </header>
+
+        <div class="services__grid">
+          <article class="service-card service-card--bronze">
+            <p class="service-card__layer">Bronze</p>
+            <h3 class="service-card__title">Data ingestion &amp; pipelines</h3>
+            <p class="service-card__desc">
+              Connect APIs, databases, files, and SaaS into a reliable bronze
+              layer with clear ingest policies and cataloging from day one.
+            </p>
+          </article>
+
+          <article class="service-card service-card--silver">
+            <p class="service-card__layer">Silver</p>
+            <h3 class="service-card__title">Transformation &amp; modeling</h3>
+            <p class="service-card__desc">
+              Clean, standardize, and model data into silver and gold layers —
+              dimensional models and semantic layers people and tools can trust.
+            </p>
+          </article>
+
+          <article class="service-card service-card--governance">
+            <p class="service-card__layer">Every layer</p>
+            <h3 class="service-card__title">Governance &amp; quality</h3>
+            <p class="service-card__desc">
+              Catalog, lineage, quality checks, ownership, and access —
+              governance as process and practice, not just a tool rollout.
+            </p>
+          </article>
+
+          <article class="service-card service-card--gold">
+            <p class="service-card__layer">Gold</p>
+            <h3 class="service-card__title">Reporting &amp; analytics</h3>
+            <p class="service-card__desc">
+              Dashboards, KPIs, and boardroom-ready reports built on a single
+              source of truth — plus reporting templates and structure so new
+              reports stay consistent and on-brand.
+            </p>
+          </article>
+
+          <article class="service-card service-card--gold">
+            <p class="service-card__layer">Gold</p>
+            <h3 class="service-card__title">Self-service BI</h3>
+            <p class="service-card__desc">
+              Once the SSoT is in place, business users pull from governed
+              semantic models directly in Excel, Power BI, and the analytical
+              tools they already use — no shadow copies, no broken lineage.
+            </p>
+          </article>
+
+          <article class="service-card service-card--platinum">
+            <p class="service-card__layer">Platinum</p>
+            <h3 class="service-card__title">Agents &amp; automations</h3>
+            <p class="service-card__desc">
+              Workflow automations and AI agents that run on governed data —
+              Power Automate, Zapier-style flows, and agent setup that keeps
+              working after delivery.
+            </p>
+          </article>
+        </div>
+
+        <div class="services__cta">
+          <a class="btn" href="mailto:adrienyvin@datafoundry.inc">Let's talk</a>
+        </div>
+      </section>
+
+      <section class="founder" id="founder" aria-labelledby="founder-heading">
+        <div class="founder__inner">
+
+          <div class="founder__bio">
+            <p class="founder__eyebrow">About the Founder</p>
+            <h2 id="founder-heading" class="founder__name">Adrien Yvin</h2>
+            <p class="founder__role">Data Platform Architect &amp; BI Leader</p>
+            <p class="founder__text">
+              Seven years immersed in data — from ETL pipelines at an energy
+              utility to machine-learning pricing models inside a $4B packaging
+              company. Currently leading a BI squad at Cascades, architecting
+              Microsoft Fabric solutions that turn raw transactional data into
+              boardroom-ready decisions.
+            </p>
+            <p class="founder__text">
+              Data Foundry Inc. brings that same precision directly to you — one
+              senior specialist who gets hands dirty in the pipes, owns every
+              medallion layer, and delivers reports you can stake decisions on.
+            </p>
+            <div class="founder__credentials">
+              <span class="founder__cred">BBA, Business Intelligence · HEC Montréal · Cum Laude</span>
+              <div class="founder__langs">
+                <span class="lang-badge" title="French — native">FR</span>
+                <span class="lang-badge" title="English — full professional">EN</span>
+                <span class="lang-badge" title="Spanish — native">ES</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="founder__details">
+            <div class="founder__stats">
+              <div class="founder__stat">
+                <span class="founder__stat-n" id="years-stat"></span>
+                <span class="founder__stat-l">Years</span>
+              </div>
+              <div class="founder__stat">
+                <span class="founder__stat-n">5+</span>
+                <span class="founder__stat-l">Companies</span>
+              </div>
+              <div class="founder__stat">
+                <span class="founder__stat-n">3</span>
+                <span class="founder__stat-l">Languages</span>
+              </div>
+            </div>
+
+            <ol class="founder__timeline">
+              <li class="tl-item tl-item--current">
+                <span class="tl-item__dot" aria-hidden="true"></span>
+                <span class="tl-item__date">2024 – now</span>
+                <div class="tl-item__body">
+                  <span class="tl-item__role">Expert BI Analyst &amp; Squad Leader</span>
+                  <span class="tl-item__co">Cascades</span>
+                </div>
+              </li>
+              <li class="tl-item">
+                <span class="tl-item__dot" aria-hidden="true"></span>
+                <span class="tl-item__date">2021 – 2023</span>
+                <div class="tl-item__body">
+                  <span class="tl-item__role">Business Intelligence Analyst</span>
+                  <span class="tl-item__co">Keurig Dr Pepper Canada</span>
+                </div>
+              </li>
+              <li class="tl-item">
+                <span class="tl-item__dot" aria-hidden="true"></span>
+                <span class="tl-item__date">2021</span>
+                <div class="tl-item__body">
+                  <span class="tl-item__role">BI Consultant</span>
+                  <span class="tl-item__co">Énergir</span>
+                </div>
+              </li>
+              <li class="tl-item">
+                <span class="tl-item__dot" aria-hidden="true"></span>
+                <span class="tl-item__date">2020 – 2021</span>
+                <div class="tl-item__body">
+                  <span class="tl-item__role">BI Intern</span>
+                  <span class="tl-item__co">HEC Montréal</span>
+                </div>
+              </li>
+            </ol>
+
+            <div class="founder__stack">
+              <span class="stack-tag">Power BI</span>
+              <span class="stack-tag">Microsoft Fabric</span>
+              <span class="stack-tag">SQL</span>
+              <span class="stack-tag">DAX</span>
+              <span class="stack-tag">BigQuery</span>
+              <span class="stack-tag">Snowflake</span>
+              <span class="stack-tag">Python</span>
+              <span class="stack-tag">scikit-learn</span>
+              <span class="stack-tag">Tableau</span>
+              <span class="stack-tag">ETL / ELT</span>
+              <span class="stack-tag">Cursor</span>
+              <span class="stack-tag">Copilot Agents</span>
+            </div>
+          </div>
+
+        </div>
       </section>
     </main>
 
@@ -264,5 +433,9 @@
         <a href="mailto:adrienyvin@datafoundry.inc">adrienyvin@datafoundry.inc</a>
       </p>
     </footer>
+    <script>
+      document.getElementById('years-stat').textContent =
+        (new Date().getFullYear() - 2021) + '+';
+    </script>
   </body>
 </html>
