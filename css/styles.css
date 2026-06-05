@@ -267,6 +267,13 @@ a:hover {
   color: rgba(129, 123, 114, 0.95);
 }
 
+.hero__founder {
+  margin: 0.85rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-muted);
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;

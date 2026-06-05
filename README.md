@@ -16,10 +16,9 @@ Or from the project folder:
 cd ~/data-foundry-inc && open index.html
 ```
 
-## Customize
+## Company context
 
-- Replace `[Your Name]` in `index.html` with your name.
-- Update `hello@datafoundry.inc` mailto links when your email is ready.
+See [`COMPANY.md`](COMPANY.md) for brand, medallion architecture, and agent guidelines.
 
 ## Stack
 
