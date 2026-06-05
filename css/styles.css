@@ -225,6 +225,54 @@ a:hover {
   margin: 0 auto 1.25rem;
 }
 
+.stage__visual::before {
+  content: "";
+  position: absolute;
+  left: -0.35rem;
+  top: 12%;
+  bottom: 12%;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(239, 179, 58, 0.22) 18%,
+    rgba(239, 179, 58, 0.38) 50%,
+    rgba(239, 179, 58, 0.22) 82%,
+    transparent
+  );
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.stage--bronze .stage__visual::before {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(201, 132, 18, 0.28) 50%,
+    transparent
+  );
+}
+
+.stage--silver .stage__visual::before {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(154, 171, 180, 0.35) 50%,
+    transparent
+  );
+}
+
+.stage--consumers .stage__visual::before {
+  left: 50%;
+  top: auto;
+  bottom: -0.15rem;
+  width: 58%;
+  height: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, transparent, rgba(239, 179, 58, 0.35), transparent);
+}
+
 .stage__visual::after {
   content: "";
   position: absolute;
@@ -290,6 +338,73 @@ a:hover {
   margin: 0.45rem 0 0;
   font-size: 0.9rem;
   color: var(--color-muted);
+}
+
+.stage__governance {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin: 0.65rem 0 0;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(239, 179, 58, 0.88);
+  background: rgba(239, 179, 58, 0.07);
+  border: 1px solid rgba(239, 179, 58, 0.2);
+  border-radius: 999px;
+}
+
+.stage__governance-icon {
+  position: relative;
+  flex: 0 0 auto;
+  width: 0.72rem;
+  height: 0.82rem;
+  background: linear-gradient(180deg, var(--color-gold-light), rgba(201, 132, 18, 0.85));
+  clip-path: polygon(50% 0, 100% 28%, 100% 72%, 50% 100%, 0 72%, 0 28%);
+  opacity: 0.92;
+}
+
+.stage__governance-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 0.18rem;
+  height: 0.26rem;
+  background: rgba(13, 14, 10, 0.55);
+  border-radius: 999px;
+  transform: translateX(-50%);
+}
+
+.stage--bronze .stage__governance {
+  color: rgba(214, 148, 95, 0.95);
+  background: rgba(201, 132, 18, 0.08);
+  border-color: rgba(201, 132, 18, 0.22);
+}
+
+.stage--bronze .stage__governance-icon {
+  background: linear-gradient(180deg, #d6945f, var(--color-bronze-dark));
+}
+
+.stage--silver .stage__governance {
+  color: rgba(218, 226, 230, 0.9);
+  background: rgba(115, 137, 151, 0.12);
+  border-color: rgba(154, 171, 180, 0.28);
+}
+
+.stage--silver .stage__governance-icon {
+  background: linear-gradient(180deg, var(--color-silver-light), var(--color-silver));
+}
+
+.stage--gold .stage__governance {
+  color: rgba(239, 179, 58, 0.92);
+}
+
+.hero-card__pipeline {
+  position: relative;
+  z-index: 1;
 }
 
 /* Bronze chunks */
@@ -769,19 +884,11 @@ a:hover {
   transform: rotate(-38deg);
 }
 
-.hero-card__divider {
-  position: relative;
-  z-index: 1;
-  height: 1px;
-  margin: clamp(2.5rem, 5vw, 3.75rem) 0 clamp(2rem, 4vw, 2.5rem);
-  background: linear-gradient(90deg, transparent, rgba(244, 239, 230, 0.14), transparent);
-}
-
 .hero-card__brand {
   position: relative;
   z-index: 1;
   max-width: 44rem;
-  margin: 0 auto;
+  margin: clamp(2.5rem, 5vw, 3.75rem) auto 0;
   text-align: center;
 }
 
