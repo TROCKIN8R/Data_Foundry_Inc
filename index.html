@@ -39,122 +39,79 @@
 
     <main id="main">
       <section class="hero" aria-labelledby="hero-heading">
-        <figure
+        <div
           id="schema"
-          class="foundry-schema"
+          class="hero-card"
           role="img"
-          aria-label="Refining your data into decisions: messy raw chunks become organized silver pieces, then golden ingots through bronze, silver, and gold layers."
+          aria-label="Bronze layer raw chunks are cleansed into silver layer organised pieces, then refined into gold layer golden ingots. Data Foundry Inc. refining your data into decisions."
         >
-          <p class="foundry-schema__tagline">Refining your data into decisions</p>
-
-          <div class="foundry-schema__inner">
-            <div class="foundry-schema__floor" aria-hidden="true"></div>
-            <div class="foundry-schema__glow" aria-hidden="true"></div>
-            <div class="foundry-schema__pulse" aria-hidden="true"></div>
-
-            <div class="schema-node schema-node--raw">
-              <div class="schema-node__shape schema-node__shape--crucible">
-                <span class="schema-node__heat"></span>
-                <span class="schema-material schema-material--raw" aria-hidden="true">
-                  <span class="chunk"></span>
-                  <span class="chunk"></span>
-                  <span class="chunk"></span>
-                </span>
+          <div class="hero-card__stages">
+            <article class="stage stage--bronze">
+              <div class="stage__visual stage__visual--chunks" aria-hidden="true">
+                <span class="ore ore--1"></span>
+                <span class="ore ore--2"></span>
+                <span class="ore ore--3"></span>
+                <span class="ore ore--4"></span>
+                <span class="ore ore--5"></span>
+                <span class="ore ore--6"></span>
+                <span class="spark spark--1"></span>
+                <span class="spark spark--2"></span>
+                <span class="spark spark--3"></span>
               </div>
-              <span class="schema-node__label">Raw</span>
+              <p class="stage__eyebrow">Bronze Layer</p>
+              <h2 class="stage__title">Raw chunks</h2>
+              <p class="stage__meta">Unstructured · Unfiltered</p>
+            </article>
+
+            <div class="stage-action stage-action--cleanse" aria-hidden="true">
+              <span class="stage-action__line"></span>
+              <span class="stage-action__arrow"></span>
+              <span class="stage-action__label">Cleanse</span>
             </div>
 
-            <div class="schema-duct" aria-hidden="true">
-              <span class="schema-duct__pipe"></span>
-              <span class="schema-duct__particle schema-duct__particle--chunk"></span>
-              <span class="schema-duct__particle schema-duct__particle--chunk"></span>
-            </div>
-
-            <div class="schema-node schema-node--bronze">
-              <div class="schema-node__shape schema-node__shape--furnace">
-                <span class="schema-node__flame"></span>
-                <span class="schema-material schema-material--chunks" aria-hidden="true">
-                  <span class="chunk"></span>
-                  <span class="chunk"></span>
-                  <span class="chunk"></span>
-                  <span class="chunk"></span>
-                  <span class="chunk"></span>
-                  <span class="chunk"></span>
-                </span>
+            <article class="stage stage--silver">
+              <div class="stage__visual stage__visual--pieces" aria-hidden="true">
+                <span class="piece piece--1"></span>
+                <span class="piece piece--2"></span>
+                <span class="piece piece--3"></span>
+                <span class="piece piece--4"></span>
               </div>
-              <span class="schema-node__label">Bronze</span>
+              <p class="stage__eyebrow">Silver Layer</p>
+              <h2 class="stage__title">Organised pieces</h2>
+              <p class="stage__meta">Modelled · Governed</p>
+            </article>
+
+            <div class="stage-action stage-action--refine" aria-hidden="true">
+              <span class="stage-action__line"></span>
+              <span class="stage-action__arrow"></span>
+              <span class="stage-action__label">Refine</span>
             </div>
 
-            <div class="schema-duct schema-duct--short" aria-hidden="true">
-              <span class="schema-duct__pipe"></span>
-              <span class="schema-duct__particle schema-duct__particle--piece"></span>
-            </div>
-
-            <div class="schema-node schema-node--silver">
-              <div class="schema-node__shape schema-node__shape--furnace">
-                <span class="schema-node__flame"></span>
-                <span class="schema-material schema-material--pieces" aria-hidden="true">
-                  <span class="piece"></span>
-                  <span class="piece"></span>
-                  <span class="piece"></span>
-                  <span class="piece"></span>
-                  <span class="piece"></span>
-                  <span class="piece"></span>
-                </span>
+            <article class="stage stage--gold">
+              <div class="stage__visual stage__visual--ingots" aria-hidden="true">
+                <span class="gold-ingot gold-ingot--1"></span>
+                <span class="gold-ingot gold-ingot--2"></span>
+                <span class="gold-ingot gold-ingot--3"></span>
+                <span class="gold-ingot gold-ingot--4"></span>
               </div>
-              <span class="schema-node__label">Silver</span>
-            </div>
-
-            <div class="schema-duct schema-duct--short" aria-hidden="true">
-              <span class="schema-duct__pipe"></span>
-              <span class="schema-duct__particle schema-duct__particle--ingot"></span>
-            </div>
-
-            <div class="schema-node schema-node--gold">
-              <div class="schema-node__shape schema-node__shape--furnace">
-                <span class="schema-node__flame"></span>
-                <span class="schema-material schema-material--ingots" aria-hidden="true">
-                  <span class="ingot"></span>
-                  <span class="ingot"></span>
-                  <span class="ingot"></span>
-                </span>
-              </div>
-              <span class="schema-node__label">Gold</span>
-            </div>
-
-            <div class="schema-duct schema-duct--pour" aria-hidden="true">
-              <span class="schema-duct__pipe schema-duct__pipe--gold"></span>
-              <span class="schema-duct__pour-stream"></span>
-            </div>
-
-            <div class="schema-node schema-node--out">
-              <div class="schema-node__shape schema-node__shape--tray">
-                <span class="schema-material schema-material--output" aria-hidden="true">
-                  <span class="ingot ingot--hero"></span>
-                  <span class="ingot"></span>
-                  <span class="ingot"></span>
-                </span>
-                <span class="schema-node__shine"></span>
-              </div>
-              <span class="schema-node__label">Decisions</span>
-            </div>
-          </div>
-        </figure>
-
-        <div class="hero__content">
-          <h1 id="hero-heading">Your data stack, forged for decisions.</h1>
-          <p class="hero__slogan">Turning Raw data into gold</p>
-
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="mailto:hello@datafoundry.inc"
-              >Book a discovery call</a
-            >
-            <a class="btn btn--secondary" href="#how-we-work">Learn more</a>
+              <p class="stage__eyebrow">Gold Layer</p>
+              <h2 class="stage__title">Golden ingots</h2>
+              <p class="stage__meta">Decisions · Intelligence</p>
+            </article>
           </div>
 
-          <p class="hero__founder" id="about">
-            <strong>[Your Name]</strong> · Data Foundry Inc.
-          </p>
+          <div class="hero-card__divider"></div>
+
+          <div class="hero-card__brand">
+            <p class="hero-card__kicker">Data Foundry Inc.</p>
+            <h1 id="hero-heading">
+              “Refining your data<br />
+              into <span>decisions</span>”
+            </h1>
+            <p class="hero-card__services">
+              BI · Architecture · Governance · Automation
+            </p>
+          </div>
         </div>
       </section>
 
