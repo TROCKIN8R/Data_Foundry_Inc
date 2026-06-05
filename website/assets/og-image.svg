@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Data Foundry Inc.  From raw data to golden decisions">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0c08"/>
+      <stop offset="100%" stop-color="#15120d"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a9632e"/>
+      <stop offset="100%" stop-color="#efb33a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="80" y="80" width="72" height="72" rx="12" fill="url(#mark)"/>
+  <text x="172" y="118" fill="#f4efe6" font-family="Georgia, serif" font-size="42" font-weight="700">Data Foundry</text>
+  <text x="172" y="148" fill="#817b72" font-family="Arial, sans-serif" font-size="18" font-weight="600" letter-spacing="4">INC.</text>
+  <text x="80" y="260" fill="#f4efe6" font-family="Georgia, serif" font-size="56" font-weight="700" font-style="italic">From raw data to golden decisions.</text>
+  <text x="80" y="330" fill="#efb33a" font-family="Arial, sans-serif" font-size="28" font-weight="500">End-to-end BI &amp; data architecture · Montréal</text>
+  <text x="80" y="540" fill="#817b72" font-family="Arial, sans-serif" font-size="22" font-weight="500">datafoundry.inc</text>
+</svg>

@@ -5,9 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Data Foundry Inc. — Refining your data into decisions through bronze, silver, and gold."
+      content="Data Foundry Inc. — Solo BI and data architecture consultancy. Microsoft Fabric, medallion pipelines, governed reporting, and analytics from ingestion to decisions."
     />
-    <title>Data Foundry Inc. | Turning Raw Data into Gold</title>
+    <meta name="author" content="Adrien Yvin" />
+    <meta name="theme-color" content="#0b0c08" />
+    <meta
+      name="booking-url"
+      content="https://calendly.com/adrienyvin/30min"
+    />
+    <meta
+      name="email-subject"
+      content="Our dashboards never match — can Data Foundry help?"
+    />
+    <link rel="canonical" href="https://trockin8r.github.io/Data_Foundry_Inc/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Data Foundry Inc." />
+    <meta property="og:title" content="Data Foundry Inc. | From Raw Data to Golden Decisions" />
+    <meta
+      property="og:description"
+      content="End-to-end BI and data architecture — Microsoft Fabric, medallion pipelines, governed reporting, and analytics for teams ready to trust their data."
+    />
+    <meta property="og:url" content="https://trockin8r.github.io/Data_Foundry_Inc/" />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:image" content="https://trockin8r.github.io/Data_Foundry_Inc/assets/og-image.svg" />
+    <meta property="og:image:alt" content="Data Foundry Inc. — From raw data to golden decisions" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Data Foundry Inc. | From Raw Data to Golden Decisions" />
+    <meta
+      name="twitter:description"
+      content="End-to-end BI and data architecture — Microsoft Fabric, medallion pipelines, governed reporting, and analytics."
+    />
+    <meta name="twitter:image" content="https://trockin8r.github.io/Data_Foundry_Inc/assets/og-image.svg" />
+
+    <title>Data Foundry Inc. | From Raw Data to Golden Decisions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,12 +60,25 @@
             <span class="nav__inc">Inc.</span>
           </span>
         </a>
-        <nav class="nav__links" aria-label="Primary">
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+        </button>
+        <nav class="nav__links" id="nav-menu" aria-label="Primary">
           <a href="#schema">Vision</a>
           <a href="#services">Services</a>
+          <a href="#audience">Who we work with</a>
           <a href="#founder">About Us</a>
+          <a href="#faq">FAQ</a>
         </nav>
-        <a class="btn btn--nav" href="mailto:adrienyvin@datafoundry.inc">Let's talk</a>
+        <a class="btn btn--nav booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
       </div>
     </header>
 
@@ -45,14 +90,26 @@
               <span class="hero__link-word">from</span> Raw data<br />
               <span class="hero__link-word">to</span> <span class="hero__gold">Golden decisions.</span>
             </h1>
-            <p class="hero__sub">
-              From the pipeline to the boardroom.<br />
-              Every layer owned, every decision trusted.
+            <p class="hero__sub hero-rotate">
+              <span class="hero-rotate__hook">Stop patching symptoms when </span>
+              <span class="hero-rotate__window">
+                <span class="hero-rotate__line">dashboards disagree.</span>
+                <span class="hero-rotate__line">IT is the bottleneck for every report.</span>
+                <span class="hero-rotate__line">Fabric never left the pilot phase.</span>
+                <span class="hero-rotate__line">mergers doubled the chaos.</span>
+                <span class="hero-rotate__line">self-service broke lineage.</span>
+              </span>
+              <span class="visually-hidden">
+                Stop patching symptoms when dashboards disagree, IT is the bottleneck for every report,
+                Fabric never left the pilot phase, mergers doubled the chaos, or self-service broke lineage.
+              </span>
             </p>
             <div class="hero__actions">
-              <a class="btn" href="mailto:adrienyvin@datafoundry.inc">Let's talk</a>
+              <a class="btn booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+              <a class="btn btn--ghost email-link" href="mailto:adrienyvin@datafoundry.inc">Email us</a>
               <a class="btn btn--ghost" href="#schema">See our vision</a>
             </div>
+            <p class="hero__cta-note">30-min intro on Calendly · I reply to email within 24h</p>
           </div>
 
           <div class="hero__bg" aria-hidden="true">
@@ -250,114 +307,303 @@
       </section>
 
       <section class="services" id="services" aria-labelledby="services-heading">
-        <h2 id="services-heading" class="services__title">Our Services</h2>
+        <header class="services__header">
+          <p class="services__eyebrow">Our services</p>
+          <h2 id="services-heading" class="services__title">
+            Full stack, one specialist
+          </h2>
+          <p class="services__intro">
+            Bronze to platinum — ingestion through agents, with governance at every layer.
+          </p>
+          <p class="services__tap">Click any card for deliverable examples.</p>
+        </header>
 
         <div class="services__grid">
-          <article class="service-card service-card--bronze">
-            <p class="service-card__layer">Bronze</p>
-            <h3 class="service-card__name">Data Ingestion &amp; Pipelines</h3>
-            <div class="service-card__swap">
-              <p class="service-card__outcome">
-                Your sources flow reliably — governed, cataloged, and trustworthy
-                before anything downstream touches them.
-              </p>
-              <ul class="service-card__list">
-                <li>APIs, databases, files, and SaaS into a clean bronze layer</li>
-                <li>Ingest policies, scheduling, and failure alerting</li>
-                <li>Catalog entries from the first load — no retrofitting</li>
-              </ul>
+          <button type="button" class="service-card service-card--bronze" data-service="ingestion" aria-haspopup="dialog">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>
+                </svg>
+              </span>
+              <span class="service-card__layer">Bronze</span>
             </div>
-            <span class="service-card__arrow" aria-hidden="true">→</span>
+            <span class="service-card__name">Data Ingestion &amp; Pipelines</span>
+            <span class="service-card__tagline">Reliable ingest — governed from the first load.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">See examples</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
+
+          <button type="button" class="service-card service-card--silver" data-service="modeling" aria-haspopup="dialog">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/>
+                </svg>
+              </span>
+              <span class="service-card__layer">Silver</span>
+            </div>
+            <span class="service-card__name">Transformation &amp; Modeling</span>
+            <span class="service-card__tagline">One model, one version of the truth.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">See examples</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
+
+          <button type="button" class="service-card service-card--gold" data-service="reporting" aria-haspopup="dialog">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3v18h18"/><path d="M7 16v-5"/><path d="M12 16V8"/><path d="M17 16v-3"/>
+                </svg>
+              </span>
+              <span class="service-card__layer">Gold</span>
+            </div>
+            <span class="service-card__name">Reporting &amp; Analytics</span>
+            <span class="service-card__tagline">Dashboards executives trust.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">See examples</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
+
+          <button type="button" class="service-card service-card--gold" data-service="self-service" aria-haspopup="dialog">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
+                </svg>
+              </span>
+              <span class="service-card__layer">Gold</span>
+            </div>
+            <span class="service-card__name">Self-service BI</span>
+            <span class="service-card__tagline">Self-serve from governed data — no shadow copies.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">See examples</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
+
+          <button type="button" class="service-card service-card--governance" data-service="governance" aria-haspopup="dialog">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/>
+                </svg>
+              </span>
+              <span class="service-card__layer">Every layer</span>
+            </div>
+            <span class="service-card__name">Governance &amp; Quality</span>
+            <span class="service-card__tagline">Lineage, quality, and ownership built in.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">See examples</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
+
+          <button type="button" class="service-card service-card--platinum" data-service="agents" aria-haspopup="dialog">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>
+                </svg>
+              </span>
+              <span class="service-card__layer">Platinum</span>
+            </div>
+            <span class="service-card__name">Agents &amp; Automations</span>
+            <span class="service-card__tagline">Workflows and AI agents that keep running after handoff.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">See examples</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </button>
+        </div>
+      </section>
+
+      <div
+        class="service-modal"
+        id="service-modal"
+        hidden
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="service-modal-title"
+        aria-describedby="service-modal-tagline"
+      >
+        <button type="button" class="service-modal__backdrop" aria-label="Close service details"></button>
+        <div class="service-modal__panel" id="service-modal-panel">
+          <button type="button" class="service-modal__close" aria-label="Close service details">&times;</button>
+          <p class="service-modal__layer" id="service-modal-layer"></p>
+          <h3 class="service-modal__title" id="service-modal-title"></h3>
+          <p class="service-modal__tagline" id="service-modal-tagline"></p>
+          <p class="service-modal__label">What we can do</p>
+          <ul class="service-modal__list" id="service-modal-list"></ul>
+        </div>
+      </div>
+
+      <section class="audience" id="audience" aria-labelledby="audience-heading">
+        <header class="audience__header">
+          <p class="audience__eyebrow">Who we work with</p>
+          <h2 id="audience-heading" class="audience__title">
+            Teams at a turning point with their data
+          </h2>
+        </header>
+
+        <div class="audience__grid">
+          <article class="audience-item">
+            <span class="audience-item__num" aria-hidden="true">01</span>
+            <h3 class="audience-item__title">Growing companies</h3>
+            <p class="audience-item__desc">
+              SMBs outgrowing Excel, ready for their first warehouse and governed reporting.
+            </p>
           </article>
 
-          <article class="service-card service-card--silver">
-            <p class="service-card__layer">Silver</p>
-            <h3 class="service-card__name">Transformation &amp; Modeling</h3>
-            <div class="service-card__swap">
-              <p class="service-card__outcome">
-                Raw data shaped into dimensional models your whole org builds
-                on — one version of truth, no more conflicting numbers.
-              </p>
-              <ul class="service-card__list">
-                <li>Cleaned, standardized silver layer with quality checks</li>
-                <li>Dimensional models and semantic layer in Fabric or dbt</li>
-                <li>Auditable logic — every transformation documented</li>
-              </ul>
-            </div>
-            <span class="service-card__arrow" aria-hidden="true">→</span>
+          <article class="audience-item">
+            <span class="audience-item__num" aria-hidden="true">02</span>
+            <h3 class="audience-item__title">Enterprise consolidation</h3>
+            <p class="audience-item__desc">
+              Larger orgs unifying siloed systems, conflicting KPIs, and years of accumulated data.
+            </p>
           </article>
 
-          <article class="service-card service-card--gold">
-            <p class="service-card__layer">Gold</p>
-            <h3 class="service-card__name">Reporting &amp; Analytics</h3>
-            <div class="service-card__swap">
-              <p class="service-card__outcome">
-                Boardroom-ready dashboards executives trust — built on a
-                certified SSoT so every number means the same thing.
-              </p>
-              <ul class="service-card__list">
-                <li>Power BI dashboards and KPIs tied to your single source</li>
-                <li>Report templates so new builds stay consistent and on-brand</li>
-                <li>Self-documenting DAX measures — auditable and maintainable</li>
-              </ul>
-            </div>
-            <span class="service-card__arrow" aria-hidden="true">→</span>
-          </article>
-
-          <article class="service-card service-card--gold">
-            <p class="service-card__layer">Gold</p>
-            <h3 class="service-card__name">Self-service BI</h3>
-            <div class="service-card__swap">
-              <p class="service-card__outcome">
-                Business users pull answers themselves — from governed data,
-                in the tools they already use, without waiting on IT.
-              </p>
-              <ul class="service-card__list">
-                <li>Semantic models connecting directly to Excel and Power BI</li>
-                <li>No shadow copies, broken pivots, or stale exports</li>
-                <li>Adoption support so the change actually sticks</li>
-              </ul>
-            </div>
-            <span class="service-card__arrow" aria-hidden="true">→</span>
-          </article>
-
-          <article class="service-card service-card--governance">
-            <p class="service-card__layer">Every layer</p>
-            <h3 class="service-card__name">Governance &amp; Quality</h3>
-            <div class="service-card__swap">
-              <p class="service-card__outcome">
-                Data people actually trust — documented, owned, and enforced
-                as a daily practice, not a one-time audit.
-              </p>
-              <ul class="service-card__list">
-                <li>Lineage, catalog, and ownership across every layer</li>
-                <li>Automated quality checks with threshold alerting</li>
-                <li>Access control and compliance baked in from the start</li>
-              </ul>
-            </div>
-            <span class="service-card__arrow" aria-hidden="true">→</span>
-          </article>
-
-          <article class="service-card service-card--platinum">
-            <p class="service-card__layer">Platinum</p>
-            <h3 class="service-card__name">Agents &amp; Automations</h3>
-            <div class="service-card__swap">
-              <p class="service-card__outcome">
-                Workflows and AI agents that run on data you trust — and keep
-                running long after the engagement ends.
-              </p>
-              <ul class="service-card__list">
-                <li>Automations in Power Automate, Fabric, or custom pipelines</li>
-                <li>AI agents grounded in your gold-layer SSoT</li>
-                <li>Documented, maintainable — and fully handed over to you</li>
-              </ul>
-            </div>
-            <span class="service-card__arrow" aria-hidden="true">→</span>
+          <article class="audience-item">
+            <span class="audience-item__num" aria-hidden="true">03</span>
+            <h3 class="audience-item__title">Post-merger integration</h3>
+            <p class="audience-item__desc">
+              Merging teams that need one stack, one source of truth, and one reporting culture.
+            </p>
           </article>
         </div>
 
-        <div class="services__cta">
-          <a class="btn" href="mailto:adrienyvin@datafoundry.inc">Let's talk</a>
+        <div class="audience__projects">
+          <h3 class="audience__projects-title">Some of our projects</h3>
+
+          <div class="customers__grid">
+            <button
+              type="button"
+              class="customer-card"
+              data-work-title="Cascades"
+              data-work-caption="Executive KPI dashboard — redacted sample"
+              data-work-kind="dashboard"
+            >
+              <div class="customer-card__logo">
+                <img src="assets/logos/cascades.svg" alt="" width="160" height="40" loading="lazy" />
+              </div>
+              <p class="customer-card__name">Cascades</p>
+              <p class="customer-card__desc">
+                Fabric &amp; BigQuery pipelines, Power BI dashboards, and ML pricing models.
+              </p>
+              <span class="customer-card__hint">View sample</span>
+            </button>
+
+            <button
+              type="button"
+              class="customer-card"
+              data-work-title="Keurig Dr Pepper Canada"
+              data-work-caption="Brand forecast dashboard — redacted sample"
+              data-work-kind="dashboard"
+            >
+              <div class="customer-card__logo">
+                <img src="assets/logos/kdp.svg" alt="" width="200" height="40" loading="lazy" />
+              </div>
+              <p class="customer-card__name">Keurig Dr Pepper Canada</p>
+              <p class="customer-card__desc">
+                ETL and Tableau dashboards for Brand and RGM forecasting.
+              </p>
+              <span class="customer-card__hint">View sample</span>
+            </button>
+
+            <button
+              type="button"
+              class="customer-card"
+              data-work-title="Énergir"
+              data-work-caption="Consumption forecast model — redacted sample"
+              data-work-kind="chart"
+            >
+              <div class="customer-card__logo">
+                <img src="assets/logos/energir.svg" alt="" width="160" height="40" loading="lazy" />
+              </div>
+              <p class="customer-card__name">Énergir</p>
+              <p class="customer-card__desc">
+                Power BI with Python forecasting for provincial gas consumption.
+              </p>
+              <span class="customer-card__hint">View sample</span>
+            </button>
+
+            <button
+              type="button"
+              class="customer-card"
+              data-work-title="HEC Montréal"
+              data-work-caption="Enrollment ETL pipeline — redacted sample"
+              data-work-kind="diagram"
+            >
+              <div class="customer-card__logo">
+                <img src="assets/logos/hec.svg" alt="" width="180" height="40" loading="lazy" />
+              </div>
+              <p class="customer-card__name">HEC Montréal</p>
+              <p class="customer-card__desc">
+                Enrollment ETL and SEO analysis for École des dirigeants.
+              </p>
+              <span class="customer-card__hint">View sample</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div
+        class="work-modal"
+        id="work-modal"
+        hidden
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="work-modal-title"
+        aria-describedby="work-modal-caption"
+      >
+        <button type="button" class="work-modal__backdrop" aria-label="Close sample preview"></button>
+        <div class="work-modal__panel">
+          <button type="button" class="work-modal__close" aria-label="Close sample preview">&times;</button>
+          <p class="work-modal__eyebrow">Proof of work · Placeholder</p>
+          <h3 class="work-modal__title" id="work-modal-title"></h3>
+          <p class="work-modal__caption" id="work-modal-caption"></p>
+          <div class="work-modal__preview" id="work-modal-preview" aria-hidden="true"></div>
+          <p class="work-modal__note">Final redacted screenshots and diagrams will replace this placeholder.</p>
+        </div>
+      </div>
+
+      <section class="compare" id="why-us" aria-labelledby="compare-heading">
+        <header class="compare__header">
+          <p class="compare__eyebrow">Why Data Foundry</p>
+          <h2 id="compare-heading" class="compare__title">
+            The upside — without the trade-offs
+          </h2>
+          <p class="compare__intro">One senior specialist from first call to handoff.</p>
+        </header>
+
+        <div class="compare__panel">
+          <div class="compare__labels" aria-hidden="true">
+            <span>Instead of</span>
+            <span>You get</span>
+          </div>
+          <ul class="compare__list">
+            <li class="compare-row">
+              <span class="compare-row__alt">Big consultancy</span>
+              <span class="compare-row__edge">Same senior start to finish.</span>
+            </li>
+            <li class="compare-row">
+              <span class="compare-row__alt">Offshore delivery</span>
+              <span class="compare-row__edge">Built with you, handed over clean.</span>
+            </li>
+            <li class="compare-row">
+              <span class="compare-row__alt">Full-time hire</span>
+              <span class="compare-row__edge">Senior depth, no headcount.</span>
+            </li>
+            <li class="compare-row">
+              <span class="compare-row__alt">Tool rollout</span>
+              <span class="compare-row__edge">One owner, whole stack.</span>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -382,6 +628,14 @@
             </p>
             <div class="founder__credentials">
               <span class="founder__cred">BBA, Business Intelligence · HEC Montréal · Cum Laude</span>
+              <div class="founder__links">
+                <a
+                  class="founder__social"
+                  href="https://www.linkedin.com/in/adrienyvin/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >LinkedIn</a>
+              </div>
               <div class="founder__langs">
                 <span class="lang-badge" title="French — native">FR</span>
                 <span class="lang-badge" title="English — full professional">EN</span>
@@ -457,6 +711,62 @@
             </div>
           </div>
 
+        </div>
+      </section>
+
+      <section class="faq" id="faq" aria-labelledby="faq-heading">
+        <header class="faq__header">
+          <p class="faq__eyebrow">FAQ</p>
+          <h2 id="faq-heading" class="faq__title">Common questions</h2>
+        </header>
+
+        <div class="faq__list">
+          <details class="faq__item">
+            <summary class="faq__question">What stack do you work with?</summary>
+            <div class="faq__answer">
+              <p>
+                Microsoft Fabric and Power BI are the core — SQL, DAX, Power Query,
+                and Python for pipelines, modeling, and ML. I also work with Snowflake,
+                BigQuery, Tableau, dbt-style transformations, and Power Automate for
+                automations. The stack follows your environment, not the other way around.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">Do you work solo or with our team?</summary>
+            <div class="faq__answer">
+              <p>
+                Data Foundry is one senior specialist — you get the same person from
+                discovery through delivery. I work embedded with your analysts, IT,
+                and business teams: leading when needed, pairing when it helps, and
+                handing everything over documented and maintainable.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">What languages do you work in?</summary>
+            <div class="faq__answer">
+              <p>
+                French, English, and Spanish — native or full professional proficiency.
+                Engagements, documentation, and training can run in any of the three,
+                which suits Quebec, Canadian, and international teams.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__question">What types of engagements do you offer?</summary>
+            <div class="faq__answer">
+              <p>
+                Three formats, depending on where you are: a fixed-scope project (build
+                or migration), a time-boxed assessment (audit your stack and roadmap),
+                or a retainer for ongoing architecture, governance, and delivery support.
+                <a class="faq__book booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a> to scope it — no cookie-cutter packages.
+              </p>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -538,14 +848,43 @@
     </main>
 
     <footer class="footer" id="contact">
-      <p>
+      <p class="footer__copy">
         &copy; 2026 Data Foundry Inc.
-        <a href="mailto:adrienyvin@datafoundry.inc">adrienyvin@datafoundry.inc</a>
       </p>
+      <div class="footer__links">
+        <a class="booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+        <a class="email-link" href="mailto:adrienyvin@datafoundry.inc">adrienyvin@datafoundry.inc</a>
+        <a
+          href="https://www.linkedin.com/in/adrienyvin/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >LinkedIn</a>
+      </div>
     </footer>
     <script>
       document.getElementById('years-stat').textContent =
         (new Date().getFullYear() - 2021) + '+';
+
+      (function () {
+        var bookingMeta = document.querySelector('meta[name="booking-url"]');
+        var bookingUrl = bookingMeta && bookingMeta.content;
+        if (bookingUrl) {
+          document.querySelectorAll('.booking-link').forEach(function (link) {
+            link.href = bookingUrl;
+          });
+        }
+      })();
+
+      (function () {
+        var subjectMeta = document.querySelector('meta[name="email-subject"]');
+        var subject = subjectMeta && subjectMeta.content;
+        if (subject) {
+          document.querySelectorAll('.email-link').forEach(function (link) {
+            var base = link.getAttribute('href').split('?')[0];
+            link.href = base + '?subject=' + encodeURIComponent(subject);
+          });
+        }
+      })();
 
       (function () {
         var nav = document.querySelector('.nav');
@@ -563,6 +902,255 @@
 
         window.addEventListener('scroll', updateNav, { passive: true });
         updateNav();
+      })();
+
+      (function () {
+        var nav = document.querySelector('.nav');
+        var toggle = document.querySelector('.nav__toggle');
+        var menu = document.getElementById('nav-menu');
+
+        function setMenuOpen(open) {
+          nav.classList.toggle('nav--open', open);
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+          document.body.classList.toggle('nav-menu-open', open);
+        }
+
+        toggle.addEventListener('click', function () {
+          setMenuOpen(!nav.classList.contains('nav--open'));
+        });
+
+        menu.querySelectorAll('a').forEach(function (link) {
+          link.addEventListener('click', function () {
+            setMenuOpen(false);
+          });
+        });
+
+        window.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape') {
+            setMenuOpen(false);
+          }
+        });
+      })();
+
+      (function () {
+        var modal = document.getElementById('work-modal');
+        var titleEl = document.getElementById('work-modal-title');
+        var captionEl = document.getElementById('work-modal-caption');
+        var previewEl = document.getElementById('work-modal-preview');
+        var closeBtn = modal.querySelector('.work-modal__close');
+        var backdrop = modal.querySelector('.work-modal__backdrop');
+        var lastFocus = null;
+
+        var placeholders = {
+          dashboard:
+            '<div class="work-ph">' +
+              '<div class="work-ph__top">' +
+                '<span class="work-ph__chip work-ph__chip--w1"></span>' +
+                '<span class="work-ph__chip work-ph__chip--w2"></span>' +
+                '<span class="work-ph__chip work-ph__chip--w3"></span>' +
+                '<span class="work-ph__redact">Redacted</span>' +
+              '</div>' +
+              '<div class="work-ph__metrics">' +
+                '<span class="work-ph__metric"></span>' +
+                '<span class="work-ph__metric"></span>' +
+                '<span class="work-ph__metric"></span>' +
+              '</div>' +
+              '<div class="work-ph__chart">' +
+                '<span class="work-ph__bar" style="height:35%"></span>' +
+                '<span class="work-ph__bar"></span>' +
+                '<span class="work-ph__bar"></span>' +
+                '<span class="work-ph__bar"></span>' +
+                '<span class="work-ph__bar"></span>' +
+                '<span class="work-ph__bar"></span>' +
+              '</div>' +
+            '</div>',
+          chart:
+            '<div class="work-ph">' +
+              '<div class="work-ph__top">' +
+                '<span class="work-ph__chip work-ph__chip--w2"></span>' +
+                '<span class="work-ph__redact">Redacted</span>' +
+              '</div>' +
+              '<div class="work-ph__line"></div>' +
+              '<div class="work-ph__metrics">' +
+                '<span class="work-ph__metric"></span>' +
+                '<span class="work-ph__metric"></span>' +
+              '</div>' +
+            '</div>',
+          diagram:
+            '<div class="work-ph">' +
+              '<div class="work-ph__top">' +
+                '<span class="work-ph__chip work-ph__chip--w3"></span>' +
+                '<span class="work-ph__redact">Redacted</span>' +
+              '</div>' +
+              '<div class="work-ph__flow">' +
+                '<span class="work-ph__node work-ph__node--bronze"></span>' +
+                '<span class="work-ph__arrow"></span>' +
+                '<span class="work-ph__node work-ph__node--silver"></span>' +
+                '<span class="work-ph__arrow"></span>' +
+                '<span class="work-ph__node work-ph__node--gold"></span>' +
+              '</div>' +
+            '</div>'
+        };
+
+        function closeModal() {
+          modal.hidden = true;
+          document.body.classList.remove('work-modal-open');
+          previewEl.innerHTML = '';
+          if (lastFocus) {
+            lastFocus.focus();
+          }
+        }
+
+        function openModal(card) {
+          lastFocus = card;
+          titleEl.textContent = card.getAttribute('data-work-title');
+          captionEl.textContent = card.getAttribute('data-work-caption');
+          previewEl.innerHTML = placeholders[card.getAttribute('data-work-kind')] || placeholders.dashboard;
+          modal.hidden = false;
+          document.body.classList.add('work-modal-open');
+          closeBtn.focus();
+        }
+
+        document.querySelectorAll('.customer-card').forEach(function (card) {
+          card.addEventListener('click', function () {
+            openModal(card);
+          });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', closeModal);
+
+        window.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && !modal.hidden) {
+            closeModal();
+          }
+        });
+      })();
+
+      (function () {
+        var modal = document.getElementById('service-modal');
+        var panel = document.getElementById('service-modal-panel');
+        var layerEl = document.getElementById('service-modal-layer');
+        var titleEl = document.getElementById('service-modal-title');
+        var taglineEl = document.getElementById('service-modal-tagline');
+        var listEl = document.getElementById('service-modal-list');
+        var closeBtn = modal.querySelector('.service-modal__close');
+        var backdrop = modal.querySelector('.service-modal__backdrop');
+        var lastFocus = null;
+
+        var services = {
+          ingestion: {
+            theme: 'bronze',
+            layer: 'Bronze',
+            title: 'Data Ingestion & Pipelines',
+            tagline: 'Reliable ingest — governed from the first load.',
+            bullets: [
+              'APIs, databases, files, and SaaS into a clean bronze layer',
+              'Ingest policies, scheduling, and failure alerting',
+              'Catalog entries from the first load — no retrofitting'
+            ]
+          },
+          modeling: {
+            theme: 'silver',
+            layer: 'Silver',
+            title: 'Transformation & Modeling',
+            tagline: 'One model, one version of the truth.',
+            bullets: [
+              'Cleaned, standardized silver layer with quality checks',
+              'Dimensional models and semantic layer in Fabric or dbt',
+              'Auditable logic — every transformation documented'
+            ]
+          },
+          reporting: {
+            theme: 'gold',
+            layer: 'Gold',
+            title: 'Reporting & Analytics',
+            tagline: 'Dashboards executives trust.',
+            bullets: [
+              'Power BI dashboards and KPIs tied to your single source',
+              'Report templates so new builds stay consistent and on-brand',
+              'Self-documenting DAX measures — auditable and maintainable'
+            ]
+          },
+          'self-service': {
+            theme: 'gold',
+            layer: 'Gold',
+            title: 'Self-service BI',
+            tagline: 'Self-serve from governed data — no shadow copies.',
+            bullets: [
+              'Semantic models connecting directly to Excel and Power BI',
+              'No shadow copies, broken pivots, or stale exports',
+              'Adoption support so the change actually sticks'
+            ]
+          },
+          governance: {
+            theme: 'governance',
+            layer: 'Every layer',
+            title: 'Governance & Quality',
+            tagline: 'Lineage, quality, and ownership built in.',
+            bullets: [
+              'Lineage, catalog, and ownership across every layer',
+              'Automated quality checks with threshold alerting',
+              'Access control and compliance baked in from the start'
+            ]
+          },
+          agents: {
+            theme: 'platinum',
+            layer: 'Platinum',
+            title: 'Agents & Automations',
+            tagline: 'Workflows and AI agents that keep running after handoff.',
+            bullets: [
+              'Automations in Power Automate, Fabric, or custom pipelines',
+              'AI agents grounded in your gold-layer SSoT',
+              'Documented, maintainable — and fully handed over to you'
+            ]
+          }
+        };
+
+        function closeModal() {
+          modal.hidden = true;
+          document.body.classList.remove('service-modal-open');
+          listEl.innerHTML = '';
+          if (lastFocus) {
+            lastFocus.focus();
+          }
+        }
+
+        function openModal(card) {
+          var id = card.getAttribute('data-service');
+          var service = services[id];
+          if (!service) {
+            return;
+          }
+
+          lastFocus = card;
+          panel.className = 'service-modal__panel service-modal__panel--' + service.theme;
+          layerEl.textContent = service.layer;
+          titleEl.textContent = service.title;
+          taglineEl.textContent = service.tagline;
+          listEl.innerHTML = service.bullets.map(function (item) {
+            return '<li>' + item + '</li>';
+          }).join('');
+          modal.hidden = false;
+          document.body.classList.add('service-modal-open');
+          closeBtn.focus();
+        }
+
+        document.querySelectorAll('.service-card[data-service]').forEach(function (card) {
+          card.addEventListener('click', function () {
+            openModal(card);
+          });
+        });
+
+        closeBtn.addEventListener('click', closeModal);
+        backdrop.addEventListener('click', closeModal);
+
+        window.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && !modal.hidden) {
+            closeModal();
+          }
+        });
       })();
     </script>
   </body>
