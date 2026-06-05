@@ -576,75 +576,34 @@ a:hover {
   display: none;
 }
 
-.stage-action__line {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 1px;
-  height: 3.25rem;
-  background: linear-gradient(180deg, transparent, rgba(201, 132, 18, 0.28), var(--color-gold-light), rgba(201, 132, 18, 0.28), transparent);
-  transform: translateX(-50%);
+.stage-action__arrow {
+  position: relative;
+  display: block;
+  width: 2.7rem;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(239, 179, 58, 0.72));
+  opacity: 0.78;
+  filter: drop-shadow(0 0 6px rgba(201, 132, 18, 0.28));
+  animation: arrow-pulse 2.8s ease-in-out infinite;
 }
 
-.stage-action__line::before,
-.stage-action__line::after {
+.stage-action__arrow::before,
+.stage-action__arrow::after {
   content: "";
   position: absolute;
-  left: 50%;
-  width: 0.25rem;
-  height: 0.25rem;
+  right: 0;
+  width: 0.45rem;
+  height: 1px;
   background: var(--color-gold-light);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 8px rgba(239, 179, 58, 0.45);
+  transform-origin: right center;
 }
 
-.stage-action__line::before {
-  top: 0.65rem;
+.stage-action__arrow::before {
+  transform: rotate(38deg);
 }
 
-.stage-action__line::after {
-  bottom: 0.65rem;
-}
-
-.stage-action__arrow {
-  position: absolute;
-  left: 50%;
-  top: 3.7rem;
-  width: 1.55rem;
-  height: 1.85rem;
-  background:
-    radial-gradient(circle at 50% 28%, rgba(255, 235, 179, 0.8), transparent 12%),
-    linear-gradient(180deg, var(--color-gold-light), var(--color-gold));
-  clip-path: polygon(50% 100%, 2% 0, 98% 0);
-  opacity: 0.9;
-  transform: translateX(-50%);
-  animation: marker-drop 2.6s ease-in-out infinite;
-  filter: drop-shadow(0 0 8px rgba(201, 132, 18, 0.35));
-}
-
-.stage-action__label {
-  position: absolute;
-  top: 6rem;
-  left: 50%;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(129, 123, 114, 0.78);
-  transform: translateX(-50%);
-}
-
-.stage-action--cleanse .stage-action__arrow {
-  background:
-    radial-gradient(circle at 50% 28%, rgba(255, 235, 179, 0.8), transparent 12%),
-    linear-gradient(180deg, #c88935, var(--color-bronze));
-}
-
-.stage-action--refine .stage-action__arrow {
-  background:
-    radial-gradient(circle at 50% 28%, rgba(255, 246, 204, 0.92), transparent 12%),
-    linear-gradient(180deg, var(--color-gold-light), var(--color-gold));
+.stage-action__arrow::after {
+  transform: rotate(-38deg);
 }
 
 .hero-card__divider {
@@ -771,15 +730,15 @@ a:hover {
   }
 }
 
-@keyframes marker-drop {
+@keyframes arrow-pulse {
   0%,
   100% {
-    translate: 0 0;
-    opacity: 0.65;
+    opacity: 0.45;
+    transform: translateX(-0.15rem);
   }
   50% {
-    translate: 0 0.4rem;
-    opacity: 1;
+    opacity: 0.95;
+    transform: translateX(0.15rem);
   }
 }
 
@@ -813,7 +772,9 @@ a:hover {
 
   .stage-action {
     position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     min-height: 8.5rem;
   }
 }
@@ -823,21 +784,10 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 2rem;
+    min-height: 1.5rem;
   }
 
-  .stage-action__line {
-    position: static;
-    width: min(12rem, 60vw);
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201, 132, 18, 0.8), transparent);
-    transform: none;
-  }
-
-  .stage-action__line::before,
-  .stage-action__line::after,
-  .stage-action__arrow,
-  .stage-action__label {
-    display: none;
+  .stage-action__arrow {
+    width: min(7rem, 35vw);
   }
 }
