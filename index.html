@@ -29,7 +29,7 @@
           </span>
         </a>
         <nav class="nav__links" aria-label="Primary">
-          <a href="#schema">Process</a>
+          <a href="#schema">Vision</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -38,13 +38,49 @@
     </header>
 
     <main id="main">
-      <section class="hero" aria-labelledby="hero-heading">
-        <div
-          id="schema"
-          class="hero-card"
-          role="img"
-          aria-label="Medallion flow from bronze raw chunks through silver and gold, with governance at every layer, ending at SSoT reporting and AI agents."
-        >
+      <section class="hero" id="about" aria-labelledby="hero-heading">
+        <div class="hero__inner">
+          <div class="hero__content">
+            <p class="hero__kicker">Data Foundry Inc.</p>
+            <h1 id="hero-heading">
+              Refining your data<br />
+              into <span>decisions</span>
+            </h1>
+            <p class="hero__tagline">Turning raw data into gold.</p>
+            <p class="hero__lede">
+              Solo BI and data architecture — medallion layers, governance, and
+              automation from ingestion to dashboards and agents you trust.
+            </p>
+            <p class="hero__services">BI · Architecture · Governance · Automation</p>
+            <div class="hero__actions">
+              <a class="btn" href="mailto:hello@datafoundry.inc">Let's talk</a>
+              <a class="btn btn--ghost" href="#schema">See our vision</a>
+            </div>
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <div class="hero__glow"></div>
+            <div class="hero__foundry">
+              <span class="hero__ember hero__ember--1"></span>
+              <span class="hero__ember hero__ember--2"></span>
+              <span class="hero__ember hero__ember--3"></span>
+              <span class="hero__crucible"></span>
+              <span class="hero__stream hero__stream--bronze"></span>
+              <span class="hero__stream hero__stream--silver"></span>
+              <span class="hero__stream hero__stream--gold"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="vision" id="schema" aria-labelledby="schema-heading">
+        <header class="vision__header">
+          <p class="vision__eyebrow">Our vision</p>
+          <h2 id="schema-heading" class="vision__title">
+            The Medallion Architecture:
+            <span>how we get gold out of your data</span>
+          </h2>
+        </header>
+        <div class="hero-card">
           <div class="hero-card__pipeline">
           <div class="hero-card__stages">
             <article class="stage stage--bronze">
@@ -141,17 +177,6 @@
               </p>
             </article>
           </div>
-          </div>
-
-          <div class="hero-card__brand">
-            <p class="hero-card__kicker">Data Foundry Inc.</p>
-            <h1 id="hero-heading">
-              “Refining your data<br />
-              into <span>decisions</span>”
-            </h1>
-            <p class="hero-card__services">
-              BI · Architecture · Governance · Automation
-            </p>
           </div>
         </div>
       </section>
