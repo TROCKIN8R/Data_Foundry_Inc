@@ -54,13 +54,15 @@ Dark foundry aesthetic; medallion metals drive the palette.
 **Typography:** Fraunces (display/headlines), DM Sans (body/UI).  
 **Stack:** Plain HTML + CSS only — no build step, no JS framework.
 
-## Site structure (current)
+## Repository structure
 
 ```
-index.html          Landing page
-css/styles.css      All styles, animations, responsive schema
-README.md           Local preview instructions
+README.md           Repo overview (root)
 COMPANY.md          This file
+website/
+  index.html        Landing page
+  css/styles.css    All styles, animations, responsive schema
+  README.md         Website preview instructions
 ```
 
 **Page sections:**
@@ -81,7 +83,7 @@ COMPANY.md          This file
 ## Placeholders & open items
 
 - "What we do" is a single paragraph — room to expand
-- No remote/git hosting configured in early setup; branch work lives on `cursor/data-foundry-hero-section`
+- Root repo can hold additional projects beside `website/`
 
 ## Guidance for future agents
 
@@ -95,9 +97,9 @@ COMPANY.md          This file
 ## Quick start
 
 ```bash
-open index.html
-# or
-cd ~/data-foundry-inc && open index.html
+cd website && open index.html
 ```
+
+**Live site:** https://trockin8r.github.io/Data_Foundry_Inc/ (GitHub Pages, deploys from `website/` on push to `main`)
 
 No install or compile step required.
