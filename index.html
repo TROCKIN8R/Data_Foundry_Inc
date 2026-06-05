@@ -81,8 +81,10 @@
           </h2>
         </header>
         <div class="hero-card">
-          <div class="hero-card__pipeline">
-          <div class="hero-card__stages">
+          <div class="schema-fit">
+            <div class="schema-fit__canvas">
+              <div class="hero-card__pipeline">
+              <div class="hero-card__stages">
             <article class="stage stage--bronze">
               <div class="stage__visual stage__visual--chunks" aria-hidden="true">
                 <span class="ore ore--1"></span>
@@ -153,8 +155,8 @@
               <span class="stage-action__arrow"></span>
             </div>
 
-            <article class="stage stage--consumers">
-              <div class="stage__visual stage__visual--consumers" aria-hidden="true">
+            <article class="stage stage--platinum">
+              <div class="stage__visual stage__visual--platinum" aria-hidden="true">
                 <div class="consumer-flow">
                   <span class="consumer-flow__branch consumer-flow__branch--top"></span>
                   <span class="consumer-flow__branch consumer-flow__branch--bottom"></span>
@@ -168,7 +170,7 @@
                   <span class="consumer-card__label">AI agents</span>
                 </div>
               </div>
-              <p class="stage__eyebrow">Final Consumers</p>
+              <p class="stage__eyebrow">Platinum Layer</p>
               <h2 class="stage__title">Operational outputs</h2>
               <p class="stage__meta">Humans · Agents</p>
               <p class="stage__governance">
@@ -176,8 +178,69 @@
                 Access · Compliance
               </p>
             </article>
+              </div>
+              </div>
+            </div>
           </div>
-          </div>
+
+          <nav class="schema-compact" aria-label="Medallion architecture overview">
+            <ol class="schema-compact__steps">
+              <li class="schema-compact__step schema-compact__step--bronze">
+                <span class="schema-compact__marker" aria-hidden="true">
+                  <span class="ore ore--2 schema-compact__ore"></span>
+                </span>
+                <div class="schema-compact__body">
+                  <span class="schema-compact__layer">Bronze Layer</span>
+                  <span class="schema-compact__name">Raw chunks</span>
+                  <span class="schema-compact__meta">Unstructured · Unfiltered</span>
+                  <span class="schema-compact__gov">
+                    <span class="stage__governance-icon" aria-hidden="true"></span>
+                    Catalog · Ingest policy
+                  </span>
+                </div>
+              </li>
+              <li class="schema-compact__step schema-compact__step--silver">
+                <span class="schema-compact__marker" aria-hidden="true"></span>
+                <div class="schema-compact__body">
+                  <span class="schema-compact__layer">Silver Layer</span>
+                  <span class="schema-compact__name">Organised spheres</span>
+                  <span class="schema-compact__meta">Modelled · Standardised</span>
+                  <span class="schema-compact__gov">
+                    <span class="stage__governance-icon" aria-hidden="true"></span>
+                    Quality · Lineage
+                  </span>
+                </div>
+              </li>
+              <li class="schema-compact__step schema-compact__step--gold">
+                <span class="schema-compact__marker" aria-hidden="true"></span>
+                <div class="schema-compact__body">
+                  <span class="schema-compact__layer">Gold Layer</span>
+                  <span class="schema-compact__name">Golden ingots</span>
+                  <span class="schema-compact__meta">Decisions · Intelligence</span>
+                  <span class="schema-compact__gov">
+                    <span class="stage__governance-icon" aria-hidden="true"></span>
+                    Certification · Ownership
+                  </span>
+                </div>
+              </li>
+              <li class="schema-compact__step schema-compact__step--platinum">
+                <span class="schema-compact__marker" aria-hidden="true"></span>
+                <div class="schema-compact__body">
+                  <span class="schema-compact__layer">Platinum Layer</span>
+                  <span class="schema-compact__name">Operational outputs</span>
+                  <span class="schema-compact__meta">Humans · Agents</span>
+                  <div class="schema-compact__outputs">
+                    <span class="schema-compact__output">SSoT &amp; Reporting</span>
+                    <span class="schema-compact__output">AI agents</span>
+                  </div>
+                  <span class="schema-compact__gov">
+                    <span class="stage__governance-icon" aria-hidden="true"></span>
+                    Access · Compliance
+                  </span>
+                </div>
+              </li>
+            </ol>
+          </nav>
         </div>
       </section>
 
