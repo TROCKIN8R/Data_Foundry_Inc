@@ -402,7 +402,7 @@
           <p class="services__tap">Click any card to learn more.</p>
         </header>
 
-        <div class="services__grid services__grid--data">
+        <div class="services__grid services__grid--balanced">
           <a href="services/ingestion.html" class="service-card service-card--bronze">
             <div class="service-card__head">
               <span class="service-card__icon" aria-hidden="true">
@@ -706,7 +706,7 @@
           <p class="services__tap">Click any card to learn more.</p>
         </header>
 
-        <div class="services__grid services__grid--auto">
+        <div class="services__grid services__grid--balanced services__grid--duo">
           <a href="services/automations.html" class="service-card service-card--platinum">
             <div class="service-card__head">
               <span class="service-card__icon" aria-hidden="true">
@@ -738,66 +738,58 @@
           </a>
         </div>
 
-        <div class="auto-examples">
-          <div class="auto-mode-toggle" role="group" aria-label="Business size">
-            <button type="button" class="auto-mode-toggle__btn auto-mode-toggle__btn--active" data-auto-mode="smb" aria-pressed="true">
-              Small Business
-            </button>
-            <button type="button" class="auto-mode-toggle__btn" data-auto-mode="enterprise" aria-pressed="false">
-              Large Enterprise
-            </button>
+        <aside class="auto-scenarios" aria-labelledby="auto-scenarios-heading">
+          <div class="auto-scenarios__bar">
+            <h3 id="auto-scenarios-heading" class="auto-scenarios__title">Example deployments</h3>
+            <div class="auto-mode-toggle" role="group" aria-label="Business size">
+              <button type="button" class="auto-mode-toggle__btn auto-mode-toggle__btn--active" data-auto-mode="smb" aria-pressed="true">
+                Small Business
+              </button>
+              <button type="button" class="auto-mode-toggle__btn" data-auto-mode="enterprise" aria-pressed="false">
+                Large Enterprise
+              </button>
+            </div>
           </div>
 
-        <div class="auto-util-grid">
-          <article class="auto-util-card">
-            <div class="auto-util-card__head">
-              <span class="auto-util-card__icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg>
-              </span>
-              <span class="auto-util-card__order" aria-hidden="true">01</span>
-            </div>
-            <h3 class="auto-util-card__name">Process Logic</h3>
-            <p class="auto-util-card__example" data-auto-text="smb">
-              Automatically generate and send a personalized contract via e-sign immediately following a Calendly booking.
-            </p>
-            <p class="auto-util-card__example" data-auto-text="enterprise">
-              Centralize business rules across multi-departmental systems to ensure uniform data validation before ledger entry.
-            </p>
-          </article>
-
-          <article class="auto-util-card">
-            <div class="auto-util-card__head">
-              <span class="auto-util-card__icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-              </span>
-              <span class="auto-util-card__order" aria-hidden="true">02</span>
-            </div>
-            <h3 class="auto-util-card__name">Automated Alerts</h3>
-            <p class="auto-util-card__example" data-auto-text="smb">
-              Get a real-time Slack/SMS notification for every high-priority lead or failed payment to act instantly.
-            </p>
-            <p class="auto-util-card__example" data-auto-text="enterprise">
-              Automate cross-functional status alerts for production downtime, routing issues directly to the relevant support teams.
-            </p>
-          </article>
-
-          <article class="auto-util-card">
-            <div class="auto-util-card__head">
-              <span class="auto-util-card__icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
-              </span>
-              <span class="auto-util-card__order" aria-hidden="true">03</span>
-            </div>
-            <h3 class="auto-util-card__name">App-to-App Sync</h3>
-            <p class="auto-util-card__example" data-auto-text="smb">
-              Sync your CRM to your accounting software to eliminate manual invoice entry.
-            </p>
-            <p class="auto-util-card__example" data-auto-text="enterprise">
-              Bridge disconnected legacy ERP data with modern cloud-based analytics platforms to ensure a single source of truth.
-            </p>
-          </article>
-        </div>
-        </div>
+          <ol class="auto-scenario-list">
+            <li class="auto-scenario">
+              <span class="auto-scenario__step" aria-hidden="true">01</span>
+              <div class="auto-scenario__body">
+                <span class="auto-scenario__name">Process Logic</span>
+                <p class="auto-scenario__example" data-auto-text="smb">
+                  Automatically generate and send a personalized contract via e-sign immediately following a Calendly booking.
+                </p>
+                <p class="auto-scenario__example" data-auto-text="enterprise">
+                  Centralize business rules across multi-departmental systems to ensure uniform data validation before ledger entry.
+                </p>
+              </div>
+            </li>
+            <li class="auto-scenario">
+              <span class="auto-scenario__step" aria-hidden="true">02</span>
+              <div class="auto-scenario__body">
+                <span class="auto-scenario__name">Automated Alerts</span>
+                <p class="auto-scenario__example" data-auto-text="smb">
+                  Get a real-time Slack/SMS notification for every high-priority lead or failed payment to act instantly.
+                </p>
+                <p class="auto-scenario__example" data-auto-text="enterprise">
+                  Automate cross-functional status alerts for production downtime, routing issues directly to the relevant support teams.
+                </p>
+              </div>
+            </li>
+            <li class="auto-scenario">
+              <span class="auto-scenario__step" aria-hidden="true">03</span>
+              <div class="auto-scenario__body">
+                <span class="auto-scenario__name">App-to-App Sync</span>
+                <p class="auto-scenario__example" data-auto-text="smb">
+                  Sync your CRM to your accounting software to eliminate manual invoice entry.
+                </p>
+                <p class="auto-scenario__example" data-auto-text="enterprise">
+                  Bridge disconnected legacy ERP data with modern cloud-based analytics platforms to ensure a single source of truth.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </aside>
       </section>
 
       <section class="audience" id="auto-audience" data-page-gate data-path-section="automation" aria-labelledby="auto-audience-heading">
