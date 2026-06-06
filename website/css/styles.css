@@ -233,8 +233,16 @@ body.nav-menu-open {
     --nav-opacity: 1;
   }
 
+  /* CTA stays in the flex flow on mobile so it can fade in alongside the nav bg.
+     It is placed in HTML *before* the toggle, so with margin-left: auto on the
+     toggle the layout is always:  [logo][CTA (fades in)][———gap———][☰] */
   .btn--nav {
-    display: none;
+    font-size: 0.72rem;
+    padding: 0 0.7rem;
+    height: 2.25rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-right: 0.35rem;
   }
 
   .nav__links {
@@ -276,9 +284,17 @@ body.nav-menu-open {
     display: none;
   }
 
+  /* Restore visual order: brand(0) → links(2) → CTA(3).
+     The CTA sits before the toggle in HTML (for the mobile layout), so
+     we use order to put it back at the end on desktop. */
   .nav__links {
     display: flex;
     align-items: center;
+    order: 2;
+  }
+
+  .btn--nav {
+    order: 3;
   }
 
   .nav__dropdown-wrap {
