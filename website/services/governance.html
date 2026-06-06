@@ -114,28 +114,50 @@
                 <h2 id="service-vis-heading" class="visually-hidden">Service diagram</h2>
 
 <div class="svc-vis svc-vis--page svc-vis--governance">
-  <div class="svc-vis__compose svc-vis__compose--page">
-    <div class="svc-snippet svc-snippet--primary svc-snippet--lineage">
-      <p class="svc-snippet__label">End-to-end lineage</p>
-      <div class="svc-lineage" aria-hidden="true">
-        <span class="svc-vis__marker svc-vis__marker--bronze"><span class="ore ore--2 schema-compact__ore"></span></span>
-        <span class="svc-lineage__line"></span>
-        <span class="svc-vis__marker svc-vis__marker--silver"></span>
-        <span class="svc-lineage__line"></span>
-        <span class="svc-vis__marker svc-vis__marker--gold"></span>
+  <div class="svc-vis__compose svc-vis__compose--page svc-vis__compose--solo">
+    <div class="svc-snippet svc-snippet--solo svc-snippet--gov-unlock">
+      <p class="svc-snippet__label">Governance through every layer</p>
+      <div class="svc-gov-unlock">
+        <div class="svc-gov-unlock__stack">
+          <div class="svc-gov-unlock__row svc-gov-unlock__row--bronze">
+            <span class="svc-gov-unlock__layer-mark"><span class="ore ore--2 schema-compact__ore"></span></span>
+            <div class="svc-gov-unlock__layer-text">
+              <strong>Bronze</strong>
+              <span>Catalog · ingest policy</span>
+            </div>
+            <span class="svc-gov-unlock__gov-badge" aria-hidden="true"><span class="stage__governance-icon"></span></span>
+          </div>
+          <p class="svc-gov-unlock__bridge">Governed</p>
+          <div class="svc-gov-unlock__row svc-gov-unlock__row--silver">
+            <span class="svc-gov-unlock__layer-mark svc-gov-unlock__layer-mark--sphere" aria-hidden="true"></span>
+            <div class="svc-gov-unlock__layer-text">
+              <strong>Silver</strong>
+              <span>Quality · lineage</span>
+            </div>
+            <span class="svc-gov-unlock__gov-badge" aria-hidden="true"><span class="stage__governance-icon"></span></span>
+          </div>
+          <p class="svc-gov-unlock__bridge">Governed</p>
+          <div class="svc-gov-unlock__row svc-gov-unlock__row--gold">
+            <span class="svc-gov-unlock__layer-mark svc-gov-unlock__layer-mark--ingot" aria-hidden="true"></span>
+            <div class="svc-gov-unlock__layer-text">
+              <strong>Gold</strong>
+              <span>Certified · ownership</span>
+            </div>
+            <span class="svc-gov-unlock__gov-badge" aria-hidden="true"><span class="stage__governance-icon"></span></span>
+          </div>
+        </div>
+        <div class="svc-gov-unlock__value">
+          <strong>Value unlocked</strong>
+          <span>Trusted metrics · governed decisions</span>
+        </div>
       </div>
-      <p class="svc-lineage__caption">Source → Model → Report</p>
     </div>
     <span class="svc-vis__float svc-vis__float--shield svc-vis__float--a" aria-hidden="true"><span class="stage__governance-icon"></span></span>
-    <span class="svc-vis__float svc-vis__float--ingot svc-vis__float--c" aria-hidden="true"></span>
-    <div class="svc-snippet svc-snippet--secondary svc-snippet--quality">
-      <p class="svc-snippet__label">Quality gates</p>
-      <ul class="svc-quality__list">
-        <li>Data contracts</li>
-        <li>Automated checks</li>
-        <li>Named stewards</li>
-      </ul>
-    </div>
+    <span class="svc-vis__float svc-vis__float--shield svc-vis__float--b" aria-hidden="true"><span class="stage__governance-icon"></span></span>
+    <span class="svc-vis__float svc-vis__float--shield svc-vis__float--c" aria-hidden="true"><span class="stage__governance-icon"></span></span>
+    <span class="svc-vis__float svc-vis__float--shield svc-vis__float--d" aria-hidden="true"><span class="stage__governance-icon"></span></span>
+    <span class="svc-vis__float svc-vis__float--shield svc-vis__float--e" aria-hidden="true"><span class="stage__governance-icon"></span></span>
+    <span class="svc-vis__float svc-vis__float--shield svc-vis__float--f" aria-hidden="true"><span class="stage__governance-icon"></span></span>
   </div>
 </div>
               </figure>
