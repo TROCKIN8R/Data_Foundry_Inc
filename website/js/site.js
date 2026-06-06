@@ -35,6 +35,7 @@
     }
     nav.style.setProperty('--nav-opacity', progress);
     nav.classList.toggle('nav--ready', progress > 0.05);
+    nav.classList.toggle('nav--scrolled', progress >= 1);
   }
 
   window.addEventListener('scroll', updateNav, { passive: true });
@@ -61,7 +62,22 @@
   });
 
   menu.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', function () {
+    link.addEventListener('click', function (event) {
+      var href = link.getAttribute('href');
+      if (href && href.charAt(0) === '#') {
+        event.preventDefault();
+        setMenuOpen(false);
+        var target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'auto', block: 'start' });
+        }
+        if (history.pushState) {
+          history.pushState(null, '', href);
+        } else {
+          location.hash = href;
+        }
+        return;
+      }
       setMenuOpen(false);
     });
   });

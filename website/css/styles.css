@@ -218,24 +218,55 @@ a:hover {
   transform: translateY(-0.45rem) rotate(-45deg);
 }
 
-.btn--nav-mobile {
-  display: inline-flex;
-  margin-top: 0.75rem;
-  width: fit-content;
-}
-
 body.nav-menu-open {
   overflow: hidden;
 }
 
 @media (max-width: 959px) {
-  .nav--open {
-    --nav-opacity: 1;
+  .nav__inner {
+    justify-content: flex-start;
   }
 
-  /* CTA stays in the flex flow on mobile so it can fade in alongside the nav bg.
-     It is placed in HTML *before* the toggle, so with margin-left: auto on the
-     toggle the layout is always:  [logo][CTA (fades in)][———gap———][☰] */
+  .nav__brand {
+    order: 1;
+    flex-shrink: 0;
+  }
+
+  .btn--nav {
+    order: 2;
+  }
+
+  .nav__toggle {
+    order: 3;
+    margin-left: auto;
+  }
+
+  .nav--open {
+    --nav-opacity: 1;
+    background: rgba(11, 12, 8, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom-color: rgba(244, 239, 230, 0.1);
+  }
+
+  /* Keep logo and menu button above the full-screen menu overlay */
+  .nav__inner > .nav__brand,
+  .nav__inner > .nav__toggle {
+    position: relative;
+    z-index: 101;
+  }
+
+  .nav--open .nav__toggle {
+    background: rgba(244, 239, 230, 0.08);
+    border-color: rgba(244, 239, 230, 0.3);
+  }
+
+  /* Hide header CTA when mobile menu is open — the menu already has its own CTA */
+  .nav--open .btn--nav {
+    display: none;
+  }
+
+  /* Compact CTA for mobile header — visible once scrolling starts (see .nav--ready) */
   .btn--nav {
     font-size: 0.72rem;
     padding: 0 0.7rem;
@@ -247,20 +278,25 @@ body.nav-menu-open {
 
   .nav__links {
     position: fixed;
-    top: var(--nav-height);
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     z-index: 99;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 0;
-    padding: 1.25rem 1.5rem 2rem;
+    width: 100%;
+    min-height: 100dvh;
+    padding:
+      calc(var(--nav-height) + 0.75rem)
+      1.5rem
+      calc(1.5rem + env(safe-area-inset-bottom, 0px));
     background: rgba(11, 12, 8, 0.97);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-top: 1px solid rgba(244, 239, 230, 0.08);
+    backdrop-filter: blur(20px) saturate(1.05);
+    -webkit-backdrop-filter: blur(20px) saturate(1.05);
+    box-shadow: inset 0 1px 0 rgba(244, 239, 230, 0.06);
+    overflow-x: hidden;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    scroll-behavior: auto;
   }
 
   .nav--open .nav__links {
@@ -269,32 +305,82 @@ body.nav-menu-open {
 
   .nav__links a:not(.btn--nav-mobile):not(.nav__dropdown-item) {
     width: 100%;
-    padding: 0.95rem 0;
+    padding: 0.8rem 0;
     font-size: 1rem;
     border-bottom: 1px solid rgba(244, 239, 230, 0.06);
   }
 
-  .nav__links a:not(.btn--nav-mobile):not(.nav__dropdown-item):last-of-type {
-    border-bottom: none;
+  .btn.btn--nav-mobile {
+    display: inline-flex;
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+
+  /* Phone menu: no hover transitions or visual changes on touch */
+  .nav__links a,
+  .nav__links .nav__link,
+  .nav__links .nav__dropdown-item,
+  .nav__links .btn.btn--nav-mobile {
+    transition: none;
+  }
+
+  .nav__links a:hover,
+  .nav__links .nav__link:hover {
+    color: var(--color-muted);
+  }
+
+  .nav__links .nav__dropdown-item:hover {
+    background: transparent;
+  }
+
+  .nav__links .nav__dropdown-item--bronze:hover { border-left-color: rgba(169, 99, 46, 0.45); }
+  .nav__links .nav__dropdown-item--silver:hover { border-left-color: rgba(179, 183, 188, 0.4); }
+  .nav__links .nav__dropdown-item--gold:hover { border-left-color: rgba(239, 179, 58, 0.45); }
+  .nav__links .nav__dropdown-item--governance:hover { border-left-color: rgba(239, 179, 58, 0.35); }
+  .nav__links .nav__dropdown-item--platinum:hover { border-left-color: rgba(180, 207, 227, 0.45); }
+
+  .nav__links .btn.btn--nav-mobile:hover {
+    color: var(--color-bg);
+    filter: none;
+    transform: none;
   }
 }
 
 @media (min-width: 960px) {
+  .nav__inner {
+    position: relative;
+  }
+
   .nav__toggle {
     display: none;
   }
 
-  /* Restore visual order: brand(0) → links(2) → CTA(3).
-     The CTA sits before the toggle in HTML (for the mobile layout), so
-     we use order to put it back at the end on desktop. */
+  /* Hero: logo left, menu centered; CTA appears on the right when scrolled */
+  .nav__brand {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+  }
+
   .nav__links {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     display: flex;
     align-items: center;
-    order: 2;
+    transform: translate(-50%, -50%);
+    z-index: 1;
   }
 
   .btn--nav {
-    order: 3;
+    margin-left: auto;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
   }
 
   .nav__dropdown-wrap {
@@ -302,7 +388,8 @@ body.nav-menu-open {
     align-items: center;
   }
 
-  .btn--nav-mobile {
+  /* Hide phone-menu CTA on desktop — beats .btn { display: inline-flex } */
+  .btn.btn--nav-mobile {
     display: none;
   }
 }
@@ -436,20 +523,14 @@ body.nav-menu-open {
 }
 
 @media (max-width: 959px) {
-  .nav__dropdown-item:hover,
   .nav__dropdown-item--active {
     background: rgba(244, 239, 230, 0.04);
   }
 
-  .nav__dropdown-item--bronze:hover,
   .nav__dropdown-item--bronze.nav__dropdown-item--active { border-left-color: var(--color-bronze); }
-  .nav__dropdown-item--silver:hover,
   .nav__dropdown-item--silver.nav__dropdown-item--active { border-left-color: var(--color-silver-light); }
-  .nav__dropdown-item--gold:hover,
   .nav__dropdown-item--gold.nav__dropdown-item--active { border-left-color: var(--color-gold-light); }
-  .nav__dropdown-item--governance:hover,
   .nav__dropdown-item--governance.nav__dropdown-item--active { border-left-color: var(--color-gold-light); }
-  .nav__dropdown-item--platinum:hover,
   .nav__dropdown-item--platinum.nav__dropdown-item--active { border-left-color: var(--color-platinum-light); }
 }
 
@@ -490,13 +571,20 @@ body.nav-menu-open {
   .nav__dropdown-wrap > .nav__link {
     display: block;
     width: 100%;
-    padding: 0.95rem 0;
+    padding: 0.8rem 0;
+  }
+
+  /* Cancel desktop hover/focus dropdown positioning — it shifts the list on touch */
+  .nav__dropdown-wrap:hover .nav__dropdown,
+  .nav__dropdown-wrap:focus-within .nav__dropdown {
+    transform: none;
+    transition: none;
   }
 
   .nav__dropdown {
     position: static;
     width: 100%;
-    padding: 0 0 0.85rem;
+    padding: 0 0 0.5rem;
     background: transparent;
     border: 0;
     border-radius: 0;
@@ -505,6 +593,7 @@ body.nav-menu-open {
     visibility: visible;
     pointer-events: auto;
     transform: none;
+    transition: none;
   }
 
   .nav__dropdown::before {
@@ -512,10 +601,48 @@ body.nav-menu-open {
   }
 
   .nav__dropdown-item {
-    padding: 0.65rem 0 0.65rem 0.75rem;
+    padding: 0.55rem 0 0.55rem 0.75rem;
     border-left-width: 2px;
     border-left-style: solid;
     border-radius: 0;
+    transition: none;
+  }
+
+  .nav__dropdown-item:hover,
+  .nav__dropdown-item:active {
+    background: transparent;
+    transform: none;
+  }
+
+  .nav__dropdown-item--bronze:hover,
+  .nav__dropdown-item--bronze:active { border-left-color: rgba(169, 99, 46, 0.45); }
+  .nav__dropdown-item--silver:hover,
+  .nav__dropdown-item--silver:active { border-left-color: rgba(179, 183, 188, 0.4); }
+  .nav__dropdown-item--gold:hover,
+  .nav__dropdown-item--gold:active { border-left-color: rgba(239, 179, 58, 0.45); }
+  .nav__dropdown-item--governance:hover,
+  .nav__dropdown-item--governance:active { border-left-color: rgba(239, 179, 58, 0.35); }
+  .nav__dropdown-item--platinum:hover,
+  .nav__dropdown-item--platinum:active { border-left-color: rgba(180, 207, 227, 0.45); }
+
+  .nav__dropdown-item:hover .nav__dropdown-icon,
+  .nav__dropdown-item:active .nav__dropdown-icon {
+    background: rgba(244, 239, 230, 0.04);
+    border-color: rgba(244, 239, 230, 0.08);
+  }
+
+  .nav__dropdown-wrap > .nav__link:hover,
+  .nav__dropdown-wrap > .nav__link:active {
+    color: var(--color-muted);
+  }
+
+  .nav__dropdown-name {
+    font-size: 0.9rem;
+  }
+
+  .nav__dropdown-desc {
+    font-size: 0.72rem;
+    line-height: 1.4;
   }
 
   .nav__dropdown-item--bronze { border-left-color: rgba(169, 99, 46, 0.45); }
@@ -525,14 +652,19 @@ body.nav-menu-open {
   .nav__dropdown-item--platinum { border-left-color: rgba(180, 207, 227, 0.45); }
 }
 
-.btn--nav {
-  flex-shrink: 0;
-  opacity: var(--nav-opacity);
-  transition: opacity 0.15s ease;
+/* CTA hidden in the hero; appears as soon as the user starts scrolling */
+.nav:not(.nav--ready) .btn--nav {
+  display: none;
 }
 
-.nav:not(.nav--ready) .btn--nav {
-  pointer-events: none;
+.nav--ready:not(.nav--open) .btn--nav {
+  display: inline-flex;
+  opacity: 1;
+  transform: none;
+}
+
+.btn--nav {
+  flex-shrink: 0;
 }
 
 .btn {

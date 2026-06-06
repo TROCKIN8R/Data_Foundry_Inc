@@ -523,17 +523,6 @@ function renderPage(service) {
             <span class="nav__inc">Inc.</span>
           </span>
         </a>
-        <button
-          class="nav__toggle"
-          type="button"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="nav-menu"
-        >
-          <span class="nav__toggle-bar" aria-hidden="true"></span>
-          <span class="nav__toggle-bar" aria-hidden="true"></span>
-          <span class="nav__toggle-bar" aria-hidden="true"></span>
-        </button>
         <nav class="nav__links" id="nav-menu" aria-label="Primary">
           <a href="../index.html#schema">Vision</a>
           <div class="nav__dropdown-wrap">
@@ -545,8 +534,20 @@ ${navDropdownItems('', service.slug)}
           <a href="../index.html#audience">Who we work with</a>
           <a href="../index.html#founder">About Us</a>
           <a href="../index.html#faq">FAQ</a>
+          <a class="btn btn--nav-mobile booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
         </nav>
         <a class="btn btn--nav booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+        <button
+          class="nav__toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="nav-menu"
+        >
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+          <span class="nav__toggle-bar" aria-hidden="true"></span>
+        </button>
       </div>
     </header>
 
