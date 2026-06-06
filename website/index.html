@@ -84,8 +84,7 @@
           <a href="#schema" data-nav-data="#schema" data-nav-automation="#auto-vision">Vision</a>
           <div class="nav__dropdown-wrap">
             <a href="#services" class="nav__link" data-nav-data="#services" data-nav-automation="#auto-services">Services</a>
-            <div class="nav__dropdown" role="menu" aria-label="Services menu">
-              <p class="nav__dropdown-group" role="presentation">Data</p>
+            <div class="nav__dropdown nav__dropdown--matrix" role="menu" aria-label="Services menu">
               <a href="services/ingestion.html" class="nav__dropdown-item nav__dropdown-item--bronze" role="menuitem">
                 <span class="nav__dropdown-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
@@ -102,6 +101,15 @@
                 <span class="nav__dropdown-copy">
                   <span class="nav__dropdown-name">Transformation &amp; Modeling</span>
                   <span class="nav__dropdown-desc">One model, one version of the truth.</span>
+                </span>
+              </a>
+              <a href="services/automations.html" class="nav__dropdown-item nav__dropdown-item--platinum" role="menuitem">
+                <span class="nav__dropdown-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg>
+                </span>
+                <span class="nav__dropdown-copy">
+                  <span class="nav__dropdown-name">Automations</span>
+                  <span class="nav__dropdown-desc">Set-and-forget pipelines across your apps.</span>
                 </span>
               </a>
               <a href="services/reporting.html" class="nav__dropdown-item nav__dropdown-item--gold" role="menuitem">
@@ -122,14 +130,13 @@
                   <span class="nav__dropdown-desc">Lineage, quality, and ownership built in.</span>
                 </span>
               </a>
-              <p class="nav__dropdown-group" role="presentation">Automations</p>
-              <a href="services/agents.html" class="nav__dropdown-item nav__dropdown-item--platinum" role="menuitem">
+              <a href="services/ai-agents.html" class="nav__dropdown-item nav__dropdown-item--platinum" role="menuitem">
                 <span class="nav__dropdown-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
                 </span>
                 <span class="nav__dropdown-copy">
-                  <span class="nav__dropdown-name">Agents &amp; Automations</span>
-                  <span class="nav__dropdown-desc">Workflows and AI agents that keep running after handoff.</span>
+                  <span class="nav__dropdown-name">AI Agents</span>
+                  <span class="nav__dropdown-desc">Grounded AI for documents and unstructured inputs.</span>
                 </span>
               </a>
             </div>
@@ -390,15 +397,12 @@
             Full stack, one specialist
           </h2>
           <p class="services__intro">
-            Bronze through gold with governance at every layer — plus automations when your data is ready to act.
+            Bronze through gold with governance at every layer.
           </p>
           <p class="services__tap">Click any card to learn more.</p>
         </header>
 
-        <div class="services__groups">
-          <div class="services__group">
-            <h3 class="services__group-title">Data</h3>
-            <div class="services__grid">
+        <div class="services__grid services__grid--data">
           <a href="services/ingestion.html" class="service-card service-card--bronze">
             <div class="service-card__head">
               <span class="service-card__icon" aria-hidden="true">
@@ -466,30 +470,6 @@
               <span class="service-card__arrow" aria-hidden="true">→</span>
             </span>
           </a>
-            </div>
-          </div>
-
-          <div class="services__group">
-            <h3 class="services__group-title">Automations</h3>
-            <div class="services__grid services__grid--solo">
-          <a href="services/agents.html" class="service-card service-card--platinum">
-            <div class="service-card__head">
-              <span class="service-card__icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/>
-                </svg>
-              </span>
-              <span class="service-card__layer">Platinum</span>
-            </div>
-            <span class="service-card__name">Agents &amp; Automations</span>
-            <span class="service-card__tagline">Workflows and AI agents that keep running after handoff.</span>
-            <span class="service-card__footer">
-              <span class="service-card__hint">Learn more</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
-          </a>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -723,6 +703,42 @@
             Zapier, Power Automate, and webhook flows — built to handle incomplete fields, duplicate records, and schema drift.
           </p>
 
+          <p class="services__tap">Click any card to learn more.</p>
+        </header>
+
+        <div class="services__grid services__grid--auto">
+          <a href="services/automations.html" class="service-card service-card--platinum">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg>
+              </span>
+              <span class="service-card__layer">Platinum</span>
+            </div>
+            <span class="service-card__name">Automations</span>
+            <span class="service-card__tagline">Set-and-forget pipelines across your apps.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">Learn more</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <a href="services/ai-agents.html" class="service-card service-card--platinum">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
+              </span>
+              <span class="service-card__layer">Platinum</span>
+            </div>
+            <span class="service-card__name">AI Agents</span>
+            <span class="service-card__tagline">Grounded AI for documents and unstructured inputs.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">Learn more</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="auto-examples">
           <div class="auto-mode-toggle" role="group" aria-label="Business size">
             <button type="button" class="auto-mode-toggle__btn auto-mode-toggle__btn--active" data-auto-mode="smb" aria-pressed="true">
               Small Business
@@ -731,7 +747,6 @@
               Large Enterprise
             </button>
           </div>
-        </header>
 
         <div class="auto-util-grid">
           <article class="auto-util-card">
@@ -782,14 +797,7 @@
             </p>
           </article>
         </div>
-
-        <aside class="auto-ai-note" aria-labelledby="auto-ai-heading">
-          <h3 id="auto-ai-heading" class="auto-ai-note__title">AI agents — when the task fits</h3>
-          <ul class="auto-ai-note__list">
-            <li>Extract line items from invoice photos and post structured records to your accounting system.</li>
-            <li>Answer employee questions from internal documentation — responses cite source pages, not guesses.</li>
-          </ul>
-        </aside>
+        </div>
       </section>
 
       <section class="audience" id="auto-audience" data-page-gate data-path-section="automation" aria-labelledby="auto-audience-heading">

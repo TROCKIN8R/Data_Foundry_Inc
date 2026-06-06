@@ -202,41 +202,80 @@ const services = [
     ],
   },
   {
-    slug: 'agents',
+    slug: 'automations',
     group: 'automations',
     theme: 'platinum',
     layer: 'Platinum',
-    title: 'Agents & Automations',
-    tagline: 'Workflows and AI agents that keep running after handoff.',
+    title: 'Automations',
+    tagline: 'Set-and-forget pipelines across your apps.',
     description:
-      'Power Automate, Fabric Data Activator, and AI agents on governed gold-layer data in Fabric and BigQuery.',
+      'Zapier, Power Automate, and webhook flows — built to handle incomplete fields, duplicate records, and schema drift.',
     icon:
-      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>',
+      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg>',
     overview:
-      'Platinum is where data leaves the warehouse and drives action — alerts, workflows, and AI agents grounded in your certified gold layer. We build on Fabric Data Activator, Power Automate, Azure Logic Apps, and BigQuery scheduled queries so automations stay maintainable long after handoff.',
+      'Event-driven workflows that replace manual handoffs — triggers, branching logic, and outbound delivery wired through Zapier, Power Automate, or custom webhooks. Every flow includes error handling, retry logic, and field mapping tested against real edge cases before handoff.',
     tools: [
-      'Fabric Data Activator',
+      'Zapier',
       'Power Automate',
       'Azure Logic Apps',
-      'Copilot Studio (optional)',
+      'Custom webhooks',
       'BigQuery scheduled queries',
     ],
     bullets: [
-      'Threshold and anomaly triggers on gold KPIs — notify Slack, Teams, or email when metrics move outside bounds',
-      'Power Automate flows that create tickets, update CRM records, or kick off Fabric pipeline reruns',
-      'AI agents with retrieval grounded in governed semantic models — no hallucinated metrics from stale exports',
-      'Runbooks, monitoring, and ownership docs so your team operates automations without us on retainer',
+      'Process logic with branching, dead-letter queues, and logged failures',
+      'Real-time Slack, Teams, or SMS alerts on high-priority business events',
+      'App-to-app sync between CRM, accounting, and operational systems',
+      'Defensive transforms for nulls, duplicates, and API rate limits',
+      'Documented runbooks with ownership and monitoring hooks after handoff',
     ],
     mockups: [
       {
-        caption: 'Automation flow — KPI threshold to Teams alert',
+        caption: 'Automation flow — webhook trigger to Teams alert',
         kind: 'automation',
-        steps: ['Gold KPI', 'Data Activator', 'Power Automate', 'Teams'],
+        steps: ['Webhook', 'Process logic', 'Power Automate', 'Teams'],
       },
       {
-        caption: 'Agent context — certified measures available to Copilot',
+        caption: 'CRM-to-accounting sync — field mapping',
+        kind: 'pipeline',
+        labels: ['CRM', 'Transform', 'Accounting', 'Audit log'],
+      },
+    ],
+  },
+  {
+    slug: 'ai-agents',
+    group: 'automations',
+    theme: 'platinum',
+    layer: 'Platinum',
+    title: 'AI Agents',
+    tagline: 'Grounded AI for documents and unstructured inputs.',
+    description:
+      'AI agents for invoice extraction and internal documentation Q&A — responses grounded in your sources, not guesses.',
+    icon:
+      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>',
+    overview:
+      'AI agents deployed only where unstructured input or natural-language access adds clear value — invoice photos to structured records, employee questions answered from internal docs. Retrieval is scoped to approved sources with cited responses and access controls.',
+    tools: [
+      'Copilot Studio',
+      'Azure OpenAI',
+      'Power Automate AI Builder',
+      'SharePoint / document retrieval',
+    ],
+    bullets: [
+      'Extract line items from invoice photos and post structured records to accounting systems',
+      'Answer employee questions from internal documentation — responses cite source pages',
+      'Agents grounded in governed data and approved document sets — no open-web guessing',
+      'Guardrails, access controls, and audit logging on every interaction',
+    ],
+    mockups: [
+      {
+        caption: 'Invoice capture — photo to structured line items',
+        kind: 'pipeline',
+        labels: ['Photo upload', 'OCR + extract', 'Validate', 'ERP post'],
+      },
+      {
+        caption: 'Internal Q&A — answers cite documentation sources',
         kind: 'report',
-        title: 'Ops copilot — governed answers',
+        title: 'Policy &amp; ops assistant',
       },
     ],
   },
@@ -453,24 +492,27 @@ function navDropdownItem(prefix, service, activeSlug) {
   );
 }
 
-function navDropdownItems(prefix, activeSlug) {
-  var dataGroup = services.filter(function (service) {
-    return service.group === 'data';
+function serviceBySlug(slug) {
+  return services.find(function (service) {
+    return service.slug === slug;
   });
-  var autoGroup = services.filter(function (service) {
-    return service.group === 'automations';
-  });
+}
 
-  return (
-    '            <p class="nav__dropdown-group" role="presentation">Data</p>\n' +
-    dataGroup.map(function (service) {
-      return navDropdownItem(prefix, service, activeSlug);
-    }).join('\n') +
-    '\n            <p class="nav__dropdown-group" role="presentation">Automations</p>\n' +
-    autoGroup.map(function (service) {
-      return navDropdownItem(prefix, service, activeSlug);
-    }).join('\n')
-  );
+function navDropdownItems(prefix, activeSlug) {
+  var matrixOrder = [
+    'ingestion',
+    'modeling',
+    'automations',
+    'reporting',
+    'governance',
+    'ai-agents',
+  ];
+
+  return matrixOrder
+    .map(function (slug) {
+      return navDropdownItem(prefix, serviceBySlug(slug), activeSlug);
+    })
+    .join('\n');
 }
 
 function renderPage(service) {
@@ -526,7 +568,7 @@ function renderPage(service) {
           <a href="../index.html#schema">Vision</a>
           <div class="nav__dropdown-wrap">
             <a href="../index.html#services" class="nav__link">Services</a>
-            <div class="nav__dropdown" role="menu" aria-label="Services menu">
+            <div class="nav__dropdown nav__dropdown--matrix" role="menu" aria-label="Services menu">
 ${navDropdownItems('', service.slug)}
             </div>
           </div>
