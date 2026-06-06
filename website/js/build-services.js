@@ -5,6 +5,7 @@ const path = require('path');
 const services = [
   {
     slug: 'ingestion',
+    group: 'data',
     theme: 'bronze',
     layer: 'Bronze',
     title: 'Data Ingestion & Pipelines',
@@ -49,6 +50,7 @@ const services = [
   },
   {
     slug: 'modeling',
+    group: 'data',
     theme: 'silver',
     layer: 'Silver',
     title: 'Transformation & Modeling',
@@ -95,21 +97,24 @@ const services = [
   },
   {
     slug: 'reporting',
+    group: 'data',
     theme: 'gold',
     layer: 'Gold',
     title: 'Reporting & Analytics',
-    tagline: 'Dashboards executives trust.',
+    tagline: 'Dashboards and self-service on governed gold data.',
     description:
-      'Power BI dashboards on Fabric semantic models and BigQuery gold tables — board-ready KPIs on a certified single source of truth.',
+      'Executive Power BI dashboards and governed self-service on Fabric semantic models and BigQuery — one certified source of truth.',
     icon:
       '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16v-5"/><path d="M12 16V8"/><path d="M17 16v-3"/></svg>',
     overview:
-      'Gold-layer reporting means one number everywhere — revenue, margin, and pipeline defined once in DAX or BigQuery views, then surfaced in Power BI dashboards your leadership team actually opens. We build on Direct Lake, DirectQuery, or import models depending on freshness and scale needs.',
+      'Gold-layer reporting means one number everywhere — revenue, margin, and pipeline defined once in DAX or BigQuery views, then surfaced in Power BI dashboards your leadership team actually opens. The same certified semantic models power self-service: business users explore in Power BI or Excel live connections without shadow copies or stale exports. We build on Direct Lake, DirectQuery, or import models depending on freshness and scale needs.',
     tools: [
       'Power BI',
       'Fabric semantic models',
       'DAX & Power Query',
-      'BigQuery authorized views',
+      'Excel Analyze in Excel',
+      'BigQuery authorized views & Connected Sheets',
+      'Microsoft Purview endorsements',
       'Paginated reports (optional)',
     ],
     bullets: [
@@ -117,6 +122,10 @@ const services = [
       'Reusable report templates, themes, and measure libraries so new pages stay on-brand and consistent',
       'Self-documenting DAX with descriptions, display folders, and dependency mapping for handoff',
       'Row-level security aligned to Azure AD groups or BigQuery authorized views for multi-tenant reporting',
+      'Certified datasets with clear grain, filter context, and field descriptions — authors know what each column means',
+      'Excel live connections to Fabric semantic models; BigQuery views for Google-native teams',
+      'Workspace roles, build permissions, and golden dataset promotion workflows to prevent shadow IT',
+      'Office hours and short enablement guides so self-service adoption sticks after launch',
     ],
     mockups: [
       {
@@ -135,34 +144,6 @@ const services = [
           ['owner', 'STRING', ''],
         ],
       },
-    ],
-  },
-  {
-    slug: 'self-service-bi',
-    theme: 'gold',
-    layer: 'Gold',
-    title: 'Self-service BI',
-    tagline: 'Self-serve from governed data — no shadow copies.',
-    description:
-      'Governed self-service in Power BI and Excel connected to Fabric semantic models or BigQuery — no shadow copies or stale exports.',
-    icon:
-      '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>',
-    overview:
-      'Business users need answers today — not a ticket to IT. We expose governed gold data through Fabric semantic models (Excel and Power BI Analyze in Excel), BigQuery connected sheets, and curated dataset endorsements so self-serve stays inside guardrails.',
-    tools: [
-      'Power BI workspaces',
-      'Fabric semantic models',
-      'Excel Analyze in Excel',
-      'BigQuery + Connected Sheets',
-      'Microsoft Purview endorsements',
-    ],
-    bullets: [
-      'Certified datasets with clear grain, filter context, and field descriptions — authors know what each column means',
-      'Excel live connections to Fabric semantic models; BigQuery views for Google-native teams',
-      'Workspace roles, build permissions, and golden dataset promotion workflows to prevent shadow IT',
-      'Office hours and short enablement guides so adoption sticks after launch',
-    ],
-    mockups: [
       {
         caption: 'Certified semantic model — fields exposed to business users',
         kind: 'semantic',
@@ -177,6 +158,7 @@ const services = [
   },
   {
     slug: 'governance',
+    group: 'data',
     theme: 'governance',
     layer: 'Every layer',
     title: 'Governance & Quality',
@@ -221,6 +203,7 @@ const services = [
   },
   {
     slug: 'agents',
+    group: 'automations',
     theme: 'platinum',
     layer: 'Platinum',
     title: 'Agents & Automations',
@@ -445,33 +428,49 @@ function mockupHtml(mockup) {
   );
 }
 
+function navDropdownItem(prefix, service, activeSlug) {
+  var active = service.slug === activeSlug ? ' nav__dropdown-item--active' : '';
+  return (
+    '            <a href="' +
+    prefix +
+    service.slug +
+    '.html" class="nav__dropdown-item nav__dropdown-item--' +
+    service.theme +
+    active +
+    '" role="menuitem">\n' +
+    '              <span class="nav__dropdown-icon" aria-hidden="true">' +
+    service.icon +
+    '</span>\n' +
+    '              <span class="nav__dropdown-copy">\n' +
+    '                <span class="nav__dropdown-name">' +
+    service.title +
+    '</span>\n' +
+    '                <span class="nav__dropdown-desc">' +
+    service.tagline +
+    '</span>\n' +
+    '              </span>\n' +
+    '            </a>'
+  );
+}
+
 function navDropdownItems(prefix, activeSlug) {
-  return services
-    .map(function (service) {
-      var active = service.slug === activeSlug ? ' nav__dropdown-item--active' : '';
-      return (
-        '            <a href="' +
-        prefix +
-        service.slug +
-        '.html" class="nav__dropdown-item nav__dropdown-item--' +
-        service.theme +
-        active +
-        '" role="menuitem">\n' +
-        '              <span class="nav__dropdown-icon" aria-hidden="true">' +
-        service.icon +
-        '</span>\n' +
-        '              <span class="nav__dropdown-copy">\n' +
-        '                <span class="nav__dropdown-name">' +
-        service.title +
-        '</span>\n' +
-        '                <span class="nav__dropdown-desc">' +
-        service.tagline +
-        '</span>\n' +
-        '              </span>\n' +
-        '            </a>'
-      );
-    })
-    .join('\n');
+  var dataGroup = services.filter(function (service) {
+    return service.group === 'data';
+  });
+  var autoGroup = services.filter(function (service) {
+    return service.group === 'automations';
+  });
+
+  return (
+    '            <p class="nav__dropdown-group" role="presentation">Data</p>\n' +
+    dataGroup.map(function (service) {
+      return navDropdownItem(prefix, service, activeSlug);
+    }).join('\n') +
+    '\n            <p class="nav__dropdown-group" role="presentation">Automations</p>\n' +
+    autoGroup.map(function (service) {
+      return navDropdownItem(prefix, service, activeSlug);
+    }).join('\n')
+  );
 }
 
 function renderPage(service) {

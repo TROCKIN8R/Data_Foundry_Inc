@@ -88,3 +88,46 @@
     }
   });
 })();
+
+(function () {
+  var section = document.getElementById('auto-services');
+  if (!section) {
+    return;
+  }
+
+  var buttons = section.querySelectorAll('.auto-mode-toggle__btn');
+  var storageKey = 'df-auto-mode';
+
+  function setMode(mode) {
+    if (mode !== 'smb' && mode !== 'enterprise') {
+      mode = 'smb';
+    }
+    section.setAttribute('data-auto-mode', mode);
+    buttons.forEach(function (btn) {
+      var active = btn.getAttribute('data-auto-mode') === mode;
+      btn.classList.toggle('auto-mode-toggle__btn--active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    try {
+      sessionStorage.setItem(storageKey, mode);
+    } catch (e) {
+      /* ignore */
+    }
+  }
+
+  var storedMode = null;
+  try {
+    storedMode = sessionStorage.getItem(storageKey);
+  } catch (e) {
+    /* ignore */
+  }
+  if (storedMode === 'smb' || storedMode === 'enterprise') {
+    setMode(storedMode);
+  }
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      setMode(btn.getAttribute('data-auto-mode'));
+    });
+  });
+})();

@@ -85,6 +85,7 @@
           <div class="nav__dropdown-wrap">
             <a href="#services" class="nav__link" data-nav-data="#services" data-nav-automation="#auto-services">Services</a>
             <div class="nav__dropdown" role="menu" aria-label="Services menu">
+              <p class="nav__dropdown-group" role="presentation">Data</p>
               <a href="services/ingestion.html" class="nav__dropdown-item nav__dropdown-item--bronze" role="menuitem">
                 <span class="nav__dropdown-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
@@ -109,16 +110,7 @@
                 </span>
                 <span class="nav__dropdown-copy">
                   <span class="nav__dropdown-name">Reporting &amp; Analytics</span>
-                  <span class="nav__dropdown-desc">Dashboards executives trust.</span>
-                </span>
-              </a>
-              <a href="services/self-service-bi.html" class="nav__dropdown-item nav__dropdown-item--gold" role="menuitem">
-                <span class="nav__dropdown-icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
-                </span>
-                <span class="nav__dropdown-copy">
-                  <span class="nav__dropdown-name">Self-service BI</span>
-                  <span class="nav__dropdown-desc">Self-serve from governed data — no shadow copies.</span>
+                  <span class="nav__dropdown-desc">Dashboards and self-service on governed gold data.</span>
                 </span>
               </a>
               <a href="services/governance.html" class="nav__dropdown-item nav__dropdown-item--governance" role="menuitem">
@@ -130,6 +122,7 @@
                   <span class="nav__dropdown-desc">Lineage, quality, and ownership built in.</span>
                 </span>
               </a>
+              <p class="nav__dropdown-group" role="presentation">Automations</p>
               <a href="services/agents.html" class="nav__dropdown-item nav__dropdown-item--platinum" role="menuitem">
                 <span class="nav__dropdown-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
@@ -183,10 +176,10 @@
 
           <div class="hero__path hero__path--automation" data-path="automation">
             <h1 id="hero-heading-automation" class="hero__path-heading">
-              Boring tasks<br />
-              <span class="hero__platinum">made invisible.</span>
+              Manual handoffs<br />
+              <span class="hero__platinum">replaced by pipelines.</span>
             </h1>
-            <p class="hero__path-sub">Set it once. Let your data do the rest.</p>
+            <p class="hero__path-sub">Zapier, Power Automate, and webhooks — configured once, resilient to messy inputs.</p>
             <div class="hero__path-cta">
               <button type="button" class="btn btn--path btn--path-automation" data-path-cta="automation">
                 Explore automations
@@ -397,12 +390,15 @@
             Full stack, one specialist
           </h2>
           <p class="services__intro">
-            Bronze to platinum — ingestion through agents, with governance at every layer.
+            Bronze through gold with governance at every layer — plus automations when your data is ready to act.
           </p>
           <p class="services__tap">Click any card to learn more.</p>
         </header>
 
-        <div class="services__grid">
+        <div class="services__groups">
+          <div class="services__group">
+            <h3 class="services__group-title">Data</h3>
+            <div class="services__grid">
           <a href="services/ingestion.html" class="service-card service-card--bronze">
             <div class="service-card__head">
               <span class="service-card__icon" aria-hidden="true">
@@ -447,24 +443,7 @@
               <span class="service-card__layer">Gold</span>
             </div>
             <span class="service-card__name">Reporting &amp; Analytics</span>
-            <span class="service-card__tagline">Dashboards executives trust.</span>
-            <span class="service-card__footer">
-              <span class="service-card__hint">Learn more</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
-          </a>
-
-          <a href="services/self-service-bi.html" class="service-card service-card--gold">
-            <div class="service-card__head">
-              <span class="service-card__icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/>
-                </svg>
-              </span>
-              <span class="service-card__layer">Gold</span>
-            </div>
-            <span class="service-card__name">Self-service BI</span>
-            <span class="service-card__tagline">Self-serve from governed data — no shadow copies.</span>
+            <span class="service-card__tagline">Dashboards and self-service on governed gold data.</span>
             <span class="service-card__footer">
               <span class="service-card__hint">Learn more</span>
               <span class="service-card__arrow" aria-hidden="true">→</span>
@@ -487,7 +466,12 @@
               <span class="service-card__arrow" aria-hidden="true">→</span>
             </span>
           </a>
+            </div>
+          </div>
 
+          <div class="services__group">
+            <h3 class="services__group-title">Automations</h3>
+            <div class="services__grid services__grid--solo">
           <a href="services/agents.html" class="service-card service-card--platinum">
             <div class="service-card__head">
               <span class="service-card__icon" aria-hidden="true">
@@ -504,6 +488,8 @@
               <span class="service-card__arrow" aria-hidden="true">→</span>
             </span>
           </a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -676,34 +662,23 @@
 
       <section class="vision" id="auto-vision" data-page-gate data-path-section="automation" aria-labelledby="auto-vision-heading">
         <header class="vision__header">
-          <p class="vision__eyebrow">How it works</p>
+          <p class="vision__eyebrow">Execution model</p>
           <h2 id="auto-vision-heading" class="vision__title">
-            Trusted data,
-            <span>turning into automatic action.</span>
+            Event in,
+            <span>action out.</span>
           </h2>
         </header>
 
         <div class="hero-card">
           <div class="auto-flow-wrap">
             <div class="auto-flow" role="list" aria-label="Automation pipeline">
-              <div class="auto-flow__step auto-flow__step--gold" role="listitem">
-                <div class="auto-flow__visual" aria-hidden="true">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
-                </div>
-                <p class="auto-flow__label">Foundation</p>
-                <p class="auto-flow__name">Certified KPIs</p>
-                <p class="auto-flow__meta">Governed · Trusted</p>
-              </div>
-
-              <span class="auto-flow__arrow" aria-hidden="true">→</span>
-
               <div class="auto-flow__step auto-flow__step--activator" role="listitem">
                 <div class="auto-flow__visual" aria-hidden="true">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
                 </div>
-                <p class="auto-flow__label">Data Activator</p>
-                <p class="auto-flow__name">Threshold trigger</p>
-                <p class="auto-flow__meta">Real-time · Certified</p>
+                <p class="auto-flow__label">Trigger</p>
+                <p class="auto-flow__name">Webhook / API event</p>
+                <p class="auto-flow__meta">Inbound · Idempotent</p>
               </div>
 
               <span class="auto-flow__arrow" aria-hidden="true">→</span>
@@ -712,184 +687,141 @@
                 <div class="auto-flow__visual" aria-hidden="true">
                   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg>
                 </div>
-                <p class="auto-flow__label">Power Automate</p>
-                <p class="auto-flow__name">Workflow execution</p>
-                <p class="auto-flow__meta">Automated · Auditable</p>
+                <p class="auto-flow__label">Process Logic</p>
+                <p class="auto-flow__name">Rules &amp; validation</p>
+                <p class="auto-flow__meta">Branching · Error handling</p>
               </div>
 
               <span class="auto-flow__arrow" aria-hidden="true">→</span>
 
               <div class="auto-flow__step auto-flow__step--agent" role="listitem">
                 <div class="auto-flow__visual" aria-hidden="true">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
                 </div>
-                <p class="auto-flow__label">Copilot Agent</p>
-                <p class="auto-flow__name">Grounded answer</p>
-                <p class="auto-flow__meta">Semantic · Governed</p>
+                <p class="auto-flow__label">Delivery</p>
+                <p class="auto-flow__name">Alert / sync / document</p>
+                <p class="auto-flow__meta">Outbound · Logged</p>
               </div>
             </div>
           </div>
 
-          <nav class="schema-compact" aria-label="Automation pipeline steps">
-            <ol class="schema-compact__steps">
-              <li class="schema-compact__step schema-compact__step--platinum">
-                <span class="schema-compact__marker" aria-hidden="true"></span>
-                <div class="schema-compact__body">
-                  <span class="schema-compact__layer">Foundation</span>
-                  <span class="schema-compact__name">Certified KPIs</span>
-                  <span class="schema-compact__meta">Governed · Trusted</span>
-                  <span class="schema-compact__gov">
-                    <span class="stage__governance-icon" aria-hidden="true"></span>
-                    Certification · Ownership
-                  </span>
-                </div>
-              </li>
-              <li class="schema-compact__step schema-compact__step--platinum">
-                <span class="schema-compact__marker" aria-hidden="true"></span>
-                <div class="schema-compact__body">
-                  <span class="schema-compact__layer">Data Activator</span>
-                  <span class="schema-compact__name">Threshold trigger</span>
-                  <span class="schema-compact__meta">Real-time · Certified</span>
-                  <span class="schema-compact__gov">
-                    <span class="stage__governance-icon" aria-hidden="true"></span>
-                    Alert policy · Lineage
-                  </span>
-                </div>
-              </li>
-              <li class="schema-compact__step schema-compact__step--platinum">
-                <span class="schema-compact__marker" aria-hidden="true"></span>
-                <div class="schema-compact__body">
-                  <span class="schema-compact__layer">Power Automate</span>
-                  <span class="schema-compact__name">Workflow execution</span>
-                  <span class="schema-compact__meta">Automated · Auditable</span>
-                  <span class="schema-compact__gov">
-                    <span class="stage__governance-icon" aria-hidden="true"></span>
-                    Audit trail · Ownership
-                  </span>
-                </div>
-              </li>
-              <li class="schema-compact__step schema-compact__step--platinum">
-                <span class="schema-compact__marker" aria-hidden="true"></span>
-                <div class="schema-compact__body">
-                  <span class="schema-compact__layer">Copilot Agent</span>
-                  <span class="schema-compact__name">Grounded answer</span>
-                  <span class="schema-compact__meta">Semantic · Governed</span>
-                  <span class="schema-compact__gov">
-                    <span class="stage__governance-icon" aria-hidden="true"></span>
-                    Access · Compliance
-                  </span>
-                </div>
-              </li>
-            </ol>
-          </nav>
+          <p class="auto-stack" aria-label="Supported platforms">
+            <span class="auto-stack__tag">Zapier</span>
+            <span class="auto-stack__tag">Power Automate</span>
+            <span class="auto-stack__tag">Webhooks</span>
+          </p>
         </div>
       </section>
 
-      <section class="services" id="auto-services" data-page-gate data-path-section="automation" aria-labelledby="auto-services-heading">
+      <section class="services auto-services" id="auto-services" data-page-gate data-path-section="automation" data-auto-mode="smb" aria-labelledby="auto-services-heading">
         <header class="services__header">
           <p class="services__eyebrow">What we build</p>
           <h2 id="auto-services-heading" class="services__title">
-            Automation from trigger to agent
+            Set-and-forget pipelines
           </h2>
           <p class="services__intro">
-            Power Automate, Data Activator, and Copilot agents — all grounded in your certified semantic model.
+            Zapier, Power Automate, and webhook flows — built to handle incomplete fields, duplicate records, and schema drift.
           </p>
-          <p class="services__tap">Click any card to learn more.</p>
+
+          <div class="auto-mode-toggle" role="group" aria-label="Business size">
+            <button type="button" class="auto-mode-toggle__btn auto-mode-toggle__btn--active" data-auto-mode="smb" aria-pressed="true">
+              Small Business
+            </button>
+            <button type="button" class="auto-mode-toggle__btn" data-auto-mode="enterprise" aria-pressed="false">
+              Large Enterprise
+            </button>
+          </div>
         </header>
 
-        <div class="services__grid">
-          <a href="services/agents.html" class="service-card service-card--platinum">
-            <div class="service-card__head">
-              <span class="service-card__icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
-              </span>
-              <span class="service-card__layer">Copilot</span>
-            </div>
-            <span class="service-card__name">Copilot Agents</span>
-            <span class="service-card__tagline">AI agents grounded in your semantic model — no hallucinated metrics.</span>
-            <span class="service-card__footer">
-              <span class="service-card__hint">Learn more</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
-          </a>
-
-          <a href="services/agents.html" class="service-card service-card--platinum">
-            <div class="service-card__head">
-              <span class="service-card__icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
-              </span>
-              <span class="service-card__layer">Fabric</span>
-            </div>
-            <span class="service-card__name">Data Activator</span>
-            <span class="service-card__tagline">Real-time threshold triggers on certified KPIs — no custom polling scripts.</span>
-            <span class="service-card__footer">
-              <span class="service-card__hint">Learn more</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
-          </a>
-
-          <a href="services/agents.html" class="service-card service-card--platinum">
-            <div class="service-card__head">
-              <span class="service-card__icon" aria-hidden="true">
+        <div class="auto-util-grid">
+          <article class="auto-util-card">
+            <div class="auto-util-card__head">
+              <span class="auto-util-card__icon" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg>
               </span>
-              <span class="service-card__layer">Workflow</span>
+              <span class="auto-util-card__order" aria-hidden="true">01</span>
             </div>
-            <span class="service-card__name">Power Automate</span>
-            <span class="service-card__tagline">End-to-end workflow automation with governed data as the source of truth.</span>
-            <span class="service-card__footer">
-              <span class="service-card__hint">Learn more</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
-          </a>
+            <h3 class="auto-util-card__name">Process Logic</h3>
+            <p class="auto-util-card__example" data-auto-text="smb">
+              Automatically generate and send a personalized contract via e-sign immediately following a Calendly booking.
+            </p>
+            <p class="auto-util-card__example" data-auto-text="enterprise">
+              Centralize business rules across multi-departmental systems to ensure uniform data validation before ledger entry.
+            </p>
+          </article>
 
-          <a href="services/governance.html" class="service-card service-card--governance">
-            <div class="service-card__head">
-              <span class="service-card__icon" aria-hidden="true">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+          <article class="auto-util-card">
+            <div class="auto-util-card__head">
+              <span class="auto-util-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
               </span>
-              <span class="service-card__layer">Foundation</span>
+              <span class="auto-util-card__order" aria-hidden="true">02</span>
             </div>
-            <span class="service-card__name">Governance for Automations</span>
-            <span class="service-card__tagline">Lineage, ownership, and auditability baked into every workflow.</span>
-            <span class="service-card__footer">
-              <span class="service-card__hint">Learn more</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
-          </a>
+            <h3 class="auto-util-card__name">Automated Alerts</h3>
+            <p class="auto-util-card__example" data-auto-text="smb">
+              Get a real-time Slack/SMS notification for every high-priority lead or failed payment to act instantly.
+            </p>
+            <p class="auto-util-card__example" data-auto-text="enterprise">
+              Automate cross-functional status alerts for production downtime, routing issues directly to the relevant support teams.
+            </p>
+          </article>
+
+          <article class="auto-util-card">
+            <div class="auto-util-card__head">
+              <span class="auto-util-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              </span>
+              <span class="auto-util-card__order" aria-hidden="true">03</span>
+            </div>
+            <h3 class="auto-util-card__name">App-to-App Sync</h3>
+            <p class="auto-util-card__example" data-auto-text="smb">
+              Sync your CRM to your accounting software to eliminate manual invoice entry.
+            </p>
+            <p class="auto-util-card__example" data-auto-text="enterprise">
+              Bridge disconnected legacy ERP data with modern cloud-based analytics platforms to ensure a single source of truth.
+            </p>
+          </article>
         </div>
+
+        <aside class="auto-ai-note" aria-labelledby="auto-ai-heading">
+          <h3 id="auto-ai-heading" class="auto-ai-note__title">AI agents — when the task fits</h3>
+          <ul class="auto-ai-note__list">
+            <li>Extract line items from invoice photos and post structured records to your accounting system.</li>
+            <li>Answer employee questions from internal documentation — responses cite source pages, not guesses.</li>
+          </ul>
+        </aside>
       </section>
 
       <section class="audience" id="auto-audience" data-page-gate data-path-section="automation" aria-labelledby="auto-audience-heading">
         <header class="audience__header">
-          <p class="audience__eyebrow">Who we work with</p>
+          <p class="audience__eyebrow">Typical deployments</p>
           <h2 id="auto-audience-heading" class="audience__title">
-            Teams with trusted data, ready to automate
+            Where manual work still leaks through
           </h2>
         </header>
 
         <div class="audience__grid">
           <article class="audience-item">
             <span class="audience-item__num" aria-hidden="true">01</span>
-            <h3 class="audience-item__title">Analytics teams going operational</h3>
+            <h3 class="audience-item__title">SaaS stack without integration</h3>
             <p class="audience-item__desc">
-              Dashboards trusted, KPIs certified — now ready to fire actions on thresholds without manual intervention.
+              CRM, billing, and scheduling run in separate tools. Data gets re-keyed between systems after every customer event.
             </p>
           </article>
 
           <article class="audience-item">
             <span class="audience-item__num" aria-hidden="true">02</span>
-            <h3 class="audience-item__title">Fabric early adopters</h3>
+            <h3 class="audience-item__title">Legacy ERP + cloud analytics</h3>
             <p class="audience-item__desc">
-              Microsoft Fabric is live with governance in place — looking to activate Data Activator and move to production agents.
+              On-prem transactional data never reaches the warehouse on time. Reports lag operational reality by days.
             </p>
           </article>
 
           <article class="audience-item">
             <span class="audience-item__num" aria-hidden="true">03</span>
-            <h3 class="audience-item__title">AI-curious companies</h3>
+            <h3 class="audience-item__title">Alert fatigue from brittle scripts</h3>
             <p class="audience-item__desc">
-              Want Copilot agents but won't deploy them on ungoverned data. Ready to build on a certified semantic model.
+              Homegrown polling jobs break on schema changes. Notifications either flood channels or stop firing entirely.
             </p>
           </article>
         </div>
@@ -901,7 +833,7 @@
               type="button"
               class="customer-card"
               data-work-title="Cascades"
-              data-work-caption="Microsoft Fabric automation pipeline — redacted sample"
+              data-work-caption="Webhook-triggered monitoring pipeline — redacted sample"
               data-work-kind="diagram"
             >
               <div class="customer-card__logo">
@@ -909,7 +841,7 @@
               </div>
               <p class="customer-card__name">Cascades</p>
               <p class="customer-card__desc">
-                Fabric pipelines with automated monitoring and ML-driven pricing workflows.
+                Power Automate flows with threshold alerts and automated pricing pipeline triggers.
               </p>
               <span class="customer-card__hint">View sample</span>
             </button>
@@ -918,7 +850,7 @@
               type="button"
               class="customer-card"
               data-work-title="Keurig Dr Pepper Canada"
-              data-work-caption="Automated forecast refresh pipeline — redacted sample"
+              data-work-caption="Scheduled sync pipeline — redacted sample"
               data-work-kind="diagram"
             >
               <div class="customer-card__logo">
@@ -926,7 +858,7 @@
               </div>
               <p class="customer-card__name">Keurig Dr Pepper Canada</p>
               <p class="customer-card__desc">
-                Automated ETL and scheduled forecast refresh pipelines for brand and RGM teams.
+                App-to-app sync and scheduled data refresh between operational and reporting systems.
               </p>
               <span class="customer-card__hint">View sample</span>
             </button>
@@ -943,7 +875,7 @@
               </div>
               <p class="customer-card__name">Énergir</p>
               <p class="customer-card__desc">
-                Python forecasting pipeline with automated refresh and Power BI reporting.
+                Python pipeline with webhook-triggered refresh and downstream alert routing.
               </p>
               <span class="customer-card__hint">View sample</span>
             </button>
@@ -953,11 +885,11 @@
 
       <section class="compare" id="auto-why-us" data-page-gate data-path-section="automation" aria-labelledby="auto-compare-heading">
         <header class="compare__header">
-          <p class="compare__eyebrow">Why Data Foundry</p>
+          <p class="compare__eyebrow">Implementation standard</p>
           <h2 id="auto-compare-heading" class="compare__title">
-            Automation that survives a schema change
+            Pipelines that survive schema changes
           </h2>
-          <p class="compare__intro">One senior specialist — from semantic model to production agent.</p>
+          <p class="compare__intro">Error handling, retry logic, and field mapping — not demo flows that break in production.</p>
         </header>
 
         <div class="compare__panel">
@@ -967,20 +899,20 @@
           </div>
           <ul class="compare__list">
             <li class="compare-row">
-              <span class="compare-row__alt">Generic automation tool</span>
-              <span class="compare-row__edge">Triggers tied to certified KPIs — not raw queries.</span>
+              <span class="compare-row__alt">Point-and-click zap with no error path</span>
+              <span class="compare-row__edge">Branching logic, dead-letter queues, and logged failures.</span>
             </li>
             <li class="compare-row">
-              <span class="compare-row__alt">Bolt-on AI agent</span>
-              <span class="compare-row__edge">Agents grounded in your semantic model — no hallucinations.</span>
+              <span class="compare-row__alt">Hard-coded field mappings</span>
+              <span class="compare-row__edge">Defensive transforms that handle nulls, duplicates, and type mismatches.</span>
             </li>
             <li class="compare-row">
-              <span class="compare-row__alt">Developer consultant</span>
-              <span class="compare-row__edge">Data + automation expertise. One specialist.</span>
+              <span class="compare-row__alt">Siloed tool configuration</span>
+              <span class="compare-row__edge">Documented runbooks with ownership and monitoring hooks.</span>
             </li>
             <li class="compare-row">
-              <span class="compare-row__alt">Tool rollout</span>
-              <span class="compare-row__edge">Foundation to production, owned end-to-end.</span>
+              <span class="compare-row__alt">Fire-and-forget deployment</span>
+              <span class="compare-row__edge">Tested against real edge cases before handoff.</span>
             </li>
           </ul>
         </div>
@@ -1150,14 +1082,12 @@
           </details>
 
           <details class="faq__item" data-path-section="automation">
-            <summary class="faq__question">Do automations require a governed data foundation?</summary>
+            <summary class="faq__question">How do you handle messy source data?</summary>
             <div class="faq__answer">
               <p>
-                Yes — and that's intentional. Agents and workflows built on ungoverned
-                data inherit every data quality problem downstream. We work with teams
-                that already have a certified semantic model, or we build the foundation
-                first. The result: automations that don't break when a schema changes and
-                agents that cite the right numbers every time.
+                Every flow includes validation steps, default-value logic, and explicit
+                error branches. Missing fields, duplicate webhook payloads, and API rate
+                limits are handled in the pipeline — not left for someone to catch manually.
               </p>
             </div>
           </details>
@@ -1166,10 +1096,10 @@
             <summary class="faq__question">What automation tools do you work with?</summary>
             <div class="faq__answer">
               <p>
-                Microsoft Fabric's Data Activator for real-time KPI triggers, Power
-                Automate for end-to-end workflow execution, and Microsoft Copilot Studio
-                for agents grounded in Power BI semantic models. The toolchain follows
-                your environment — if you're on a different stack, we scope accordingly.
+                Zapier for SaaS-to-SaaS connections, Microsoft Power Automate for
+                Microsoft 365 and Azure environments, and custom webhook endpoints for
+                systems without native connectors. Platform choice follows your stack —
+                the implementation standard does not.
               </p>
             </div>
           </details>
