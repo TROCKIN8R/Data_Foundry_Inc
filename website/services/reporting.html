@@ -14,10 +14,7 @@
     <title>Reporting &amp; Analytics | Data Foundry Inc.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
@@ -111,98 +108,81 @@
         </nav>
 
         <div class="service-page__grid">
-          <header class="service-page__header">
-            <p class="service-page__layer">Gold</p>
-            <h1 class="service-page__title">Reporting &amp; Analytics</h1>
-            <p class="service-page__intro">Dashboards and self-service on governed gold data.</p>
-            <p class="service-page__overview">Gold is where data becomes decisions. Revenue, margin, and pipeline get defined once in DAX or governed views — then surfaced in dashboards leadership actually opens. The same certified models power self-service: business users explore without shadow copies, stale exports, or a second definition of &quot;active customer.&quot;</p>
-            <div class="service-page__meta">
-              <span class="service-page__meta-gov">Certification · Ownership</span>
+          <section class="service-page__hero service-page__hero--gold" aria-labelledby="service-title">
+            <div class="service-page__hero-layout">
+              <figure class="service-page__infographic" aria-labelledby="service-vis-heading">
+                <h2 id="service-vis-heading" class="visually-hidden">Service diagram</h2>
+
+<div class="svc-vis svc-vis--page svc-vis--gold">
+  <div class="svc-vis__compose svc-vis__compose--page">
+    <div class="svc-snippet svc-snippet--primary svc-snippet--dashboard">
+      <p class="svc-snippet__label">Executive dashboard</p>
+      <div class="svc-dash__kpis">
+        <div class="svc-dash__kpi">
+          <span class="svc-dash__kpi-val">$4.2M</span>
+          <span class="svc-dash__kpi-lbl">Revenue</span>
+        </div>
+        <div class="svc-dash__kpi">
+          <span class="svc-dash__kpi-val">+12%</span>
+          <span class="svc-dash__kpi-lbl">YoY growth</span>
+        </div>
+      </div>
+      <div class="svc-dash__trend" aria-hidden="true"><span class="svc-dash__trend-line"></span></div>
+      <div class="svc-dash__bars" aria-hidden="true">
+        <span style="--h: 42%"></span>
+        <span style="--h: 68%"></span>
+        <span style="--h: 55%"></span>
+        <span style="--h: 82%"></span>
+        <span style="--h: 61%"></span>
+      </div>
+    </div>
+    <span class="svc-vis__float svc-vis__float--ingot svc-vis__float--a" aria-hidden="true"></span>
+    <span class="svc-vis__float svc-vis__float--ingot svc-vis__float--b" aria-hidden="true"></span>
+    <div class="svc-snippet svc-snippet--secondary svc-snippet--semantic">
+      <p class="svc-snippet__label">Self-serve BI</p>
+      <ul class="svc-semantic__list">
+        <li><span class="svc-semantic__name">Sales Metrics</span><span class="svc-semantic__cert">Certified</span></li>
+        <li><span class="svc-semantic__name">Finance Core</span><span class="svc-semantic__cert">Certified</span></li>
+        <li><span class="svc-semantic__name">Ops KPIs</span><span class="svc-semantic__cert">Certified</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+              </figure>
+              <div class="service-page__hero-copy">
+                <p class="service-page__layer service-page__layer--gold">Gold</p>
+                <h1 id="service-title" class="service-page__title">Reporting &amp; Analytics</h1>
+                <p class="service-page__intro">Dashboards and self-service on governed gold data.</p>
+                <p class="service-page__detail">Certified Power BI datasets, executive dashboards, and governed self-service — so every chart traces back to the same numbers.</p>
+                <ul class="service-page__points">
+                <li>Row-level security and RLS</li>
+                <li>DAX and semantic models</li>
+                <li>Adoption-focused report design</li>
+                </ul>
+              </div>
             </div>
-          <p class="service-page__ref"><strong>Cascades</strong> — Executive KPIs · ML pricing · Fabric gold</p>
-          </header>
+          </section>
 
-          <aside class="service-page__visuals" aria-labelledby="service-mockups-heading">
-            <h2 id="service-mockups-heading" class="service-page__label service-page__label--vis">Outputs</h2>
-            <div class="service-page__mockups-stack">
-<figure class="service-mock service-mock--lite"><figcaption class="service-mock__caption">Executive KPI dashboard — Power BI on Fabric Direct Lake</figcaption><div class="service-mock__frame"><div class="work-ph"><p class="service-ph__report-title">Revenue &amp; margin overview</p><div class="work-ph__metrics"><span class="work-ph__metric"></span><span class="work-ph__metric"></span><span class="work-ph__metric"></span></div><div class="work-ph__chart"><span class="work-ph__bar" style="height:35%"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span></div></div></div></figure>
-
-<figure class="service-mock service-mock--lite"><figcaption class="service-mock__caption">Certified measure library — single definitions</figcaption><div class="service-mock__frame"><div class="service-ph__schema-wrap"><p class="service-ph__schema-table">gold.semantic_measures</p><div class="service-ph__schema"><div class="service-ph__schema-head"><span>Column</span><span>Type</span><span>Role</span></div><div class="service-ph__schema-row"><span>measure_name</span><span>STRING</span><span></span></div><div class="service-ph__schema-row"><span>dax_expression</span><span>STRING</span><span></span></div><div class="service-ph__schema-row"><span>certified</span><span>BOOL</span><span></span></div><div class="service-ph__schema-row"><span>owner</span><span>STRING</span><span></span></div></div></div></div></figure>
-            </div>
-          </aside>
-
-          <div class="service-page__pair">
-            <section class="service-page__section" aria-labelledby="service-problems-heading">
-              <h2 id="service-problems-heading" class="service-page__label">Problems</h2>
-              <ul class="service-kw-list">
-              <li>Three teams · three revenue numbers</li>
-              <li>Shadow datasets · no certification</li>
-              <li>Forecasts on stale exports</li>
-              </ul>
-            </section>
-
-            <section class="service-page__section" aria-labelledby="service-stack-heading">
-              <h2 id="service-stack-heading" class="service-page__label">Technology</h2>
-              <ul class="service-page__tools">
-              <li>Power BI</li>
-              <li>Fabric semantic models (Direct Lake)</li>
-              <li>DAX &amp; Power Query</li>
-              <li>Tableau</li>
-              <li>BigQuery authorized views</li>
-              <li>Excel live connections</li>
-              <li>Python (forecasting)</li>
-              </ul>
-            </section>
-          </div>
-
-          <section class="service-page__section service-page__section--deploy" aria-labelledby="service-cases-heading">
-            <h2 id="service-cases-heading" class="service-page__label">Deployments</h2>
-            <ul class="service-deploy-list">
-            <li class="service-deploy">
-              <span class="service-deploy__name">Executive KPI dashboard</span>
-              <div class="service-deploy__tech"><span>Power BI</span><span>Fabric</span><span>DAX</span></div>
+          <section class="service-page__pairs" aria-labelledby="service-pairs-heading">
+            <h2 id="service-pairs-heading" class="visually-hidden">From and to</h2>
+            <ul class="service-page__pair-list">
+            <li class="service-page__pair-row">
+              <span class="service-page__pair-cell service-page__pair-cell--from"><span class="service-page__pair-label">From</span><span class="service-page__pair-text">Competing revenue definitions</span></span>
+              <span class="service-page__pair-arrow" aria-hidden="true">→</span>
+              <span class="service-page__pair-cell service-page__pair-cell--to"><span class="service-page__pair-label">To</span><span class="service-page__pair-text">One certified measure everywhere</span></span>
             </li>
-            <li class="service-deploy">
-              <span class="service-deploy__name">Brand forecast cockpit</span>
-              <div class="service-deploy__tech"><span>Tableau</span><span>BigQuery</span><span>ETL</span></div>
+            <li class="service-page__pair-row">
+              <span class="service-page__pair-cell service-page__pair-cell--from"><span class="service-page__pair-label">From</span><span class="service-page__pair-text">Self-service on raw tables</span></span>
+              <span class="service-page__pair-arrow" aria-hidden="true">→</span>
+              <span class="service-page__pair-cell service-page__pair-cell--to"><span class="service-page__pair-label">To</span><span class="service-page__pair-text">Governed semantic models</span></span>
             </li>
-            <li class="service-deploy">
-              <span class="service-deploy__name">Consumption forecasting</span>
-              <div class="service-deploy__tech"><span>Power BI</span><span>Python</span><span>scikit-learn</span></div>
+            <li class="service-page__pair-row">
+              <span class="service-page__pair-cell service-page__pair-cell--from"><span class="service-page__pair-label">From</span><span class="service-page__pair-text">Board deck exports</span></span>
+              <span class="service-page__pair-arrow" aria-hidden="true">→</span>
+              <span class="service-page__pair-cell service-page__pair-cell--to"><span class="service-page__pair-label">To</span><span class="service-page__pair-text">Live dashboards · scheduled refresh</span></span>
             </li>
             </ul>
           </section>
-
-          <div class="service-page__duo">
-            <section class="service-page__section" aria-labelledby="service-detail-heading">
-              <h2 id="service-detail-heading" class="service-page__label">Deliverables</h2>
-              <ul class="service-kw-list">
-              <li>Certified KPIs · one revenue number</li>
-              <li>DAX measure library · documented</li>
-              <li>Row-level security · Azure AD</li>
-              <li>Self-service on golden datasets</li>
-              <li>ML forecasts in Power BI</li>
-              </ul>
-            </section>
-
-            <section class="service-page__section" aria-labelledby="service-compare-heading">
-              <h2 id="service-compare-heading" class="service-page__label">Standard</h2>
-              <ul class="service-page__compare-list">
-            <li class="service-page__compare-row">
-              <span class="service-page__compare-alt">Competing revenue definitions</span>
-              <span class="service-page__compare-edge">One certified measure everywhere</span>
-            </li>
-            <li class="service-page__compare-row">
-              <span class="service-page__compare-alt">Self-service on raw tables</span>
-              <span class="service-page__compare-edge">Governed semantic models</span>
-            </li>
-            <li class="service-page__compare-row">
-              <span class="service-page__compare-alt">Board deck exports</span>
-              <span class="service-page__compare-edge">Live dashboards · scheduled refresh</span>
-            </li>
-              </ul>
-            </section>
-          </div>
 
           <div class="service-page__cta">
             <a class="btn btn--ghost" href="../index.html#services">All services</a>

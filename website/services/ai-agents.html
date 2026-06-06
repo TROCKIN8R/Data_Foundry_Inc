@@ -14,10 +14,7 @@
     <title>AI Agents | Data Foundry Inc.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
@@ -111,96 +108,82 @@
         </nav>
 
         <div class="service-page__grid">
-          <header class="service-page__header">
-            <p class="service-page__layer">Platinum</p>
-            <h1 class="service-page__title">AI Agents</h1>
-            <p class="service-page__intro">Grounded AI for documents and unstructured inputs.</p>
-            <p class="service-page__overview">Agents earn their place only where unstructured input or natural-language access saves real time — invoice photos to structured records, policy questions answered from internal docs. Retrieval stays scoped to approved sources. Every response cites its origin; access follows your existing permissions.</p>
-            <div class="service-page__meta">
-              <span class="service-page__meta-gov">Access · Compliance</span>
-            </div>
-          <p class="service-page__ref"><strong>Cascades</strong> — Copilot · governed Fabric · doc retrieval</p>
-          </header>
+          <section class="service-page__hero service-page__hero--platinum-alt" aria-labelledby="service-title">
+            <div class="service-page__hero-layout">
+              <figure class="service-page__infographic" aria-labelledby="service-vis-heading">
+                <h2 id="service-vis-heading" class="visually-hidden">Service diagram</h2>
 
-          <aside class="service-page__visuals" aria-labelledby="service-mockups-heading">
-            <h2 id="service-mockups-heading" class="service-page__label service-page__label--vis">Outputs</h2>
-            <div class="service-page__mockups-stack">
-<figure class="service-mock service-mock--lite"><figcaption class="service-mock__caption">Invoice capture — photo to validated ERP post</figcaption><div class="service-mock__frame"><div class="work-ph__flow"><span class="work-ph__node work-ph__node--bronze"><span class="service-ph__node-label">Photo upload</span></span><span class="work-ph__arrow"></span><span class="work-ph__node work-ph__node--silver"><span class="service-ph__node-label">OCR + extract</span></span><span class="work-ph__arrow"></span><span class="work-ph__node work-ph__node--gold"><span class="service-ph__node-label">Validate</span></span><span class="work-ph__arrow"></span><span class="work-ph__node work-ph__node--platinum"><span class="service-ph__node-label">ERP post</span></span></div></div></figure>
-
-<figure class="service-mock service-mock--lite"><figcaption class="service-mock__caption">Policy assistant — answer with source citation</figcaption><div class="service-mock__frame"><div class="work-ph"><p class="service-ph__report-title">Policy &amp; ops assistant</p><div class="work-ph__metrics"><span class="work-ph__metric"></span><span class="work-ph__metric"></span><span class="work-ph__metric"></span></div><div class="work-ph__chart"><span class="work-ph__bar" style="height:35%"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span></div></div></div></figure>
-            </div>
-          </aside>
-
-          <div class="service-page__pair">
-            <section class="service-page__section" aria-labelledby="service-problems-heading">
-              <h2 id="service-problems-heading" class="service-page__label">Problems</h2>
-              <ul class="service-kw-list">
-              <li>Manual invoice entry</li>
-              <li>SharePoint policy scavenger hunts</li>
-              <li>Ungrounded chatbot hallucinations</li>
-              </ul>
-            </section>
-
-            <section class="service-page__section" aria-labelledby="service-stack-heading">
-              <h2 id="service-stack-heading" class="service-page__label">Technology</h2>
-              <ul class="service-page__tools">
-              <li>Copilot Studio</li>
-              <li>Azure OpenAI</li>
-              <li>Power Automate AI Builder</li>
-              <li>SharePoint retrieval</li>
-              <li>Fabric / gold datasets</li>
-              </ul>
-            </section>
+<div class="svc-vis svc-vis--page svc-vis--platinum">
+  <div class="svc-vis__compose svc-vis__compose--page svc-vis__compose--solo">
+    <div class="svc-snippet svc-snippet--solo svc-snippet--agent-hub">
+      <p class="svc-snippet__label">Grounded agent</p>
+      <div class="svc-agent-hub">
+        <div class="svc-agent-hub__feeds">
+          <div class="svc-agent-hub__feed svc-agent-hub__feed--doc">
+            <span class="svc-agent-hub__glyph svc-agent-hub__glyph--doc" aria-hidden="true"></span>
+            <span>Contract PDF</span>
           </div>
+          <div class="svc-agent-hub__feed svc-agent-hub__feed--data">
+            <span class="svc-agent-hub__glyph svc-agent-hub__glyph--data" aria-hidden="true"></span>
+            <span>CRM API</span>
+          </div>
+          <div class="svc-agent-hub__feed svc-agent-hub__feed--img">
+            <span class="svc-agent-hub__glyph svc-agent-hub__glyph--img" aria-hidden="true"></span>
+            <span>Site image</span>
+          </div>
+        </div>
+        <div class="svc-agent-hub__converge" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </div>
+        <div class="svc-agent-hub__core">
+          <span class="consumer-card__icon consumer-card__icon--agents" aria-hidden="true"></span>
+          <em>Agent</em>
+        </div>
+        <div class="svc-agent-hub__answer">
+          <strong>1 answer</strong>
+          <span>Approved · routed · delivered</span>
+        </div>
+      </div>
+    </div>
+    <span class="svc-vis__float svc-vis__float--platinum svc-vis__float--a" aria-hidden="true"></span>
+    <span class="svc-vis__float svc-vis__float--platinum svc-vis__float--b" aria-hidden="true"></span>
+  </div>
+</div>
+              </figure>
+              <div class="service-page__hero-copy">
+                <p class="service-page__layer service-page__layer--platinum">Platinum</p>
+                <h1 id="service-title" class="service-page__title">AI Agents</h1>
+                <p class="service-page__intro">Grounded AI for documents and unstructured inputs.</p>
+                <p class="service-page__detail">Agents that read contracts, emails, and PDFs — then route decisions into your workflows with guardrails, not black-box guesses.</p>
+                <ul class="service-page__points">
+                <li>Document intake and extraction</li>
+                <li>Human-in-the-loop approvals</li>
+                <li>Trigger downstream automations</li>
+                </ul>
+              </div>
+            </div>
+          </section>
 
-          <section class="service-page__section service-page__section--deploy" aria-labelledby="service-cases-heading">
-            <h2 id="service-cases-heading" class="service-page__label">Deployments</h2>
-            <ul class="service-deploy-list">
-            <li class="service-deploy">
-              <span class="service-deploy__name">Invoice capture to ERP</span>
-              <div class="service-deploy__tech"><span>AI Builder</span><span>Power Automate</span><span>ERP</span></div>
+          <section class="service-page__pairs" aria-labelledby="service-pairs-heading">
+            <h2 id="service-pairs-heading" class="visually-hidden">Problems and solutions</h2>
+            <ul class="service-page__pair-list">
+            <li class="service-page__pair-row">
+              <span class="service-page__pair-cell service-page__pair-cell--problem"><span class="service-page__pair-label">Problem</span><span class="service-page__pair-text">Open-web chatbot</span></span>
+              <span class="service-page__pair-arrow" aria-hidden="true">→</span>
+              <span class="service-page__pair-cell service-page__pair-cell--solution"><span class="service-page__pair-label">Solution</span><span class="service-page__pair-text">Approved docs · governed datasets only</span></span>
             </li>
-            <li class="service-deploy">
-              <span class="service-deploy__name">Internal policy assistant</span>
-              <div class="service-deploy__tech"><span>Copilot Studio</span><span>SharePoint</span><span>Azure OpenAI</span></div>
+            <li class="service-page__pair-row">
+              <span class="service-page__pair-cell service-page__pair-cell--problem"><span class="service-page__pair-label">Problem</span><span class="service-page__pair-text">AI guesses when unsure</span></span>
+              <span class="service-page__pair-arrow" aria-hidden="true">→</span>
+              <span class="service-page__pair-cell service-page__pair-cell--solution"><span class="service-page__pair-label">Solution</span><span class="service-page__pair-text">Cited answer · or explicit unknown</span></span>
             </li>
-            <li class="service-deploy">
-              <span class="service-deploy__name">Document-grounded reporting helper</span>
-              <div class="service-deploy__tech"><span>Fabric</span><span>Power BI</span><span>RAG</span></div>
+            <li class="service-page__pair-row">
+              <span class="service-page__pair-cell service-page__pair-cell--problem"><span class="service-page__pair-label">Problem</span><span class="service-page__pair-text">Manual photo entry</span></span>
+              <span class="service-page__pair-arrow" aria-hidden="true">→</span>
+              <span class="service-page__pair-cell service-page__pair-cell--solution"><span class="service-page__pair-label">Solution</span><span class="service-page__pair-text">Structured lines · validated post</span></span>
             </li>
             </ul>
           </section>
-
-          <div class="service-page__duo">
-            <section class="service-page__section" aria-labelledby="service-detail-heading">
-              <h2 id="service-detail-heading" class="service-page__label">Deliverables</h2>
-              <ul class="service-kw-list">
-              <li>Invoice OCR · validation · ERP post</li>
-              <li>Cited Q&amp;A · approved doc sets</li>
-              <li>Gold-layer grounded retrieval</li>
-              <li>Access controls · audit logging</li>
-              <li>Human queue · low-confidence cases</li>
-              </ul>
-            </section>
-
-            <section class="service-page__section" aria-labelledby="service-compare-heading">
-              <h2 id="service-compare-heading" class="service-page__label">Standard</h2>
-              <ul class="service-page__compare-list">
-            <li class="service-page__compare-row">
-              <span class="service-page__compare-alt">Open-web chatbot</span>
-              <span class="service-page__compare-edge">Approved docs · governed datasets only</span>
-            </li>
-            <li class="service-page__compare-row">
-              <span class="service-page__compare-alt">AI guesses when unsure</span>
-              <span class="service-page__compare-edge">Cited answer · or explicit unknown</span>
-            </li>
-            <li class="service-page__compare-row">
-              <span class="service-page__compare-alt">Manual photo entry</span>
-              <span class="service-page__compare-edge">Structured lines · validated post</span>
-            </li>
-              </ul>
-            </section>
-          </div>
 
           <div class="service-page__cta">
             <a class="btn btn--ghost" href="../index.html#services">All services</a>

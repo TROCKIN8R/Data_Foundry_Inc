@@ -14,10 +14,7 @@
     <title>Transformation &amp; Modeling | Data Foundry Inc.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
@@ -111,96 +108,75 @@
         </nav>
 
         <div class="service-page__grid">
-          <header class="service-page__header">
-            <p class="service-page__layer">Silver</p>
-            <h1 class="service-page__title">Transformation &amp; Modeling</h1>
-            <p class="service-page__intro">One model, one version of the truth.</p>
-            <p class="service-page__overview">Conflicting KPIs usually trace back to conflicting joins. Silver is where raw bronze becomes conformed business entities — customers, products, dates — modeled once and reused everywhere. Transformations run in dbt, Spark notebooks, or SQL with tests that catch broken relationships before a dashboard ships.</p>
-            <div class="service-page__meta">
-              <span class="service-page__meta-gov">Quality · Lineage</span>
-            </div>
-          <p class="service-page__ref"><strong>Keurig Dr Pepper Canada</strong> — Brand hierarchies · Tableau RGM forecasting</p>
-          </header>
+          <section class="service-page__hero service-page__hero--silver" aria-labelledby="service-title">
+            <div class="service-page__hero-layout">
+              <figure class="service-page__infographic" aria-labelledby="service-vis-heading">
+                <h2 id="service-vis-heading" class="visually-hidden">Service diagram</h2>
 
-          <aside class="service-page__visuals" aria-labelledby="service-mockups-heading">
-            <h2 id="service-mockups-heading" class="service-page__label service-page__label--vis">Outputs</h2>
-            <div class="service-page__mockups-stack">
-<figure class="service-mock service-mock--lite"><figcaption class="service-mock__caption">Star schema — sales subject area</figcaption><div class="service-mock__frame"><div class="service-ph__star"><div class="service-ph__star-node">dim_customer</div><div class="service-ph__star-node">dim_product</div><div class="service-ph__star-node">dim_date</div><div class="service-ph__star-node service-ph__star-node--fact">fact_sales</div></div></div></figure>
-
-<figure class="service-mock service-mock--lite"><figcaption class="service-mock__caption">Conformed customer dimension — SCD Type 2 columns</figcaption><div class="service-mock__frame"><div class="service-ph__schema-wrap"><p class="service-ph__schema-table">silver.dim_customer</p><div class="service-ph__schema"><div class="service-ph__schema-head"><span>Column</span><span>Type</span><span>Role</span></div><div class="service-ph__schema-row"><span>customer_key</span><span>INT64</span><span>PK</span></div><div class="service-ph__schema-row"><span>customer_id</span><span>STRING</span><span>NK</span></div><div class="service-ph__schema-row"><span>segment</span><span>STRING</span><span></span></div><div class="service-ph__schema-row"><span>valid_from</span><span>DATE</span><span>SCD2</span></div><div class="service-ph__schema-row"><span>_updated_at</span><span>TIMESTAMP</span><span>audit</span></div></div></div></div></figure>
-            </div>
-          </aside>
-
-          <div class="service-page__pair">
-            <section class="service-page__section" aria-labelledby="service-problems-heading">
-              <h2 id="service-problems-heading" class="service-page__label">Problems</h2>
-              <ul class="service-kw-list">
-              <li>Three definitions of &quot;customer&quot;</li>
-              <li>Logic buried in report SQL</li>
-              <li>Post-merger duplicate keys</li>
-              </ul>
-            </section>
-
-            <section class="service-page__section" aria-labelledby="service-stack-heading">
-              <h2 id="service-stack-heading" class="service-page__label">Technology</h2>
-              <ul class="service-page__tools">
-              <li>Fabric Warehouse &amp; Lakehouse SQL</li>
-              <li>Fabric Notebooks (Spark)</li>
-              <li>dbt (Fabric or BigQuery)</li>
-              <li>BigQuery stored procedures</li>
-              <li>Power BI semantic models</li>
-              <li>SQL &amp; Python</li>
-              </ul>
-            </section>
+<div class="svc-vis svc-vis--page svc-vis--silver">
+  <div class="svc-vis__compose svc-vis__compose--page svc-vis__compose--solo">
+    <div class="svc-snippet svc-snippet--solo svc-snippet--consolidate">
+      <p class="svc-snippet__label">Sales consolidation</p>
+      <div class="svc-consolidate">
+        <div class="svc-consolidate__systems">
+          <div class="svc-consolidate__system"><span class="svc-consolidate__sphere"></span><span>Salesforce</span></div>
+          <div class="svc-consolidate__system"><span class="svc-consolidate__sphere"></span><span>NetSuite</span></div>
+          <div class="svc-consolidate__system"><span class="svc-consolidate__sphere"></span><span>Shopify</span></div>
+        </div>
+        <div class="svc-consolidate__merge" aria-hidden="true">
+          <span class="svc-consolidate__line svc-consolidate__line--l"></span>
+          <span class="svc-consolidate__line svc-consolidate__line--c"></span>
+          <span class="svc-consolidate__line svc-consolidate__line--r"></span>
+          <span class="svc-consolidate__hub">Merge &amp; conform</span>
+        </div>
+        <div class="svc-consolidate__output">
+          <span class="svc-vis__marker svc-vis__marker--silver" aria-hidden="true"></span>
+          <div class="svc-consolidate__output-copy">
+            <strong>sales_unified</strong>
+            <span>1 governed sales dataset</span>
           </div>
+        </div>
+      </div>
+    </div>
+    <span class="svc-vis__float svc-vis__float--sphere svc-vis__float--a" aria-hidden="true"></span>
+    <span class="svc-vis__float svc-vis__float--sphere svc-vis__float--b" aria-hidden="true"></span>
+  </div>
+</div>
+              </figure>
+              <div class="service-page__hero-copy">
+                <p class="service-page__layer service-page__layer--silver">Silver</p>
+                <h1 id="service-title" class="service-page__title">Transformation &amp; Modeling</h1>
+                <p class="service-page__intro">One model, one version of the truth.</p>
+                <p class="service-page__detail">Dimensional models, conformed dimensions, and KPI logic your analysts can trust — built with SQL, Power Query, or dbt-style transformations.</p>
+                <ul class="service-page__points">
+                <li>Star and snowflake schemas</li>
+                <li>Slowly changing dimensions</li>
+                <li>One definition per metric</li>
+                </ul>
+              </div>
+            </div>
+          </section>
 
-          <section class="service-page__section service-page__section--deploy" aria-labelledby="service-cases-heading">
-            <h2 id="service-cases-heading" class="service-page__label">Deployments</h2>
-            <ul class="service-deploy-list">
-            <li class="service-deploy">
-              <span class="service-deploy__name">Conformed sales subject area</span>
-              <div class="service-deploy__tech"><span>Fabric Warehouse</span><span>dbt</span><span>Kimball</span></div>
+          <section class="service-page__pairs" aria-labelledby="service-pairs-heading">
+            <h2 id="service-pairs-heading" class="visually-hidden">From and to</h2>
+            <ul class="service-page__pair-list">
+            <li class="service-page__pair-row">
+              <span class="service-page__pair-cell service-page__pair-cell--from"><span class="service-page__pair-label">From</span><span class="service-page__pair-text">Report SQL redefines customer</span></span>
+              <span class="service-page__pair-arrow" aria-hidden="true">→</span>
+              <span class="service-page__pair-cell service-page__pair-cell--to"><span class="service-page__pair-label">To</span><span class="service-page__pair-text">Shared conformed dimensions</span></span>
             </li>
-            <li class="service-deploy">
-              <span class="service-deploy__name">Brand and RGM forecasting inputs</span>
-              <div class="service-deploy__tech"><span>BigQuery</span><span>dbt</span><span>Tableau</span></div>
+            <li class="service-page__pair-row">
+              <span class="service-page__pair-cell service-page__pair-cell--from"><span class="service-page__pair-label">From</span><span class="service-page__pair-text">Untested transforms</span></span>
+              <span class="service-page__pair-arrow" aria-hidden="true">→</span>
+              <span class="service-page__pair-cell service-page__pair-cell--to"><span class="service-page__pair-label">To</span><span class="service-page__pair-text">Automated key · null · freshness checks</span></span>
             </li>
-            <li class="service-deploy">
-              <span class="service-deploy__name">Post-merger entity resolution</span>
-              <div class="service-deploy__tech"><span>SCD Type 2</span><span>SQL</span><span>Spark</span></div>
+            <li class="service-page__pair-row">
+              <span class="service-page__pair-cell service-page__pair-cell--from"><span class="service-page__pair-label">From</span><span class="service-page__pair-text">Undocumented grain</span></span>
+              <span class="service-page__pair-arrow" aria-hidden="true">→</span>
+              <span class="service-page__pair-cell service-page__pair-cell--to"><span class="service-page__pair-label">To</span><span class="service-page__pair-text">Column descriptions · lineage</span></span>
             </li>
             </ul>
           </section>
-
-          <div class="service-page__duo">
-            <section class="service-page__section" aria-labelledby="service-detail-heading">
-              <h2 id="service-detail-heading" class="service-page__label">Deliverables</h2>
-              <ul class="service-kw-list">
-              <li>Conformed dimensions · one customer_key</li>
-              <li>dbt tests · uniqueness · freshness</li>
-              <li>SCD2 · bridge tables · documented grain</li>
-              <li>Version-controlled transforms</li>
-              </ul>
-            </section>
-
-            <section class="service-page__section" aria-labelledby="service-compare-heading">
-              <h2 id="service-compare-heading" class="service-page__label">Standard</h2>
-              <ul class="service-page__compare-list">
-            <li class="service-page__compare-row">
-              <span class="service-page__compare-alt">Report SQL redefines customer</span>
-              <span class="service-page__compare-edge">Shared conformed dimensions</span>
-            </li>
-            <li class="service-page__compare-row">
-              <span class="service-page__compare-alt">Untested transforms</span>
-              <span class="service-page__compare-edge">Automated key · null · freshness checks</span>
-            </li>
-            <li class="service-page__compare-row">
-              <span class="service-page__compare-alt">Undocumented grain</span>
-              <span class="service-page__compare-edge">Column descriptions · lineage</span>
-            </li>
-              </ul>
-            </section>
-          </div>
 
           <div class="service-page__cta">
             <a class="btn btn--ghost" href="../index.html#services">All services</a>

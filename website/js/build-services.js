@@ -2,14 +2,26 @@
 const fs = require('fs');
 const path = require('path');
 
+const infographics = require('./service-infographics');
+const FONT_STYLESHEET =
+  'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap';
+
 const services = [
   {
     slug: 'ingestion',
     group: 'data',
     theme: 'bronze',
     layer: 'Bronze',
+    pairMode: 'from-to',
     title: 'Data Ingestion & Pipelines',
     tagline: 'Reliable ingest — governed from the first load.',
+    detail:
+      'Connect APIs, databases, SaaS tools, and files into Microsoft Fabric, OneLake, or BigQuery — cataloged and policy-governed from the first load.',
+    points: [
+      'Batch and incremental pipelines',
+      'Source-to-bronze lineage',
+      'Failure alerts and retry logic',
+    ],
     description:
       'Governed bronze-layer ingest with Microsoft Fabric pipelines, OneLake, and BigQuery — APIs, databases, SaaS, and files cataloged from day one.',
     icon:
@@ -113,8 +125,16 @@ const services = [
     group: 'data',
     theme: 'silver',
     layer: 'Silver',
+    pairMode: 'from-to',
     title: 'Transformation & Modeling',
     tagline: 'One model, one version of the truth.',
+    detail:
+      'Dimensional models, conformed dimensions, and KPI logic your analysts can trust — built with SQL, Power Query, or dbt-style transformations.',
+    points: [
+      'Star and snowflake schemas',
+      'Slowly changing dimensions',
+      'One definition per metric',
+    ],
     description:
       'Silver-layer modeling in Fabric Warehouse, dbt, and BigQuery — conformed dimensions and facts your whole org builds on.',
     icon:
@@ -220,8 +240,16 @@ const services = [
     group: 'data',
     theme: 'gold',
     layer: 'Gold',
+    pairMode: 'from-to',
     title: 'Reporting & Analytics',
     tagline: 'Dashboards and self-service on governed gold data.',
+    detail:
+      'Certified Power BI datasets, executive dashboards, and governed self-service — so every chart traces back to the same numbers.',
+    points: [
+      'Row-level security and RLS',
+      'DAX and semantic models',
+      'Adoption-focused report design',
+    ],
     description:
       'Executive Power BI and Tableau dashboards on certified gold datasets — one revenue number, one margin definition, everywhere.',
     icon:
@@ -321,8 +349,16 @@ const services = [
     group: 'data',
     theme: 'governance',
     layer: 'Every layer',
+    pairMode: 'problem-solution',
     title: 'Governance & Quality',
     tagline: 'Lineage, quality, and ownership built in.',
+    detail:
+      'Data contracts, quality rules, and ownership matrices so your stack stays trustworthy as teams and sources grow.',
+    points: [
+      'End-to-end lineage',
+      'Automated quality checks',
+      'Named stewards per domain',
+    ],
     description:
       'Microsoft Purview, Fabric catalog, and automated quality checks — lineage and ownership across bronze, silver, and gold.',
     icon:
@@ -427,8 +463,16 @@ const services = [
     group: 'automations',
     theme: 'platinum',
     layer: 'Platinum',
+    pairMode: 'problem-solution',
     title: 'Automation Flows',
     tagline: 'Set-and-forget pipelines across your apps.',
+    detail:
+      'Replace manual handoffs with event-driven flows in Zapier, Power Automate, or custom webhooks — with error branches and retry logic production demands.',
+    points: [
+      'App-to-app sync and routing',
+      'Dead-letter and fallback paths',
+      'Logged runs and monitoring hooks',
+    ],
     description:
       'Zapier, Power Automate, and webhook flows — event-driven pipelines that survive incomplete fields, duplicates, and schema drift.',
     icon:
@@ -521,8 +565,16 @@ const services = [
     group: 'automations',
     theme: 'platinum',
     layer: 'Platinum',
+    pairMode: 'problem-solution',
     title: 'AI Agents',
     tagline: 'Grounded AI for documents and unstructured inputs.',
+    detail:
+      'Agents that read contracts, emails, and PDFs — then route decisions into your workflows with guardrails, not black-box guesses.',
+    points: [
+      'Document intake and extraction',
+      'Human-in-the-loop approvals',
+      'Trigger downstream automations',
+    ],
     description:
       'AI agents for invoice capture and internal Q&A — responses grounded in your approved sources, with citations and access controls.',
     icon:
@@ -858,69 +910,46 @@ function navDropdownItems(prefix, activeSlug) {
 }
 
 function renderPage(service) {
-  var bullets = service.bullets
+  var heroPoints = service.points
     .map(function (item) {
-      return '              <li>' + escapeHtml(item) + '</li>';
+      return '                <li>' + escapeHtml(item) + '</li>';
     })
     .join('\n');
 
-  var tools = service.tools
-    .map(function (tool) {
-      return '              <li>' + escapeHtml(tool) + '</li>';
-    })
-    .join('\n');
+  var infographic = infographics[service.slug] || '';
 
-  var problems = service.problems
-    .map(function (item) {
-      return '              <li>' + escapeHtml(item) + '</li>';
-    })
-    .join('\n');
+  var isFromTo = service.pairMode === 'from-to';
+  var pairLeftLabel = isFromTo ? 'From' : 'Problem';
+  var pairRightLabel = isFromTo ? 'To' : 'Solution';
+  var pairLeftClass = isFromTo ? 'service-page__pair-cell--from' : 'service-page__pair-cell--problem';
+  var pairRightClass = isFromTo ? 'service-page__pair-cell--to' : 'service-page__pair-cell--solution';
 
-  var useCases = service.useCases
-    .slice(0, 3)
-    .map(function (item) {
-      var tech = item.tech
-        .map(function (tag) {
-          return '<span>' + escapeHtml(tag) + '</span>';
-        })
-        .join('');
-      return (
-        '            <li class="service-deploy">\n' +
-        '              <span class="service-deploy__name">' +
-        escapeHtml(item.title) +
-        '</span>\n' +
-        '              <div class="service-deploy__tech">' +
-        tech +
-        '</div>\n' +
-        '            </li>'
-      );
-    })
-    .join('\n');
-
-  var compare = service.compare
+  var pairs = service.compare
     .map(function (row) {
       return (
-        '            <li class="service-page__compare-row">\n' +
-        '              <span class="service-page__compare-alt">' +
+        '            <li class="service-page__pair-row">\n' +
+        '              <span class="service-page__pair-cell ' +
+        pairLeftClass +
+        '"><span class="service-page__pair-label">' +
+        pairLeftLabel +
+        '</span><span class="service-page__pair-text">' +
         escapeHtml(row.instead) +
-        '</span>\n' +
-        '              <span class="service-page__compare-edge">' +
+        '</span></span>\n' +
+        '              <span class="service-page__pair-arrow" aria-hidden="true">→</span>\n' +
+        '              <span class="service-page__pair-cell ' +
+        pairRightClass +
+        '"><span class="service-page__pair-label">' +
+        pairRightLabel +
+        '</span><span class="service-page__pair-text">' +
         escapeHtml(row.youGet) +
-        '</span>\n' +
+        '</span></span>\n' +
         '            </li>'
       );
     })
     .join('\n');
 
-  var proof = service.proof
-    ? '          <p class="service-page__ref"><strong>' +
-      escapeHtml(service.proof.client) +
-      '</strong> — ' +
-      escapeHtml(service.proof.detail) +
-      '</p>\n'
-    : '';
-
-  var mockups = service.mockups.slice(0, 2).map(mockupHtml).join('\n\n');
+  var heroTheme =
+    service.slug === 'ai-agents' ? 'platinum-alt' : service.theme;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -938,10 +967,7 @@ function renderPage(service) {
     <title>${escapeHtml(service.title)} | Data Foundry Inc.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="${FONT_STYLESHEET}" rel="stylesheet" />
     <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
@@ -993,61 +1019,30 @@ ${navDropdownItems('', service.slug)}
         </nav>
 
         <div class="service-page__grid">
-          <header class="service-page__header">
-            <p class="service-page__layer">${escapeHtml(service.layer)}</p>
-            <h1 class="service-page__title">${escapeHtml(service.title)}</h1>
-            <p class="service-page__intro">${escapeHtml(service.tagline)}</p>
-            <p class="service-page__overview">${escapeHtml(service.overview)}</p>
-            <div class="service-page__meta">
-              <span class="service-page__meta-gov">${escapeHtml(service.governance)}</span>
+          <section class="service-page__hero service-page__hero--${heroTheme}" aria-labelledby="service-title">
+            <div class="service-page__hero-layout">
+              <figure class="service-page__infographic" aria-labelledby="service-vis-heading">
+                <h2 id="service-vis-heading" class="visually-hidden">Service diagram</h2>
+${infographic}
+              </figure>
+              <div class="service-page__hero-copy">
+                <p class="service-page__layer service-page__layer--${service.theme}">${escapeHtml(service.layer)}</p>
+                <h1 id="service-title" class="service-page__title">${escapeHtml(service.title)}</h1>
+                <p class="service-page__intro">${escapeHtml(service.tagline)}</p>
+                <p class="service-page__detail">${escapeHtml(service.detail)}</p>
+                <ul class="service-page__points">
+${heroPoints}
+                </ul>
+              </div>
             </div>
-${proof}          </header>
-
-          <aside class="service-page__visuals" aria-labelledby="service-mockups-heading">
-            <h2 id="service-mockups-heading" class="service-page__label service-page__label--vis">Outputs</h2>
-            <div class="service-page__mockups-stack">
-${mockups}
-            </div>
-          </aside>
-
-          <div class="service-page__pair">
-            <section class="service-page__section" aria-labelledby="service-problems-heading">
-              <h2 id="service-problems-heading" class="service-page__label">Problems</h2>
-              <ul class="service-kw-list">
-${problems}
-              </ul>
-            </section>
-
-            <section class="service-page__section" aria-labelledby="service-stack-heading">
-              <h2 id="service-stack-heading" class="service-page__label">Technology</h2>
-              <ul class="service-page__tools">
-${tools}
-              </ul>
-            </section>
-          </div>
-
-          <section class="service-page__section service-page__section--deploy" aria-labelledby="service-cases-heading">
-            <h2 id="service-cases-heading" class="service-page__label">Deployments</h2>
-            <ul class="service-deploy-list">
-${useCases}
-            </ul>
           </section>
 
-          <div class="service-page__duo">
-            <section class="service-page__section" aria-labelledby="service-detail-heading">
-              <h2 id="service-detail-heading" class="service-page__label">Deliverables</h2>
-              <ul class="service-kw-list">
-${bullets}
-              </ul>
-            </section>
-
-            <section class="service-page__section" aria-labelledby="service-compare-heading">
-              <h2 id="service-compare-heading" class="service-page__label">Standard</h2>
-              <ul class="service-page__compare-list">
-${compare}
-              </ul>
-            </section>
-          </div>
+          <section class="service-page__pairs" aria-labelledby="service-pairs-heading">
+            <h2 id="service-pairs-heading" class="visually-hidden">${isFromTo ? 'From and to' : 'Problems and solutions'}</h2>
+            <ul class="service-page__pair-list">
+${pairs}
+            </ul>
+          </section>
 
           <div class="service-page__cta">
             <a class="btn btn--ghost" href="../index.html#services">All services</a>
