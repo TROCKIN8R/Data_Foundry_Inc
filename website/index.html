@@ -3,6 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var hasPath = false;
+        try {
+          var stored = sessionStorage.getItem('df-path');
+          hasPath = stored === 'data' || stored === 'automation';
+        } catch (e) {
+          /* ignore */
+        }
+        var hash = location.hash;
+        if (hash === '#schema' || hash === '#auto-vision') {
+          hasPath = true;
+        }
+        if (!hasPath) {
+          document.documentElement.classList.add('is-hero-locked');
+        }
+      })();
+    </script>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="assets/favicon.svg" sizes="any" />
     <meta
@@ -45,7 +63,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
@@ -74,9 +92,9 @@
           <span class="nav__toggle-bar" aria-hidden="true"></span>
         </button>
         <nav class="nav__links" id="nav-menu" aria-label="Primary">
-          <a href="#schema">Vision</a>
+          <a href="#schema" data-nav-data="#schema" data-nav-automation="#auto-vision">Vision</a>
           <div class="nav__dropdown-wrap">
-            <a href="#services" class="nav__link">Services</a>
+            <a href="#services" class="nav__link" data-nav-data="#services" data-nav-automation="#auto-services">Services</a>
             <div class="nav__dropdown" role="menu" aria-label="Services menu">
               <a href="services/ingestion.html" class="nav__dropdown-item nav__dropdown-item--bronze" role="menuitem">
                 <span class="nav__dropdown-icon" aria-hidden="true">
@@ -134,67 +152,72 @@
               </a>
             </div>
           </div>
-          <a href="#audience">Who we work with</a>
-          <a href="#founder">About Us</a>
-          <a href="#faq">FAQ</a>
+          <a href="#audience" data-nav-data="#audience" data-nav-automation="#auto-audience">Who we work with</a>
+          <a href="#founder" data-nav-data="#founder" data-nav-automation="#founder">About Us</a>
+          <a href="#faq" data-nav-data="#faq" data-nav-automation="#faq">FAQ</a>
         </nav>
         <a class="btn btn--nav booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
       </div>
     </header>
 
     <main id="main">
-      <section class="hero" id="about" aria-labelledby="hero-heading">
+      <section class="hero hero--split" id="about" aria-label="Choose your path">
         <div class="hero__inner">
-          <div class="hero__content">
-            <h1 id="hero-heading">
-              <span class="hero__link-word">from</span> Raw data<br />
-              <span class="hero__link-word">to</span> <span class="hero__gold">Golden decisions.</span>
+          <div class="hero__path hero__path--data" data-path="data">
+            <h1 id="hero-heading-data" class="hero__path-heading">
+              Raw data,<br />
+              <span class="hero__gold">Golden decisions.</span>
             </h1>
-            <p class="hero__sub hero-rotate">
-              <span class="hero-rotate__hook">Stop patching symptoms when </span>
-              <span class="hero-rotate__window">
-                <span class="hero-rotate__line">dashboards disagree.</span>
-                <span class="hero-rotate__line">IT is the bottleneck for every report.</span>
-                <span class="hero-rotate__line">Fabric never left the pilot phase.</span>
-                <span class="hero-rotate__line">mergers doubled the chaos.</span>
-                <span class="hero-rotate__line">self-service broke lineage.</span>
-              </span>
-              <span class="visually-hidden">
-                Stop patching symptoms when dashboards disagree, IT is the bottleneck for every report,
-                Fabric never left the pilot phase, mergers doubled the chaos, or self-service broke lineage.
-              </span>
-            </p>
-            <div class="hero__actions">
-              <a class="btn booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
-              <a class="btn btn--ghost email-link" href="mailto:adrienyvin@datafoundry.inc">Email us</a>
-              <a class="btn btn--ghost" href="#schema">See our vision</a>
+            <p class="hero__path-sub">Clean data. Decisions you can stake the business on.</p>
+            <div class="hero__path-cta">
+              <button type="button" class="btn btn--path btn--path-data" data-path-cta="data">
+                Explore BI &amp; analytics
+                <span class="btn__arrow" aria-hidden="true">→</span>
+              </button>
+              <a class="btn btn--path btn--path-ghost-data booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">
+                Book a call
+              </a>
             </div>
-            <p class="hero__cta-note">30-min intro on Calendly · I reply to email within 24h</p>
           </div>
 
-          <div class="hero__bg" aria-hidden="true">
-            <!-- bronze ore chunks -->
-            <span class="hb hb--bronze hb--b1"></span>
-            <span class="hb hb--bronze hb--b2"></span>
-            <span class="hb hb--bronze hb--b3"></span>
-            <span class="hb hb--bronze hb--b4"></span>
-            <span class="hb hb--bronze hb--b5"></span>
-            <!-- silver spheres -->
-            <span class="hb hb--silver hb--s1"></span>
-            <span class="hb hb--silver hb--s2"></span>
-            <span class="hb hb--silver hb--s3"></span>
-            <span class="hb hb--silver hb--s4"></span>
-            <!-- gold ingots -->
-            <span class="hb hb--gold hb--g1"></span>
-            <span class="hb hb--gold hb--g2"></span>
-            <span class="hb hb--gold hb--g3"></span>
-            <span class="hb hb--gold hb--g4"></span>
-            <span class="hb hb--gold hb--g5"></span>
+          <div class="hero__path hero__path--automation" data-path="automation">
+            <h1 id="hero-heading-automation" class="hero__path-heading">
+              Boring tasks<br />
+              <span class="hero__platinum">made invisible.</span>
+            </h1>
+            <p class="hero__path-sub">Set it once. Let your data do the rest.</p>
+            <div class="hero__path-cta">
+              <button type="button" class="btn btn--path btn--path-automation" data-path-cta="automation">
+                Explore automations
+                <span class="btn__arrow" aria-hidden="true">→</span>
+              </button>
+              <a class="btn btn--path btn--path-ghost-automation booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">
+                Book a call
+              </a>
+            </div>
           </div>
+        </div>
+
+        <div class="hero__bg" aria-hidden="true">
+          <span class="hb hb--bronze hb--b1"></span>
+          <span class="hb hb--bronze hb--b2"></span>
+          <span class="hb hb--bronze hb--b3"></span>
+          <span class="hb hb--bronze hb--b4"></span>
+          <span class="hb hb--bronze hb--b5"></span>
+          <span class="hb hb--silver hb--s1"></span>
+          <span class="hb hb--silver hb--s2"></span>
+          <span class="hb hb--silver hb--s3"></span>
+          <span class="hb hb--silver hb--s4"></span>
+          <span class="hb hb--gold hb--g1"></span>
+          <span class="hb hb--gold hb--g2"></span>
+          <span class="hb hb--gold hb--g3"></span>
+          <span class="hb hb--gold hb--g4"></span>
+          <span class="hb hb--gold hb--g5"></span>
         </div>
       </section>
 
-      <section class="vision" id="schema" aria-labelledby="schema-heading">
+
+      <section class="vision" id="schema" data-page-gate data-path-section="data" aria-labelledby="schema-heading">
         <header class="vision__header">
           <p class="vision__eyebrow">Our vision</p>
           <h2 id="schema-heading" class="vision__title">
@@ -366,7 +389,7 @@
         </div>
       </section>
 
-      <section class="services" id="services" aria-labelledby="services-heading">
+      <section class="services" id="services" data-page-gate data-path-section="data" aria-labelledby="services-heading">
         <header class="services__header">
           <p class="services__eyebrow">Our services</p>
           <h2 id="services-heading" class="services__title">
@@ -483,7 +506,7 @@
         </div>
       </section>
 
-      <section class="audience" id="audience" aria-labelledby="audience-heading">
+      <section class="audience" id="audience" data-page-gate data-path-section="data" aria-labelledby="audience-heading">
         <header class="audience__header">
           <p class="audience__eyebrow">Who we work with</p>
           <h2 id="audience-heading" class="audience__title">
@@ -595,6 +618,7 @@
       <div
         class="work-modal"
         id="work-modal"
+        data-page-gate
         hidden
         role="dialog"
         aria-modal="true"
@@ -612,7 +636,7 @@
         </div>
       </div>
 
-      <section class="compare" id="why-us" aria-labelledby="compare-heading">
+      <section class="compare" id="why-us" data-page-gate data-path-section="data" aria-labelledby="compare-heading">
         <header class="compare__header">
           <p class="compare__eyebrow">Why Data Foundry</p>
           <h2 id="compare-heading" class="compare__title">
@@ -647,7 +671,356 @@
         </div>
       </section>
 
-      <section class="founder" id="founder" aria-labelledby="founder-heading">
+      <!-- ═══ AUTOMATION PATH SECTIONS ═══ -->
+
+      <section class="vision" id="auto-vision" data-page-gate data-path-section="automation" aria-labelledby="auto-vision-heading">
+        <header class="vision__header">
+          <p class="vision__eyebrow">How it works</p>
+          <h2 id="auto-vision-heading" class="vision__title">
+            Governed gold at the heart
+            <span>of every automation.</span>
+          </h2>
+        </header>
+
+        <div class="hero-card">
+          <div class="auto-flow-wrap">
+            <div class="auto-flow" role="list" aria-label="Automation pipeline">
+              <div class="auto-flow__step auto-flow__step--gold" role="listitem">
+                <div class="auto-flow__visual auto-flow__visual--ingot" aria-hidden="true">
+                  <span class="gold-ingot gold-ingot--1"></span>
+                  <span class="gold-ingot gold-ingot--2"></span>
+                </div>
+                <p class="auto-flow__label">Gold Layer</p>
+                <p class="auto-flow__name">Certified KPIs</p>
+                <p class="auto-flow__meta">Governed · Trusted</p>
+              </div>
+
+              <span class="auto-flow__arrow" aria-hidden="true">→</span>
+
+              <div class="auto-flow__step auto-flow__step--activator" role="listitem">
+                <div class="auto-flow__visual" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                </div>
+                <p class="auto-flow__label">Data Activator</p>
+                <p class="auto-flow__name">Threshold trigger</p>
+                <p class="auto-flow__meta">Real-time · Certified</p>
+              </div>
+
+              <span class="auto-flow__arrow" aria-hidden="true">→</span>
+
+              <div class="auto-flow__step auto-flow__step--automate" role="listitem">
+                <div class="auto-flow__visual" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg>
+                </div>
+                <p class="auto-flow__label">Power Automate</p>
+                <p class="auto-flow__name">Workflow execution</p>
+                <p class="auto-flow__meta">Automated · Auditable</p>
+              </div>
+
+              <span class="auto-flow__arrow" aria-hidden="true">→</span>
+
+              <div class="auto-flow__step auto-flow__step--agent" role="listitem">
+                <div class="auto-flow__visual" aria-hidden="true">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
+                </div>
+                <p class="auto-flow__label">Copilot Agent</p>
+                <p class="auto-flow__name">Grounded answer</p>
+                <p class="auto-flow__meta">Semantic · Governed</p>
+              </div>
+            </div>
+          </div>
+
+          <nav class="schema-compact" aria-label="Automation pipeline steps">
+            <ol class="schema-compact__steps">
+              <li class="schema-compact__step schema-compact__step--gold">
+                <span class="schema-compact__marker" aria-hidden="true">
+                  <span class="gold-ingot gold-ingot--1 schema-compact__ore"></span>
+                </span>
+                <div class="schema-compact__body">
+                  <span class="schema-compact__layer">Gold Layer</span>
+                  <span class="schema-compact__name">Certified KPIs</span>
+                  <span class="schema-compact__meta">Governed · Trusted</span>
+                  <span class="schema-compact__gov">
+                    <span class="stage__governance-icon" aria-hidden="true"></span>
+                    Certification · Ownership
+                  </span>
+                </div>
+              </li>
+              <li class="schema-compact__step schema-compact__step--platinum">
+                <span class="schema-compact__marker" aria-hidden="true"></span>
+                <div class="schema-compact__body">
+                  <span class="schema-compact__layer">Data Activator</span>
+                  <span class="schema-compact__name">Threshold trigger</span>
+                  <span class="schema-compact__meta">Real-time · Certified</span>
+                  <span class="schema-compact__gov">
+                    <span class="stage__governance-icon" aria-hidden="true"></span>
+                    Alert policy · Lineage
+                  </span>
+                </div>
+              </li>
+              <li class="schema-compact__step schema-compact__step--platinum">
+                <span class="schema-compact__marker" aria-hidden="true"></span>
+                <div class="schema-compact__body">
+                  <span class="schema-compact__layer">Power Automate</span>
+                  <span class="schema-compact__name">Workflow execution</span>
+                  <span class="schema-compact__meta">Automated · Auditable</span>
+                  <span class="schema-compact__gov">
+                    <span class="stage__governance-icon" aria-hidden="true"></span>
+                    Audit trail · Ownership
+                  </span>
+                </div>
+              </li>
+              <li class="schema-compact__step schema-compact__step--platinum">
+                <span class="schema-compact__marker" aria-hidden="true"></span>
+                <div class="schema-compact__body">
+                  <span class="schema-compact__layer">Copilot Agent</span>
+                  <span class="schema-compact__name">Grounded answer</span>
+                  <span class="schema-compact__meta">Semantic · Governed</span>
+                  <span class="schema-compact__gov">
+                    <span class="stage__governance-icon" aria-hidden="true"></span>
+                    Access · Compliance
+                  </span>
+                </div>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <section class="services" id="auto-services" data-page-gate data-path-section="automation" aria-labelledby="auto-services-heading">
+        <header class="services__header">
+          <p class="services__eyebrow">What we build</p>
+          <h2 id="auto-services-heading" class="services__title">
+            Automation from trigger to agent
+          </h2>
+          <p class="services__intro">
+            Power Automate, Data Activator, and Copilot agents — all grounded in your certified semantic model.
+          </p>
+          <p class="services__tap">Click any card to learn more.</p>
+        </header>
+
+        <div class="services__grid">
+          <a href="services/agents.html" class="service-card service-card--platinum">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
+              </span>
+              <span class="service-card__layer">Copilot</span>
+            </div>
+            <span class="service-card__name">Copilot Agents</span>
+            <span class="service-card__tagline">AI agents grounded in your semantic model — no hallucinated metrics.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">Learn more</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <a href="services/agents.html" class="service-card service-card--platinum">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+              </span>
+              <span class="service-card__layer">Fabric</span>
+            </div>
+            <span class="service-card__name">Data Activator</span>
+            <span class="service-card__tagline">Real-time threshold triggers on certified KPIs — no custom polling scripts.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">Learn more</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <a href="services/agents.html" class="service-card service-card--platinum">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg>
+              </span>
+              <span class="service-card__layer">Workflow</span>
+            </div>
+            <span class="service-card__name">Power Automate</span>
+            <span class="service-card__tagline">End-to-end workflow automation with governed data as the source of truth.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">Learn more</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <a href="services/governance.html" class="service-card service-card--governance">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
+              <span class="service-card__layer">Every layer</span>
+            </div>
+            <span class="service-card__name">Governance for Automations</span>
+            <span class="service-card__tagline">Lineage, ownership, and auditability baked into every workflow.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">Learn more</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <a href="services/modeling.html" class="service-card service-card--silver">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg>
+              </span>
+              <span class="service-card__layer">Silver</span>
+            </div>
+            <span class="service-card__name">Transformation &amp; Modeling</span>
+            <span class="service-card__tagline">One certified semantic model — the foundation every agent runs on.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">Learn more</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <a href="services/ingestion.html" class="service-card service-card--bronze">
+            <div class="service-card__head">
+              <span class="service-card__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              </span>
+              <span class="service-card__layer">Bronze</span>
+            </div>
+            <span class="service-card__name">Data Ingestion &amp; Pipelines</span>
+            <span class="service-card__tagline">Reliable ingest — the governed pipeline your automations depend on.</span>
+            <span class="service-card__footer">
+              <span class="service-card__hint">Learn more</span>
+              <span class="service-card__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+        </div>
+      </section>
+
+      <section class="audience" id="auto-audience" data-page-gate data-path-section="automation" aria-labelledby="auto-audience-heading">
+        <header class="audience__header">
+          <p class="audience__eyebrow">Who we work with</p>
+          <h2 id="auto-audience-heading" class="audience__title">
+            Teams with trusted data, ready to automate
+          </h2>
+        </header>
+
+        <div class="audience__grid">
+          <article class="audience-item">
+            <span class="audience-item__num" aria-hidden="true">01</span>
+            <h3 class="audience-item__title">Analytics teams going operational</h3>
+            <p class="audience-item__desc">
+              Dashboards trusted, KPIs certified — now ready to fire actions on thresholds without manual intervention.
+            </p>
+          </article>
+
+          <article class="audience-item">
+            <span class="audience-item__num" aria-hidden="true">02</span>
+            <h3 class="audience-item__title">Fabric early adopters</h3>
+            <p class="audience-item__desc">
+              Microsoft Fabric is live with governance in place — looking to activate Data Activator and move to production agents.
+            </p>
+          </article>
+
+          <article class="audience-item">
+            <span class="audience-item__num" aria-hidden="true">03</span>
+            <h3 class="audience-item__title">AI-curious companies</h3>
+            <p class="audience-item__desc">
+              Want Copilot agents but won't deploy them on ungoverned data. Ready to build on a certified semantic model.
+            </p>
+          </article>
+        </div>
+
+        <div class="audience__projects">
+          <h3 class="audience__projects-title">Some of our work</h3>
+          <div class="customers__grid">
+            <button
+              type="button"
+              class="customer-card"
+              data-work-title="Cascades"
+              data-work-caption="Microsoft Fabric automation pipeline — redacted sample"
+              data-work-kind="diagram"
+            >
+              <div class="customer-card__logo">
+                <img src="assets/logos/cascades.svg" alt="" width="160" height="40" loading="lazy" />
+              </div>
+              <p class="customer-card__name">Cascades</p>
+              <p class="customer-card__desc">
+                Fabric pipelines with automated monitoring and ML-driven pricing workflows.
+              </p>
+              <span class="customer-card__hint">View sample</span>
+            </button>
+
+            <button
+              type="button"
+              class="customer-card"
+              data-work-title="Keurig Dr Pepper Canada"
+              data-work-caption="Automated forecast refresh pipeline — redacted sample"
+              data-work-kind="diagram"
+            >
+              <div class="customer-card__logo">
+                <img src="assets/logos/kdp.svg" alt="" width="200" height="40" loading="lazy" />
+              </div>
+              <p class="customer-card__name">Keurig Dr Pepper Canada</p>
+              <p class="customer-card__desc">
+                Automated ETL and scheduled forecast refresh pipelines for brand and RGM teams.
+              </p>
+              <span class="customer-card__hint">View sample</span>
+            </button>
+
+            <button
+              type="button"
+              class="customer-card"
+              data-work-title="Énergir"
+              data-work-caption="Python forecasting pipeline — redacted sample"
+              data-work-kind="chart"
+            >
+              <div class="customer-card__logo">
+                <img src="assets/logos/energir.svg" alt="" width="160" height="40" loading="lazy" />
+              </div>
+              <p class="customer-card__name">Énergir</p>
+              <p class="customer-card__desc">
+                Python forecasting pipeline with automated refresh and Power BI reporting.
+              </p>
+              <span class="customer-card__hint">View sample</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="compare" id="auto-why-us" data-page-gate data-path-section="automation" aria-labelledby="auto-compare-heading">
+        <header class="compare__header">
+          <p class="compare__eyebrow">Why Data Foundry</p>
+          <h2 id="auto-compare-heading" class="compare__title">
+            Automation that survives a schema change
+          </h2>
+          <p class="compare__intro">One senior specialist — from semantic model to production agent.</p>
+        </header>
+
+        <div class="compare__panel">
+          <div class="compare__labels" aria-hidden="true">
+            <span>Instead of</span>
+            <span>You get</span>
+          </div>
+          <ul class="compare__list">
+            <li class="compare-row">
+              <span class="compare-row__alt">Generic automation tool</span>
+              <span class="compare-row__edge">Triggers tied to certified KPIs — not raw queries.</span>
+            </li>
+            <li class="compare-row">
+              <span class="compare-row__alt">Bolt-on AI agent</span>
+              <span class="compare-row__edge">Agents grounded in your semantic model — no hallucinations.</span>
+            </li>
+            <li class="compare-row">
+              <span class="compare-row__alt">Developer consultant</span>
+              <span class="compare-row__edge">Data + automation expertise. One specialist.</span>
+            </li>
+            <li class="compare-row">
+              <span class="compare-row__alt">Tool rollout</span>
+              <span class="compare-row__edge">Foundation to production, owned end-to-end.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ═══ SHARED SECTIONS ═══ -->
+
+      <section class="founder" id="founder" data-page-gate aria-labelledby="founder-heading">
         <div class="founder__inner">
 
           <div class="founder__bio">
@@ -754,7 +1127,7 @@
         </div>
       </section>
 
-      <section class="faq" id="faq" aria-labelledby="faq-heading">
+      <section class="faq" id="faq" data-page-gate aria-labelledby="faq-heading">
         <header class="faq__header">
           <p class="faq__eyebrow">FAQ</p>
           <h2 id="faq-heading" class="faq__title">Common questions</h2>
@@ -807,11 +1180,36 @@
               </p>
             </div>
           </details>
+
+          <details class="faq__item" data-path-section="automation">
+            <summary class="faq__question">Do automations require a governed data foundation?</summary>
+            <div class="faq__answer">
+              <p>
+                Yes — and that's intentional. Agents and workflows built on ungoverned
+                data inherit every data quality problem downstream. We work with teams
+                that already have a certified semantic model, or we build the foundation
+                first. The result: automations that don't break when a schema changes and
+                agents that cite the right numbers every time.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item" data-path-section="automation">
+            <summary class="faq__question">What automation tools do you work with?</summary>
+            <div class="faq__answer">
+              <p>
+                Microsoft Fabric's Data Activator for real-time KPI triggers, Power
+                Automate for end-to-end workflow execution, and Microsoft Copilot Studio
+                for agents grounded in Power BI semantic models. The toolchain follows
+                your environment — if you're on a different stack, we scope accordingly.
+              </p>
+            </div>
+          </details>
         </div>
       </section>
     </main>
 
-    <footer class="footer" id="contact">
+    <footer class="footer" id="contact" data-page-gate>
       <p class="footer__copy">
         &copy; 2026 Data Foundry Inc.
       </p>
@@ -826,6 +1224,7 @@
       </div>
     </footer>
     <script src="js/site.js"></script>
+    <script src="js/hero-path.js"></script>
     <script>
       document.getElementById('years-stat').textContent =
         (new Date().getFullYear() - 2021) + '+';

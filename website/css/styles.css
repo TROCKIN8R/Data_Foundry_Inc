@@ -36,6 +36,34 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ── Hero locked state ──
+   The inline <head> script adds .is-hero-locked to <html> synchronously,
+   before the body renders. We cascade everything from that single class so
+   no JS-on-body timing gap can let the page scroll. */
+html.is-hero-locked {
+  overflow: hidden;
+  height: 100%;
+  scroll-behavior: auto;
+}
+
+html.is-hero-locked body {
+  overflow: hidden;
+  height: 100%;
+  max-height: 100dvh;
+  min-height: 0;
+  overscroll-behavior: none;
+}
+
+html.is-hero-locked main {
+  height: calc(100dvh - var(--nav-height));
+  max-height: calc(100dvh - var(--nav-height));
+  overflow: hidden;
+}
+
+html.is-hero-locked [data-page-gate] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -592,104 +620,13 @@ body.nav-menu-open {
   color: var(--color-gold-light);
 }
 
-.hero__sub {
-  margin: 1.25rem auto 0;
-  max-width: 36rem;
-  font-size: clamp(1rem, 2vw, 1.125rem);
-  line-height: 1.65;
-  color: var(--color-muted);
-}
-
-.hero-rotate {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.35rem;
-  text-align: center;
-}
-
-.hero-rotate__hook {
-  color: var(--color-muted);
-  text-wrap: balance;
+.hero__path-sub {
+  margin: 1rem 0 0;
   max-width: 22rem;
-}
-
-.hero-rotate__window {
-  display: grid;
-  place-items: center;
-  width: min(100%, 22rem);
-  min-height: 2.85em;
-}
-
-.hero-rotate__line {
-  grid-area: 1 / 1;
-  width: 100%;
-  max-width: 20rem;
-  margin: 0;
-  opacity: 0;
-  font-weight: 600;
-  line-height: 1.45;
-  color: var(--color-gold-light);
-  text-align: center;
-  text-wrap: balance;
-  animation: hero-rotate-fade 20s infinite;
-  pointer-events: none;
-}
-
-@media (min-width: 960px) {
-  .hero__sub.hero-rotate {
-    display: block;
-    max-width: none;
-    font-size: clamp(0.92rem, 1.35vw, 1.05rem);
-    line-height: 1.65;
-  }
-
-  .hero-rotate {
-    display: inline;
-    text-align: center;
-  }
-
-  .hero-rotate__hook {
-    display: inline;
-    max-width: none;
-    white-space: nowrap;
-  }
-
-  .hero-rotate__window {
-    display: inline-grid;
-    vertical-align: baseline;
-    width: auto;
-    min-height: 1.65em;
-    place-items: start;
-  }
-
-  .hero-rotate__line {
-    width: max-content;
-    max-width: none;
-    white-space: nowrap;
-    text-align: left;
-    line-height: inherit;
-  }
-}
-
-.hero-rotate__line:nth-child(1) { animation-delay: 0s; }
-.hero-rotate__line:nth-child(2) { animation-delay: 4s; }
-.hero-rotate__line:nth-child(3) { animation-delay: 8s; }
-.hero-rotate__line:nth-child(4) { animation-delay: 12s; }
-.hero-rotate__line:nth-child(5) { animation-delay: 16s; }
-
-@keyframes hero-rotate-fade {
-  0%,
-  18%,
-  100% {
-    opacity: 0;
-    visibility: hidden;
-  }
-  2%,
-  16% {
-    opacity: 1;
-    visibility: visible;
-  }
+  font-size: clamp(0.9rem, 1.55vw, 1rem);
+  line-height: 1.6;
+  color: var(--color-muted);
+  text-align: inherit;
 }
 
 .visually-hidden {
@@ -852,6 +789,447 @@ body.nav-menu-open {
   width: 2.8rem; height: 1rem;
   --rot: -4deg;
   --dur: 4.4s; --delay: 2.4s; --fy: -0.75rem; --fx: -0.5rem; --dr: 3deg;
+}
+
+.btn--compact {
+  padding: 0.5rem 0.85rem;
+  font-size: 0.78rem;
+}
+
+.btn--path {
+  gap: 0.45rem;
+  padding: 0.8rem 1.35rem;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  border: none;
+  cursor: pointer;
+}
+
+.btn--path-data {
+  color: var(--color-bg);
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+}
+
+.btn--path-data:hover {
+  color: var(--color-bg);
+}
+
+.btn--path-automation {
+  color: var(--color-bg);
+  background: linear-gradient(135deg, var(--color-platinum-dark), var(--color-platinum));
+}
+
+.btn--path-automation:hover {
+  color: var(--color-bg);
+}
+
+.btn__arrow {
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.btn--path:hover .btn__arrow {
+  transform: translateX(0.15rem);
+}
+
+/* ── Hero cloud ── */
+.hero__cloud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.hero__cloud--data {
+  background: linear-gradient(to right, rgba(201, 132, 18, 0.18) 0%, transparent 58%);
+}
+
+.hero__cloud--plat {
+  background: linear-gradient(to left, rgba(95, 133, 163, 0.18) 0%, transparent 58%);
+}
+
+.hero__cloud--active {
+  opacity: 1;
+}
+
+
+.hero--split {
+  max-width: none;
+  width: 100%;
+  height: calc(100dvh - var(--nav-height));
+  min-height: calc(100dvh - var(--nav-height));
+  max-height: calc(100dvh - var(--nav-height));
+  padding: clamp(0.75rem, 2vw, 1.5rem) clamp(1rem, 3vw, 2rem);
+  align-items: stretch;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.hero--split::before {
+  background:
+    radial-gradient(ellipse 45% 70% at 15% 50%, rgba(201, 132, 18, 0.1), transparent 68%),
+    radial-gradient(ellipse 45% 70% at 85% 50%, rgba(95, 133, 163, 0.1), transparent 68%);
+}
+
+.hero--split .hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  width: 100%;
+  max-width: 76rem;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.hero__path {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 0;
+  overflow: hidden;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  border: none;
+  border-radius: 0.35rem;
+  text-align: left;
+  outline: none;
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.hero__path::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.hero__path--data::before {
+  background: radial-gradient(ellipse 90% 80% at 10% 50%, rgba(201, 132, 18, 0.13), transparent 65%);
+}
+
+.hero__path--automation::before {
+  background: radial-gradient(ellipse 90% 80% at 90% 50%, rgba(95, 133, 163, 0.13), transparent 65%);
+}
+
+.hero__path--data {
+  text-align: left;
+}
+
+.hero__path--automation {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.hero__path--automation .hero__path-cta {
+  justify-content: flex-end;
+}
+
+.hero__path--dim {
+  opacity: 0.8;
+}
+
+.btn--path-ghost-data {
+  color: rgba(239, 179, 58, 0.9);
+  background: transparent;
+  border: 1px solid rgba(239, 179, 58, 0.28);
+}
+}
+
+.btn--path-ghost-data:hover {
+  color: var(--color-bg);
+  background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
+  border-color: transparent;
+}
+
+.btn--path-ghost-automation {
+  color: rgba(180, 207, 227, 0.9);
+  background: transparent;
+  border: 1px solid rgba(95, 133, 163, 0.35);
+}
+
+.btn--path-ghost-automation:hover {
+  color: var(--color-bg);
+  background: linear-gradient(135deg, var(--color-platinum-dark), var(--color-platinum));
+  border-color: transparent;
+}
+
+.hero__path--chosen {
+  border: none;
+}
+
+.hero__path--chosen::before {
+  opacity: 0;
+}
+
+.hero__path--data.hero__path--chosen {
+  box-shadow: none;
+}
+
+.hero__path--automation.hero__path--chosen {
+  box-shadow: none;
+}
+
+body[data-path] .hero__path--chosen {
+  opacity: 1;
+}
+
+.hero__divider {
+  display: none;
+}
+
+.hero h1.hero__path-heading {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(2.1rem, 4.6vw, 4rem);
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.hero__platinum {
+  color: var(--color-platinum-light);
+}
+
+.hero__path-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 1.5rem;
+}
+
+/* ── Path tracks ── */
+.path-track {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4rem) 1.5rem;
+  scroll-margin-top: var(--nav-height);
+  border-top: 1px solid var(--color-border);
+}
+
+.path-track--data {
+  background:
+    radial-gradient(ellipse 50% 40% at 15% 20%, rgba(201, 132, 18, 0.06), transparent 65%),
+    transparent;
+}
+
+.path-track--automation {
+  background:
+    radial-gradient(ellipse 50% 40% at 85% 20%, rgba(95, 133, 163, 0.08), transparent 65%),
+    transparent;
+}
+
+.path-track__header {
+  max-width: 40rem;
+  margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.path-track__eyebrow {
+  margin: 0 0 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(239, 179, 58, 0.75);
+}
+
+.path-track__eyebrow--platinum {
+  color: rgba(180, 207, 227, 0.8);
+}
+
+.path-track__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  text-wrap: balance;
+}
+
+.path-track__pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  padding: 1rem 1.25rem;
+  background: rgba(244, 239, 230, 0.03);
+  border: 1px solid var(--color-border);
+  border-radius: 0.35rem;
+}
+
+.path-track__stage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-border);
+  min-width: 5.5rem;
+}
+
+.path-track__stage--bronze {
+  border-color: rgba(169, 99, 46, 0.28);
+  background: rgba(169, 99, 46, 0.06);
+}
+
+.path-track__stage--silver {
+  border-color: rgba(179, 183, 188, 0.22);
+  background: rgba(179, 183, 188, 0.05);
+}
+
+.path-track__stage--gold {
+  border-color: rgba(239, 179, 58, 0.28);
+  background: rgba(239, 179, 58, 0.06);
+}
+
+.path-track__stage--platinum {
+  border-color: rgba(180, 207, 227, 0.28);
+  background: rgba(180, 207, 227, 0.06);
+}
+
+.path-track__stage--output {
+  border-color: rgba(239, 179, 58, 0.35);
+  background: rgba(239, 179, 58, 0.08);
+}
+
+.path-track__stage--output-platinum {
+  border-color: rgba(180, 207, 227, 0.35);
+  background: rgba(180, 207, 227, 0.08);
+}
+
+.path-track__stage-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.path-track__stage-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.3;
+}
+
+.path-track__arrow {
+  font-size: 0.9rem;
+  color: var(--color-dim);
+}
+
+.path-track__outcomes {
+  margin: 0 0 clamp(1.75rem, 4vw, 2.5rem);
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.65rem;
+  max-width: 42rem;
+}
+
+.path-track__outcomes li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+}
+
+.path-track__outcomes li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--color-gold);
+}
+
+.path-track--automation .path-track__outcomes li::before {
+  background: var(--color-platinum);
+}
+
+.path-track__spotlight {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.path-track__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .hero--split {
+    height: calc(100dvh - var(--nav-height));
+    min-height: calc(100dvh - var(--nav-height));
+    max-height: calc(100dvh - var(--nav-height));
+    padding: 0.5rem 0.75rem;
+  }
+
+  .hero--split .hero__inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+    min-height: 0;
+  }
+
+  .hero__path {
+    padding: 0.85rem 1rem;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .hero__path-heading {
+    font-size: clamp(1.55rem, 6vw, 2rem);
+  }
+
+  .btn--path {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .hero__path--automation {
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .hero__path--automation .hero__path-cta {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__path {
+    transition: none;
+  }
+
+  .btn--path .btn__arrow {
+    transition: none;
+  }
+
+  .btn--path:hover .btn__arrow {
+    transform: none;
+  }
 }
 
 /* Vision / schema */
@@ -3456,34 +3834,6 @@ body.work-modal-open {
     animation: none;
   }
 
-  .hero-rotate__line {
-    animation: none;
-    opacity: 0;
-    display: none;
-    pointer-events: auto;
-  }
-
-  .hero-rotate__line:first-child {
-    display: block;
-    opacity: 1;
-  }
-
-  .hero-rotate__window {
-    display: grid;
-    min-height: 0;
-    width: auto;
-  }
-
-  @media (min-width: 960px) {
-    .hero-rotate__line:first-child {
-      display: inline;
-    }
-
-    .hero-rotate__window {
-      display: inline-grid;
-    }
-  }
-
   .btn:hover {
     transform: none;
   }
@@ -3547,5 +3897,254 @@ body.work-modal-open {
 
   .schema-fit .stage__title {
     font-size: clamp(1rem, 1.15vw, 1.35rem);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Path accent themes
+   body[data-path="data"]       → gold  (default, no overrides needed)
+   body[data-path="automation"] → platinum
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Automation path: remap accent tokens ─────────────────────
+   Overriding --color-gold / --color-gold-light on body cascades
+   to every var(--color-gold*) reference on the page automatically. */
+body[data-path="automation"] {
+  --color-gold:       var(--color-platinum-dark);
+  --color-gold-light: var(--color-platinum-light);
+  --color-focus:      var(--color-platinum-light);
+
+  background:
+    radial-gradient(ellipse 80% 45% at 50% 70%, rgba(53,  80, 104, 0.14), transparent 62%),
+    radial-gradient(ellipse 60% 40% at 50%  0%, rgba(95, 133, 163, 0.09), transparent 65%),
+    var(--color-bg);
+}
+
+/* Hero glow: warm gold → cool platinum */
+body[data-path="automation"] .hero--split::before {
+  background:
+    radial-gradient(ellipse 40% 35% at 22% 40%, rgba(53,  80, 104, 0.12), transparent 68%),
+    radial-gradient(ellipse 40% 35% at 78% 40%, rgba(95, 133, 163, 0.13), transparent 68%),
+    radial-gradient(ellipse 55% 30% at 50% 18%, rgba(95, 133, 163, 0.06), transparent 65%);
+}
+
+/* Nav logo mark: bronze-to-platinum */
+body[data-path="automation"] .nav__mark {
+  background: linear-gradient(135deg, var(--color-platinum-dark), var(--color-platinum-light));
+  box-shadow: 0 0 18px rgba(95, 133, 163, 0.35);
+}
+
+/* Ghost buttons: platinum borders site-wide in automation path */
+body[data-path="automation"] .btn--ghost {
+  border-color: rgba(95, 133, 163, 0.35);
+}
+
+body[data-path="automation"] .btn--ghost:hover {
+  background: rgba(95, 133, 163, 0.1);
+  border-color: rgba(95, 133, 163, 0.52);
+}
+
+/* Sections with hardcoded rgba(239,179,58) gold values */
+body[data-path="automation"] .founder__eyebrow {
+  color: rgba(180, 207, 227, 0.72);
+}
+
+body[data-path="automation"] .faq__eyebrow {
+  color: rgba(180, 207, 227, 0.72);
+}
+
+body[data-path="automation"] .founder__timeline::before {
+  background: linear-gradient(180deg, rgba(95, 133, 163, 0.4), rgba(95, 133, 163, 0.08));
+}
+
+body[data-path="automation"] .tl-item__dot {
+  border-color: rgba(95, 133, 163, 0.32);
+}
+
+body[data-path="automation"] .tl-item--current .tl-item__dot {
+  background: var(--color-platinum);
+  border-color: var(--color-platinum-light);
+  box-shadow: 0 0 8px rgba(95, 133, 163, 0.45);
+}
+
+body[data-path="automation"] .tl-item--current .tl-item__date {
+  color: rgba(180, 207, 227, 0.72);
+}
+
+body[data-path="automation"] .stack-tag:hover {
+  border-color: rgba(95, 133, 163, 0.38);
+  color: rgba(180, 207, 227, 0.85);
+}
+
+/* ── Restore gold accents inside the data hero panel ──────────
+   The variable override above cascades into .hero__path--data too;
+   pin every gold-tinted element back to its original values so the
+   data panel always reads as gold regardless of active path. */
+
+body[data-path="automation"] .hero__path--data .hero__gold {
+  color: #efb33a;
+}
+
+body[data-path="automation"] .hero__path--data .hero-rotate__line {
+  color: #efb33a;
+}
+
+body[data-path="automation"] .hero__path--data .hero__path-tag {
+  color: rgba(239, 179, 58, 0.75);
+}
+
+body[data-path="automation"] .btn--path-data {
+  background: linear-gradient(135deg, #c88412, #efb33a);
+}
+
+body[data-path="automation"] .hero__path--data .btn--ghost {
+  border-color: rgba(239, 179, 58, 0.32);
+}
+
+body[data-path="automation"] .hero__path--data .btn--ghost:hover {
+  background: rgba(239, 179, 58, 0.1);
+  border-color: rgba(239, 179, 58, 0.48);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Path section visibility
+   Sections tagged data-path-section are hidden for the opposite path.
+   ═══════════════════════════════════════════════════════════════ */
+
+body[data-path="data"]       [data-path-section="automation"] { display: none !important; }
+body[data-path="automation"] [data-path-section="data"]       { display: none !important; }
+
+/* Automation-only section eyebrows: use platinum instead of hardcoded gold */
+body[data-path="automation"] .vision__eyebrow,
+body[data-path="automation"] .services__eyebrow,
+body[data-path="automation"] .audience__eyebrow,
+body[data-path="automation"] .compare__eyebrow {
+  color: rgba(180, 207, 227, 0.72);
+}
+
+/* ── Automation flow diagram (.auto-flow) ─────────────────────── */
+.auto-flow-wrap {
+  padding: clamp(1.5rem, 4vw, 2.75rem) clamp(1rem, 3vw, 2rem);
+  overflow-x: auto;
+}
+
+.auto-flow {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  min-width: max-content;
+  margin: 0 auto;
+}
+
+.auto-flow__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: clamp(1rem, 2.5vw, 1.5rem) clamp(0.85rem, 2vw, 1.35rem);
+  background: rgba(244, 239, 230, 0.025);
+  border: 1px solid rgba(244, 239, 230, 0.07);
+  border-radius: 1rem;
+  min-width: 9rem;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.auto-flow__step--gold {
+  border-color: rgba(239, 179, 58, 0.2);
+}
+
+.auto-flow__step--gold:hover {
+  border-color: rgba(239, 179, 58, 0.38);
+  background: rgba(239, 179, 58, 0.04);
+}
+
+.auto-flow__step--activator,
+.auto-flow__step--automate,
+.auto-flow__step--agent {
+  border-color: rgba(95, 133, 163, 0.2);
+}
+
+.auto-flow__step--activator:hover,
+.auto-flow__step--automate:hover,
+.auto-flow__step--agent:hover {
+  border-color: rgba(180, 207, 227, 0.38);
+  background: rgba(95, 133, 163, 0.04);
+}
+
+.auto-flow__visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.2rem;
+  position: relative;
+}
+
+.auto-flow__visual--ingot {
+  gap: 0.25rem;
+  flex-direction: row;
+}
+
+.auto-flow__visual--ingot .gold-ingot {
+  transform: scale(0.7);
+}
+
+.auto-flow__visual svg {
+  color: var(--color-platinum-light);
+  opacity: 0.8;
+}
+
+.auto-flow__step--gold .auto-flow__visual svg {
+  color: var(--color-gold-light);
+}
+
+.auto-flow__label {
+  margin: 0;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(180, 207, 227, 0.6);
+}
+
+.auto-flow__step--gold .auto-flow__label {
+  color: rgba(239, 179, 58, 0.62);
+}
+
+.auto-flow__name {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.85rem, 1.4vw, 1rem);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.auto-flow__meta {
+  margin: 0;
+  font-size: 0.67rem;
+  color: var(--color-muted);
+}
+
+.auto-flow__arrow {
+  font-size: 1.1rem;
+  color: var(--color-dim);
+  flex-shrink: 0;
+  align-self: center;
+  padding: 0 0.1rem;
+}
+
+@media (max-width: 700px) {
+  .auto-flow {
+    flex-direction: column;
+    min-width: 0;
+    align-items: center;
+  }
+
+  .auto-flow__arrow {
+    transform: rotate(90deg);
   }
 }
