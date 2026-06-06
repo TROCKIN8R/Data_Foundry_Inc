@@ -86,6 +86,7 @@
     var target = document.getElementById(PATH_TARGETS[pathName]);
     if (!target) return;
     target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+    window.dispatchEvent(new Event('scroll'));
   }
 
   function selectPath(pathName, shouldScroll) {
