@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="../assets/favicon.svg" sizes="any" />
-    <meta name="description" content="Silver-layer modeling in Fabric Warehouse, Lakehouse SQL, dbt, and BigQuery — dimensional models and semantic layers your whole org builds on." />
+    <meta name="description" content="Zapier, Power Automate, and webhook flows — built to handle incomplete fields, duplicate records, and schema drift." />
     <meta name="author" content="Adrien Yvin" />
     <meta name="theme-color" content="#0b0c08" />
     <meta name="booking-url" content="https://calendly.com/adrienyvin/30min" />
     <meta name="email-subject" content="Our dashboards never match — can Data Foundry help?" />
-    <link rel="canonical" href="https://trockin8r.github.io/Data_Foundry_Inc/services/modeling.html" />
-    <title>Transformation &amp; Modeling | Data Foundry Inc.</title>
+    <link rel="canonical" href="https://trockin8r.github.io/Data_Foundry_Inc/services/automations.html" />
+    <title>Automations | Data Foundry Inc.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -44,14 +44,14 @@
                 <span class="nav__dropdown-desc">Reliable ingest — governed from the first load.</span>
               </span>
             </a>
-            <a href="modeling.html" class="nav__dropdown-item nav__dropdown-item--silver nav__dropdown-item--active" role="menuitem">
+            <a href="modeling.html" class="nav__dropdown-item nav__dropdown-item--silver" role="menuitem">
               <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg></span>
               <span class="nav__dropdown-copy">
                 <span class="nav__dropdown-name">Transformation & Modeling</span>
                 <span class="nav__dropdown-desc">One model, one version of the truth.</span>
               </span>
             </a>
-            <a href="automations.html" class="nav__dropdown-item nav__dropdown-item--platinum" role="menuitem">
+            <a href="automations.html" class="nav__dropdown-item nav__dropdown-item--platinum nav__dropdown-item--active" role="menuitem">
               <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg></span>
               <span class="nav__dropdown-copy">
                 <span class="nav__dropdown-name">Automations</span>
@@ -101,39 +101,40 @@
       </div>
     </header>
 
-    <main id="main" class="service-page service-page--silver">
+    <main id="main" class="service-page service-page--platinum">
       <div class="service-page__inner">
         <nav class="service-page__crumb" aria-label="Breadcrumb">
           <a href="../index.html#services">Services</a>
           <span aria-hidden="true">/</span>
-          <span>Silver</span>
+          <span>Platinum</span>
         </nav>
 
         <header class="service-page__header">
-          <p class="service-page__layer">Silver</p>
-          <h1 class="service-page__title">Transformation &amp; Modeling</h1>
-          <p class="service-page__intro">One model, one version of the truth.</p>
-          <p class="service-page__overview">Raw bronze becomes trusted silver: cleaned, conformed, and modeled for analytics. We build star schemas and semantic layers in Fabric Warehouse or BigQuery, with transformations in Spark notebooks, SQL, or dbt — every join and filter auditable and version-controlled.</p>
+          <p class="service-page__layer">Platinum</p>
+          <h1 class="service-page__title">Automations</h1>
+          <p class="service-page__intro">Set-and-forget pipelines across your apps.</p>
+          <p class="service-page__overview">Event-driven workflows that replace manual handoffs — triggers, branching logic, and outbound delivery wired through Zapier, Power Automate, or custom webhooks. Every flow includes error handling, retry logic, and field mapping tested against real edge cases before handoff.</p>
         </header>
 
         <section class="service-page__stack" aria-labelledby="service-stack-heading">
           <h2 id="service-stack-heading" class="service-page__label">Tools we work with</h2>
           <ul class="service-page__tools">
-            <li>Fabric Warehouse &amp; Lakehouse SQL</li>
-            <li>Fabric Notebooks (Spark)</li>
-            <li>dbt (Fabric or BigQuery)</li>
-            <li>BigQuery stored procedures</li>
-            <li>Power BI semantic models</li>
+            <li>Zapier</li>
+            <li>Power Automate</li>
+            <li>Azure Logic Apps</li>
+            <li>Custom webhooks</li>
+            <li>BigQuery scheduled queries</li>
           </ul>
         </section>
 
         <section class="service-page__body" aria-labelledby="service-detail-heading">
           <h2 id="service-detail-heading" class="service-page__label">What we deliver</h2>
           <ul class="service-page__list">
-            <li>Kimball-style dimensions and facts in Fabric Warehouse tables or BigQuery datasets — conformed across business units</li>
-            <li>dbt or Fabric notebooks for reusable transformation logic with tests on uniqueness, referential integrity, and freshness</li>
-            <li>Slowly changing dimensions, role-playing dates, and bridge tables documented for report authors</li>
-            <li>Cross-platform modeling when Fabric is the serve layer and BigQuery remains the compute or archive tier</li>
+            <li>Process logic with branching, dead-letter queues, and logged failures</li>
+            <li>Real-time Slack, Teams, or SMS alerts on high-priority business events</li>
+            <li>App-to-app sync between CRM, accounting, and operational systems</li>
+            <li>Defensive transforms for nulls, duplicates, and API rate limits</li>
+            <li>Documented runbooks with ownership and monitoring hooks after handoff</li>
           </ul>
         </section>
 
@@ -141,9 +142,9 @@
           <h2 id="service-mockups-heading" class="service-page__label">Example outputs</h2>
           <p class="service-page__mockups-note">Illustrative mockups — client deliverables are tailored to your Fabric, Power BI, and BigQuery estate.</p>
           <div class="service-page__mockups-grid">
-<figure class="service-mock"><figcaption class="service-mock__caption">Star schema — sales subject area (Fabric Warehouse / BigQuery)</figcaption><div class="service-mock__frame"><div class="service-ph__star"><div class="service-ph__star-node">dim_customer</div><div class="service-ph__star-node">dim_product</div><div class="service-ph__star-node">dim_date</div><div class="service-ph__star-node service-ph__star-node--fact">fact_sales</div></div></div></figure>
+<figure class="service-mock"><figcaption class="service-mock__caption">Automation flow — webhook trigger to Teams alert</figcaption><div class="service-mock__frame"><div class="service-ph__automation"><span class="service-ph__auto-step">Webhook</span><span class="work-ph__arrow"></span><span class="service-ph__auto-step">Process logic</span><span class="work-ph__arrow"></span><span class="service-ph__auto-step">Power Automate</span><span class="work-ph__arrow"></span><span class="service-ph__auto-step">Teams</span></div></div></figure>
 
-<figure class="service-mock"><figcaption class="service-mock__caption">Silver layer — conformed dimension columns</figcaption><div class="service-mock__frame"><div class="service-ph__schema-wrap"><p class="service-ph__schema-table">silver.dim_customer</p><div class="service-ph__schema"><div class="service-ph__schema-head"><span>Column</span><span>Type</span><span>Role</span></div><div class="service-ph__schema-row"><span>customer_key</span><span>INT64</span><span>PK</span></div><div class="service-ph__schema-row"><span>customer_id</span><span>STRING</span><span>NK</span></div><div class="service-ph__schema-row"><span>segment</span><span>STRING</span><span></span></div><div class="service-ph__schema-row"><span>valid_from</span><span>DATE</span><span>SCD2</span></div><div class="service-ph__schema-row"><span>_updated_at</span><span>TIMESTAMP</span><span>audit</span></div></div></div></div></figure>
+<figure class="service-mock"><figcaption class="service-mock__caption">CRM-to-accounting sync — field mapping</figcaption><div class="service-mock__frame"><div class="work-ph"><div class="work-ph__top"><span class="work-ph__chip work-ph__chip--w2"></span><span class="service-ph__badge">Fabric Pipeline</span><span class="work-ph__redact">Mockup</span></div><div class="work-ph__flow"><span class="work-ph__node work-ph__node--bronze"><span class="service-ph__node-label">CRM</span></span><span class="work-ph__arrow"></span><span class="work-ph__node work-ph__node--silver"><span class="service-ph__node-label">Transform</span></span><span class="work-ph__arrow"></span><span class="work-ph__node work-ph__node--gold"><span class="service-ph__node-label">Accounting</span></span><span class="work-ph__arrow"></span><span class="work-ph__node work-ph__node--platinum"><span class="service-ph__node-label">Audit log</span></span></div></div></div></figure>
           </div>
         </section>
 

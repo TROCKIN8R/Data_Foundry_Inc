@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="../assets/favicon.svg" sizes="any" />
-    <meta name="description" content="Power Automate, Fabric Data Activator, and AI agents on governed gold-layer data in Fabric and BigQuery." />
+    <meta name="description" content="AI agents for invoice extraction and internal documentation Q&amp;A — responses grounded in your sources, not guesses." />
     <meta name="author" content="Adrien Yvin" />
     <meta name="theme-color" content="#0b0c08" />
     <meta name="booking-url" content="https://calendly.com/adrienyvin/30min" />
     <meta name="email-subject" content="Our dashboards never match — can Data Foundry help?" />
-    <link rel="canonical" href="https://trockin8r.github.io/Data_Foundry_Inc/services/agents.html" />
-    <title>Agents &amp; Automations | Data Foundry Inc.</title>
+    <link rel="canonical" href="https://trockin8r.github.io/Data_Foundry_Inc/services/ai-agents.html" />
+    <title>AI Agents | Data Foundry Inc.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -36,8 +36,7 @@
           <a href="../index.html#schema">Vision</a>
           <div class="nav__dropdown-wrap">
             <a href="../index.html#services" class="nav__link">Services</a>
-            <div class="nav__dropdown" role="menu" aria-label="Services menu">
-            <p class="nav__dropdown-group" role="presentation">Data</p>
+            <div class="nav__dropdown nav__dropdown--matrix" role="menu" aria-label="Services menu">
             <a href="ingestion.html" class="nav__dropdown-item nav__dropdown-item--bronze" role="menuitem">
               <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></span>
               <span class="nav__dropdown-copy">
@@ -50,6 +49,13 @@
               <span class="nav__dropdown-copy">
                 <span class="nav__dropdown-name">Transformation & Modeling</span>
                 <span class="nav__dropdown-desc">One model, one version of the truth.</span>
+              </span>
+            </a>
+            <a href="automations.html" class="nav__dropdown-item nav__dropdown-item--platinum" role="menuitem">
+              <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg></span>
+              <span class="nav__dropdown-copy">
+                <span class="nav__dropdown-name">Automations</span>
+                <span class="nav__dropdown-desc">Set-and-forget pipelines across your apps.</span>
               </span>
             </a>
             <a href="reporting.html" class="nav__dropdown-item nav__dropdown-item--gold" role="menuitem">
@@ -66,12 +72,11 @@
                 <span class="nav__dropdown-desc">Lineage, quality, and ownership built in.</span>
               </span>
             </a>
-            <p class="nav__dropdown-group" role="presentation">Automations</p>
-            <a href="agents.html" class="nav__dropdown-item nav__dropdown-item--platinum nav__dropdown-item--active" role="menuitem">
+            <a href="ai-agents.html" class="nav__dropdown-item nav__dropdown-item--platinum nav__dropdown-item--active" role="menuitem">
               <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg></span>
               <span class="nav__dropdown-copy">
-                <span class="nav__dropdown-name">Agents & Automations</span>
-                <span class="nav__dropdown-desc">Workflows and AI agents that keep running after handoff.</span>
+                <span class="nav__dropdown-name">AI Agents</span>
+                <span class="nav__dropdown-desc">Grounded AI for documents and unstructured inputs.</span>
               </span>
             </a>
             </div>
@@ -106,29 +111,28 @@
 
         <header class="service-page__header">
           <p class="service-page__layer">Platinum</p>
-          <h1 class="service-page__title">Agents &amp; Automations</h1>
-          <p class="service-page__intro">Workflows and AI agents that keep running after handoff.</p>
-          <p class="service-page__overview">Platinum is where data leaves the warehouse and drives action — alerts, workflows, and AI agents grounded in your certified gold layer. We build on Fabric Data Activator, Power Automate, Azure Logic Apps, and BigQuery scheduled queries so automations stay maintainable long after handoff.</p>
+          <h1 class="service-page__title">AI Agents</h1>
+          <p class="service-page__intro">Grounded AI for documents and unstructured inputs.</p>
+          <p class="service-page__overview">AI agents deployed only where unstructured input or natural-language access adds clear value — invoice photos to structured records, employee questions answered from internal docs. Retrieval is scoped to approved sources with cited responses and access controls.</p>
         </header>
 
         <section class="service-page__stack" aria-labelledby="service-stack-heading">
           <h2 id="service-stack-heading" class="service-page__label">Tools we work with</h2>
           <ul class="service-page__tools">
-            <li>Fabric Data Activator</li>
-            <li>Power Automate</li>
-            <li>Azure Logic Apps</li>
-            <li>Copilot Studio (optional)</li>
-            <li>BigQuery scheduled queries</li>
+            <li>Copilot Studio</li>
+            <li>Azure OpenAI</li>
+            <li>Power Automate AI Builder</li>
+            <li>SharePoint / document retrieval</li>
           </ul>
         </section>
 
         <section class="service-page__body" aria-labelledby="service-detail-heading">
           <h2 id="service-detail-heading" class="service-page__label">What we deliver</h2>
           <ul class="service-page__list">
-            <li>Threshold and anomaly triggers on gold KPIs — notify Slack, Teams, or email when metrics move outside bounds</li>
-            <li>Power Automate flows that create tickets, update CRM records, or kick off Fabric pipeline reruns</li>
-            <li>AI agents with retrieval grounded in governed semantic models — no hallucinated metrics from stale exports</li>
-            <li>Runbooks, monitoring, and ownership docs so your team operates automations without us on retainer</li>
+            <li>Extract line items from invoice photos and post structured records to accounting systems</li>
+            <li>Answer employee questions from internal documentation — responses cite source pages</li>
+            <li>Agents grounded in governed data and approved document sets — no open-web guessing</li>
+            <li>Guardrails, access controls, and audit logging on every interaction</li>
           </ul>
         </section>
 
@@ -136,9 +140,9 @@
           <h2 id="service-mockups-heading" class="service-page__label">Example outputs</h2>
           <p class="service-page__mockups-note">Illustrative mockups — client deliverables are tailored to your Fabric, Power BI, and BigQuery estate.</p>
           <div class="service-page__mockups-grid">
-<figure class="service-mock"><figcaption class="service-mock__caption">Automation flow — KPI threshold to Teams alert</figcaption><div class="service-mock__frame"><div class="service-ph__automation"><span class="service-ph__auto-step">Gold KPI</span><span class="work-ph__arrow"></span><span class="service-ph__auto-step">Data Activator</span><span class="work-ph__arrow"></span><span class="service-ph__auto-step">Power Automate</span><span class="work-ph__arrow"></span><span class="service-ph__auto-step">Teams</span></div></div></figure>
+<figure class="service-mock"><figcaption class="service-mock__caption">Invoice capture — photo to structured line items</figcaption><div class="service-mock__frame"><div class="work-ph"><div class="work-ph__top"><span class="work-ph__chip work-ph__chip--w2"></span><span class="service-ph__badge">Fabric Pipeline</span><span class="work-ph__redact">Mockup</span></div><div class="work-ph__flow"><span class="work-ph__node work-ph__node--bronze"><span class="service-ph__node-label">Photo upload</span></span><span class="work-ph__arrow"></span><span class="work-ph__node work-ph__node--silver"><span class="service-ph__node-label">OCR + extract</span></span><span class="work-ph__arrow"></span><span class="work-ph__node work-ph__node--gold"><span class="service-ph__node-label">Validate</span></span><span class="work-ph__arrow"></span><span class="work-ph__node work-ph__node--platinum"><span class="service-ph__node-label">ERP post</span></span></div></div></div></figure>
 
-<figure class="service-mock"><figcaption class="service-mock__caption">Agent context — certified measures available to Copilot</figcaption><div class="service-mock__frame"><div class="work-ph"><div class="work-ph__top"><span class="work-ph__chip work-ph__chip--w2"></span><span class="service-ph__badge">Power BI</span><span class="work-ph__redact">Mockup</span></div><p class="service-ph__report-title">Ops copilot — governed answers</p><div class="work-ph__metrics"><span class="work-ph__metric"></span><span class="work-ph__metric"></span><span class="work-ph__metric"></span></div><div class="work-ph__chart"><span class="work-ph__bar" style="height:35%"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span></div></div></div></figure>
+<figure class="service-mock"><figcaption class="service-mock__caption">Internal Q&amp;A — answers cite documentation sources</figcaption><div class="service-mock__frame"><div class="work-ph"><div class="work-ph__top"><span class="work-ph__chip work-ph__chip--w2"></span><span class="service-ph__badge">Power BI</span><span class="work-ph__redact">Mockup</span></div><p class="service-ph__report-title">Policy &amp;amp; ops assistant</p><div class="work-ph__metrics"><span class="work-ph__metric"></span><span class="work-ph__metric"></span><span class="work-ph__metric"></span></div><div class="work-ph__chart"><span class="work-ph__bar" style="height:35%"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span><span class="work-ph__bar"></span></div></div></div></figure>
           </div>
         </section>
 

@@ -439,6 +439,16 @@ body.nav-menu-open {
     width: min(52rem, calc(100vw - 3rem));
     padding: 0.75rem;
   }
+
+  .nav__dropdown--matrix {
+    grid-template-rows: repeat(2, auto);
+    width: min(56rem, calc(100vw - 3rem));
+  }
+
+  .nav__dropdown--matrix .nav__dropdown-item:nth-child(3n) {
+    border-left: 1px solid rgba(244, 239, 230, 0.08);
+    padding-left: 0.85rem;
+  }
 }
 
 .nav__dropdown::before {
@@ -2446,29 +2456,26 @@ body[data-path] .hero__path--chosen {
   font-size: 0.85em;
 }
 
-.services__groups {
+@media (min-width: 560px) {
+  .services__grid--data {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .services__grid--auto {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.auto-examples {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
+  margin-top: 0.25rem;
 }
 
-.services__group-title {
-  margin: 0 0 0.85rem;
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--color-dim);
-}
-
-.services__grid--solo {
-  max-width: 22rem;
-}
-
-@media (min-width: 560px) {
-  .services__grid--solo {
-    grid-template-columns: 1fr;
-  }
+.auto-examples .auto-mode-toggle {
+  margin-top: 0;
+  align-self: flex-start;
 }
 
 .services__grid {
