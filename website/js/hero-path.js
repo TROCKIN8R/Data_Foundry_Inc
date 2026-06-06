@@ -1,79 +1,33 @@
 (function () {
   var STORAGE_KEY = 'df-path';
   var PATH_TARGETS = { data: 'schema', automation: 'auto-vision' };
+  var DEFAULT_PATH = 'data';
 
-  var hero = document.querySelector('.hero--split');
-  if (!hero) return;
+  var toggleButtons = document.querySelectorAll('[data-path-toggle]');
+  if (!toggleButtons.length) return;
 
-  var paths = hero.querySelectorAll('.hero__path');
-  var ctaButtons = document.querySelectorAll('[data-path-cta]');
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   var activePath = null;
 
-  /* ── Cloud ─────────────────────────────────────────────────── */
-  var cloudData = document.createElement('div');
-  cloudData.className = 'hero__cloud hero__cloud--data';
-  cloudData.setAttribute('aria-hidden', 'true');
-  hero.appendChild(cloudData);
-
-  var cloudPlat = document.createElement('div');
-  cloudPlat.className = 'hero__cloud hero__cloud--plat';
-  cloudPlat.setAttribute('aria-hidden', 'true');
-  hero.appendChild(cloudPlat);
-
-  function settleCloud(pathName) {
-    cloudData.classList.toggle('hero__cloud--active', pathName === 'data');
-    cloudPlat.classList.toggle('hero__cloud--active', pathName === 'automation');
-  }
-
-  function hideCloud() {
-    cloudData.classList.remove('hero__cloud--active');
-    cloudPlat.classList.remove('hero__cloud--active');
-  }
-
-  if (!reducedMotion) {
-    hero.addEventListener('mousemove', function (e) {
-      var r = hero.getBoundingClientRect();
-      settleCloud(e.clientX - r.left > r.width / 2 ? 'automation' : 'data');
+  function setToggleState(pathName) {
+    toggleButtons.forEach(function (button) {
+      var active = button.getAttribute('data-path-toggle') === pathName;
+      button.classList.toggle('path-toggle__btn--active', active);
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
     });
-
-    hero.addEventListener('mouseleave', function () {
-      if (activePath) settleCloud(activePath);
-      else hideCloud();
-    });
-  }
-  /* ── end cloud ──────────────────────────────────────────────── */
-
-  function setChosenPanel(pathName) {
-    paths.forEach(function (panel) {
-      var chosen = panel.getAttribute('data-path') === pathName;
-      panel.classList.toggle('hero__path--chosen', chosen);
-      panel.classList.toggle('hero__path--dim', Boolean(pathName) && !chosen);
-    });
-  }
-
-  function lockPage() {
-    document.documentElement.classList.add('is-hero-locked');
-    window.scrollTo(0, 0);
-  }
-
-  function unlockPage() {
-    document.documentElement.classList.remove('is-hero-locked');
   }
 
   function applyPath(pathName) {
     activePath = pathName;
     document.body.dataset.path = pathName;
-    unlockPage();
+    document.documentElement.dataset.pathInit = pathName;
 
     try {
       sessionStorage.setItem(STORAGE_KEY, pathName);
     } catch (err) { /* ignore */ }
 
-    setChosenPanel(pathName);
-
-    if (!reducedMotion) settleCloud(pathName);
+    setToggleState(pathName);
+    window.dispatchEvent(new CustomEvent('df-path-change'));
 
     document.querySelectorAll('[data-nav-data]').forEach(function (link) {
       var attr = pathName === 'automation' ? 'data-nav-automation' : 'data-nav-data';
@@ -89,45 +43,36 @@
     window.dispatchEvent(new Event('scroll'));
   }
 
-  function selectPath(pathName, shouldScroll) {
-    applyPath(pathName);
-    if (shouldScroll !== false) {
-      requestAnimationFrame(function () { scrollToTrack(pathName); });
+  function scrollToHero() {
+    var hero = document.getElementById('about');
+    if (!hero) {
+      window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+      return;
     }
-    var hash = '#' + PATH_TARGETS[pathName];
-    if (window.location.hash !== hash) history.replaceState(null, '', hash);
+    hero.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+    window.dispatchEvent(new Event('scroll'));
   }
 
-  function isLocked() {
-    return document.documentElement.classList.contains('is-hero-locked');
+  function selectPath(pathName, shouldScroll) {
+    var changed = activePath !== pathName;
+    applyPath(pathName);
+
+    if (shouldScroll) {
+      requestAnimationFrame(function () { scrollToTrack(pathName); });
+      var hash = '#' + PATH_TARGETS[pathName];
+      if (window.location.hash !== hash) history.replaceState(null, '', hash);
+    } else {
+      if (changed) requestAnimationFrame(scrollToHero);
+      var heroHash = '#about';
+      if (window.location.hash !== heroHash) history.replaceState(null, '', heroHash);
+    }
   }
 
-  function preventScrollWhileLocked(event) {
-    if (!isLocked()) return;
-    event.preventDefault();
-  }
-
-  window.addEventListener('wheel', preventScrollWhileLocked, { passive: false });
-  window.addEventListener('touchmove', preventScrollWhileLocked, { passive: false });
-
-  window.addEventListener('keydown', function (event) {
-    if (!isLocked()) return;
-    var keys = ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '];
-    if (keys.indexOf(event.key) !== -1) event.preventDefault();
-  });
-
-  ctaButtons.forEach(function (button) {
+  toggleButtons.forEach(function (button) {
     button.addEventListener('click', function () {
-      var pathName = button.getAttribute('data-path-cta');
-      if (!pathName) return;
-      selectPath(pathName, true);
-    });
-  });
-
-  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-    link.addEventListener('click', function (event) {
-      var hash = (link.getAttribute('href') || '').slice(1);
-      if (isLocked() && hash && hash !== 'about') event.preventDefault();
+      var pathName = button.getAttribute('data-path-toggle');
+      if (!pathName || pathName === activePath) return;
+      selectPath(pathName, false);
     });
   });
 
@@ -136,15 +81,14 @@
     var stored = null;
     try { stored = sessionStorage.getItem(STORAGE_KEY); } catch (err) { /* ignore */ }
 
-    var pathName = null;
+    var pathName = DEFAULT_PATH;
     var shouldScroll = false;
 
     if (hash === 'schema') { pathName = 'data'; shouldScroll = true; }
     else if (hash === 'auto-vision') { pathName = 'automation'; shouldScroll = true; }
     else if (stored === 'data' || stored === 'automation') { pathName = stored; }
 
-    if (pathName) selectPath(pathName, shouldScroll);
-    else lockPage();
+    selectPath(pathName, shouldScroll);
   }
 
   window.addEventListener('hashchange', function () {
