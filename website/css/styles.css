@@ -805,6 +805,15 @@ body.nav-menu-open {
   cursor: pointer;
 }
 
+/* Desktop: both primary path buttons share the same minimum width
+   so neither panel's CTA row looks significantly wider than the other. */
+@media (min-width: 769px) {
+  .btn--path-data,
+  .btn--path-automation {
+    min-width: 13.5rem;
+  }
+}
+
 .btn--path-data {
   color: var(--color-bg);
   background: linear-gradient(135deg, var(--color-gold), var(--color-gold-light));
@@ -941,8 +950,7 @@ body.nav-menu-open {
 .btn--path-ghost-data {
   color: rgba(239, 179, 58, 0.9);
   background: transparent;
-  border: 1px solid rgba(239, 179, 58, 0.28);
-}
+  border: 1px solid rgba(239, 179, 58, 0.32);
 }
 
 .btn--path-ghost-data:hover {
@@ -954,7 +962,7 @@ body.nav-menu-open {
 .btn--path-ghost-automation {
   color: rgba(180, 207, 227, 0.9);
   background: transparent;
-  border: 1px solid rgba(95, 133, 163, 0.35);
+  border: 1px solid rgba(180, 207, 227, 0.32);
 }
 
 .btn--path-ghost-automation:hover {
@@ -1008,6 +1016,8 @@ body[data-path] .hero__path--chosen {
   flex-wrap: wrap;
   gap: 0.65rem;
   margin-top: 1.5rem;
+  width: fit-content;
+  max-width: 100%;
 }
 
 /* ── Path tracks ── */
@@ -1204,8 +1214,9 @@ body[data-path] .hero__path--chosen {
 
   .btn--path {
     width: 100%;
+    min-height: 2.75rem; /* 44px minimum touch target */
     padding: 0.7rem 1rem;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 
   .hero__path--automation {
@@ -1215,6 +1226,33 @@ body[data-path] .hero__path--chosen {
 
   .hero__path--automation .hero__path-cta {
     justify-content: flex-start;
+  }
+}
+
+/* ── Very small screens (< 375px) ─────────────────────────── */
+@media (max-width: 374px) {
+  .hero__path {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .hero h1.hero__path-heading {
+    font-size: 1.4rem;
+  }
+
+  .hero__path-sub {
+    font-size: 0.82rem;
+    margin-top: 0.65rem;
+  }
+
+  .hero__path-cta {
+    margin-top: 1rem;
+    gap: 0.45rem;
+  }
+
+  .btn--path {
+    min-height: 2.5rem;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.82rem;
   }
 }
 
@@ -3993,17 +4031,14 @@ body[data-path="automation"] .hero__path--data .hero__path-tag {
   color: rgba(239, 179, 58, 0.75);
 }
 
+/* Pin data-path buttons to gold even when automation path is active */
 body[data-path="automation"] .btn--path-data {
   background: linear-gradient(135deg, #c88412, #efb33a);
 }
 
-body[data-path="automation"] .hero__path--data .btn--ghost {
-  border-color: rgba(239, 179, 58, 0.32);
-}
-
-body[data-path="automation"] .hero__path--data .btn--ghost:hover {
-  background: rgba(239, 179, 58, 0.1);
-  border-color: rgba(239, 179, 58, 0.48);
+body[data-path="automation"] .btn--path-ghost-data:hover {
+  background: linear-gradient(135deg, #c88412, #efb33a);
+  border-color: transparent;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -4020,6 +4055,136 @@ body[data-path="automation"] .services__eyebrow,
 body[data-path="automation"] .audience__eyebrow,
 body[data-path="automation"] .compare__eyebrow {
   color: rgba(180, 207, 227, 0.72);
+}
+
+/* ── Background gradients: orange/gold → blue/platinum ──────── */
+body[data-path="automation"] .nav__dropdown {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(95, 133, 163, 0.09), transparent 70%),
+    rgba(13, 14, 10, 0.98);
+}
+
+body[data-path="automation"] .hero-card {
+  background:
+    radial-gradient(ellipse 55% 30% at 50% 88%, rgba(53, 80, 104, 0.12), transparent 70%),
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(95, 133, 163, 0.04), transparent 70%),
+    var(--color-panel);
+}
+
+body[data-path="automation"] .hero-card::before {
+  background:
+    linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.025), transparent),
+    radial-gradient(circle at 50% 55%, rgba(95, 133, 163, 0.06), transparent 34%);
+}
+
+body[data-path="automation"] .founder__stats {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(95, 133, 163, 0.06), transparent 70%),
+    var(--color-panel);
+}
+
+body[data-path="automation"] .work-modal__panel {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(95, 133, 163, 0.09), transparent 70%),
+    var(--color-panel);
+}
+
+/* ── Hardcoded rgba gold → platinum throughout ──────────────── */
+
+/* Services */
+body[data-path="automation"] .services__tap {
+  color: rgba(180, 207, 227, 0.82);
+}
+
+body[data-path="automation"] .service-card__hint {
+  color: rgba(180, 207, 227, 0.68);
+}
+body[data-path="automation"] .service-card:hover .service-card__hint {
+  color: rgba(180, 207, 227, 0.98);
+}
+body[data-path="automation"] .service-card__arrow {
+  color: rgba(95, 133, 163, 0.55);
+}
+body[data-path="automation"] .service-card:hover .service-card__arrow {
+  color: rgba(180, 207, 227, 0.95);
+}
+body[data-path="automation"] .service-card:hover .service-card__footer {
+  border-top-color: rgba(95, 133, 163, 0.22);
+}
+
+/* Customer / work cards */
+body[data-path="automation"] .customer-card:hover {
+  border-color: rgba(95, 133, 163, 0.28);
+}
+body[data-path="automation"] .customer-card__hint {
+  color: rgba(180, 207, 227, 0.65);
+}
+body[data-path="automation"] .work-modal__eyebrow {
+  color: rgba(95, 133, 163, 0.6);
+}
+
+/* Audience numbered items */
+body[data-path="automation"] .audience-item__num {
+  color: rgba(95, 133, 163, 0.55);
+}
+
+/* Compare table */
+body[data-path="automation"] .compare__labels {
+  color: rgba(180, 207, 227, 0.55);
+}
+body[data-path="automation"] .compare__labels span:last-child {
+  color: rgba(180, 207, 227, 0.82);
+}
+
+/* Language badges */
+body[data-path="automation"] .lang-badge {
+  color: rgba(180, 207, 227, 0.82);
+  background: rgba(95, 133, 163, 0.07);
+  border-color: rgba(95, 133, 163, 0.25);
+}
+
+/* Schema-compact connector lines */
+body[data-path="automation"] .schema-compact__step:not(:last-child)::after {
+  background: linear-gradient(180deg, rgba(95, 133, 163, 0.45), rgba(95, 133, 163, 0.12));
+}
+body[data-path="automation"] .schema-compact__layer {
+  color: rgba(180, 207, 227, 0.75);
+}
+body[data-path="automation"] .schema-compact__marker {
+  border-color: rgba(95, 133, 163, 0.3);
+}
+
+/* Governance card: platinum instead of gold in automation context */
+body[data-path="automation"] .service-card--governance::before {
+  background: linear-gradient(180deg, var(--color-platinum-light), rgba(95, 133, 163, 0.25));
+}
+body[data-path="automation"] .service-card--governance:hover {
+  background: rgba(95, 133, 163, 0.08);
+  border-color: rgba(95, 133, 163, 0.32);
+}
+body[data-path="automation"] .service-card--governance .service-card__icon {
+  color: rgba(180, 207, 227, 0.85);
+}
+body[data-path="automation"] .service-card--governance .service-card__layer {
+  color: rgba(180, 207, 227, 0.82);
+  border-color: rgba(95, 133, 163, 0.22);
+  background: rgba(95, 133, 163, 0.08);
+}
+
+/* Auto-flow foundation step: platinum instead of gold */
+body[data-path="automation"] .auto-flow__step--gold {
+  border-color: rgba(95, 133, 163, 0.2);
+}
+body[data-path="automation"] .auto-flow__step--gold:hover {
+  border-color: rgba(180, 207, 227, 0.38);
+  background: rgba(95, 133, 163, 0.04);
+}
+body[data-path="automation"] .auto-flow__step--gold .auto-flow__label {
+  color: rgba(180, 207, 227, 0.62);
+}
+body[data-path="automation"] .auto-flow__step--gold .auto-flow__visual svg {
+  color: var(--color-platinum-light);
+  opacity: 0.85;
 }
 
 /* ── Automation flow diagram (.auto-flow) ─────────────────────── */
