@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="../assets/favicon.svg" sizes="any" />
-    <meta name="description" content="Microsoft Purview, Fabric governance, and BigQuery data quality — lineage, catalog, and ownership across every medallion layer." />
+    <meta name="description" content="Microsoft Purview, Fabric catalog, and automated quality checks — lineage and ownership across bronze, silver, and gold." />
     <meta name="author" content="Adrien Yvin" />
     <meta name="theme-color" content="#0b0c08" />
     <meta name="booking-url" content="https://calendly.com/adrienyvin/30min" />
@@ -37,42 +37,43 @@
           <div class="nav__dropdown-wrap">
             <a href="../index.html#services" class="nav__link">Services</a>
             <div class="nav__dropdown nav__dropdown--matrix" role="menu" aria-label="Services menu">
-            <a href="ingestion.html" class="nav__dropdown-item nav__dropdown-item--bronze" role="menuitem">
+            <p class="nav__dropdown-eyebrow nav__dropdown-eyebrow--data" role="presentation">Data</p>
+            <a href="ingestion.html" class="nav__dropdown-item nav__dropdown-item--bronze nav__dropdown-item--ingestion" role="menuitem">
               <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></span>
               <span class="nav__dropdown-copy">
                 <span class="nav__dropdown-name">Data Ingestion & Pipelines</span>
                 <span class="nav__dropdown-desc">Reliable ingest — governed from the first load.</span>
               </span>
             </a>
-            <a href="modeling.html" class="nav__dropdown-item nav__dropdown-item--silver" role="menuitem">
+            <a href="modeling.html" class="nav__dropdown-item nav__dropdown-item--silver nav__dropdown-item--modeling" role="menuitem">
               <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg></span>
               <span class="nav__dropdown-copy">
                 <span class="nav__dropdown-name">Transformation & Modeling</span>
                 <span class="nav__dropdown-desc">One model, one version of the truth.</span>
               </span>
             </a>
-            <a href="automations.html" class="nav__dropdown-item nav__dropdown-item--platinum" role="menuitem">
-              <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg></span>
-              <span class="nav__dropdown-copy">
-                <span class="nav__dropdown-name">Automations</span>
-                <span class="nav__dropdown-desc">Set-and-forget pipelines across your apps.</span>
-              </span>
-            </a>
-            <a href="reporting.html" class="nav__dropdown-item nav__dropdown-item--gold" role="menuitem">
+            <a href="reporting.html" class="nav__dropdown-item nav__dropdown-item--gold nav__dropdown-item--reporting" role="menuitem">
               <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16v-5"/><path d="M12 16V8"/><path d="M17 16v-3"/></svg></span>
               <span class="nav__dropdown-copy">
                 <span class="nav__dropdown-name">Reporting & Analytics</span>
                 <span class="nav__dropdown-desc">Dashboards and self-service on governed gold data.</span>
               </span>
             </a>
-            <a href="governance.html" class="nav__dropdown-item nav__dropdown-item--governance nav__dropdown-item--active" role="menuitem">
+            <a href="governance.html" class="nav__dropdown-item nav__dropdown-item--governance nav__dropdown-item--governance nav__dropdown-item--active" role="menuitem">
               <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
               <span class="nav__dropdown-copy">
                 <span class="nav__dropdown-name">Governance & Quality</span>
                 <span class="nav__dropdown-desc">Lineage, quality, and ownership built in.</span>
               </span>
+            </a>            <p class="nav__dropdown-eyebrow nav__dropdown-eyebrow--auto" role="presentation">Automation</p>
+            <a href="automations.html" class="nav__dropdown-item nav__dropdown-item--platinum nav__dropdown-item--automations" role="menuitem">
+              <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg></span>
+              <span class="nav__dropdown-copy">
+                <span class="nav__dropdown-name">Automation Flows</span>
+                <span class="nav__dropdown-desc">Set-and-forget pipelines across your apps.</span>
+              </span>
             </a>
-            <a href="ai-agents.html" class="nav__dropdown-item nav__dropdown-item--platinum" role="menuitem">
+            <a href="ai-agents.html" class="nav__dropdown-item nav__dropdown-item--platinum nav__dropdown-item--ai-agents" role="menuitem">
               <span class="nav__dropdown-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg></span>
               <span class="nav__dropdown-copy">
                 <span class="nav__dropdown-name">AI Agents</span>
@@ -109,47 +110,103 @@
           <span>Every layer</span>
         </nav>
 
-        <header class="service-page__header">
-          <p class="service-page__layer">Every layer</p>
-          <h1 class="service-page__title">Governance &amp; Quality</h1>
-          <p class="service-page__intro">Lineage, quality, and ownership built in.</p>
-          <p class="service-page__overview">Governance is not a one-time audit — it is how your team trusts the data every morning. We wire Microsoft Purview (or Fabric's built-in governance) and BigQuery policy tags together with automated quality checks, ownership metadata, and lineage views across bronze, silver, and gold.</p>
-        </header>
+        <div class="service-page__grid">
+          <header class="service-page__header">
+            <p class="service-page__layer">Every layer</p>
+            <h1 class="service-page__title">Governance &amp; Quality</h1>
+            <p class="service-page__intro">Lineage, quality, and ownership built in.</p>
+            <p class="service-page__overview">Governance is how your team trusts the data every morning — not a one-time audit deck. We wire catalog, lineage, quality rules, and access patterns across every medallion layer so when a metric breaks, you know which pipeline to fix and who owns the fix.</p>
+            <div class="service-page__meta">
+              <span class="service-page__meta-gov">Lineage · Quality · Access</span>
+            </div>
+          <p class="service-page__ref"><strong>Cascades</strong> — Purview lineage · Fabric · Power BI gold</p>
+          </header>
 
-        <section class="service-page__stack" aria-labelledby="service-stack-heading">
-          <h2 id="service-stack-heading" class="service-page__label">Tools we work with</h2>
-          <ul class="service-page__tools">
-            <li>Microsoft Purview</li>
-            <li>Fabric unified catalog</li>
-            <li>BigQuery policy tags &amp; DLP</li>
-            <li>dbt tests &amp; Fabric Data Quality</li>
-            <li>Azure AD / IAM integration</li>
-          </ul>
-        </section>
+          <aside class="service-page__visuals" aria-labelledby="service-mockups-heading">
+            <h2 id="service-mockups-heading" class="service-page__label service-page__label--vis">Outputs</h2>
+            <div class="service-page__mockups-stack">
+<figure class="service-mock service-mock--lite"><figcaption class="service-mock__caption">Lineage chain — dashboard measure to bronze source</figcaption><div class="service-mock__frame"><div class="service-ph__lineage"><span class="service-ph__lineage-step">Power BI</span><span class="work-ph__arrow"></span><span class="service-ph__lineage-step">Semantic model</span><span class="work-ph__arrow"></span><span class="service-ph__lineage-step">Gold table</span><span class="work-ph__arrow"></span><span class="service-ph__lineage-step">Silver transform</span><span class="work-ph__arrow"></span><span class="service-ph__lineage-step">Bronze ingest</span></div></div></figure>
 
-        <section class="service-page__body" aria-labelledby="service-detail-heading">
-          <h2 id="service-detail-heading" class="service-page__label">What we deliver</h2>
-          <ul class="service-page__list">
-            <li>End-to-end lineage from Power BI visuals back to Fabric pipelines or BigQuery jobs — impact analysis before you change a column</li>
-            <li>Automated freshness, null-rate, and referential checks with alerts in Teams or email when thresholds breach</li>
-            <li>Data owners, stewards, and sensitivity labels on tables, columns, and semantic model fields</li>
-            <li>Access reviews and row-level security patterns documented for auditors and new hires</li>
-          </ul>
-        </section>
+<figure class="service-mock service-mock--lite"><figcaption class="service-mock__caption">Quality rules — automated checks on silver</figcaption><div class="service-mock__frame"><div class="service-ph__schema-wrap"><p class="service-ph__schema-table">governance.quality_rules</p><div class="service-ph__schema"><div class="service-ph__schema-head"><span>Column</span><span>Type</span><span>Role</span></div><div class="service-ph__schema-row"><span>rule_id</span><span>STRING</span><span>PK</span></div><div class="service-ph__schema-row"><span>target_table</span><span>STRING</span><span></span></div><div class="service-ph__schema-row"><span>check_type</span><span>STRING</span><span></span></div><div class="service-ph__schema-row"><span>threshold</span><span>STRING</span><span></span></div></div></div></div></figure>
+            </div>
+          </aside>
 
-        <section class="service-page__mockups" aria-labelledby="service-mockups-heading">
-          <h2 id="service-mockups-heading" class="service-page__label">Example outputs</h2>
-          <p class="service-page__mockups-note">Illustrative mockups — client deliverables are tailored to your Fabric, Power BI, and BigQuery estate.</p>
-          <div class="service-page__mockups-grid">
-<figure class="service-mock"><figcaption class="service-mock__caption">Lineage view — dashboard measure to pipeline source</figcaption><div class="service-mock__frame"><div class="service-ph__lineage"><span class="service-ph__lineage-step">Power BI</span><span class="work-ph__arrow"></span><span class="service-ph__lineage-step">Semantic model</span><span class="work-ph__arrow"></span><span class="service-ph__lineage-step">Gold table</span><span class="work-ph__arrow"></span><span class="service-ph__lineage-step">Silver transform</span><span class="work-ph__arrow"></span><span class="service-ph__lineage-step">Bronze ingest</span></div></div></figure>
+          <div class="service-page__pair">
+            <section class="service-page__section" aria-labelledby="service-problems-heading">
+              <h2 id="service-problems-heading" class="service-page__label">Problems</h2>
+              <ul class="service-kw-list">
+              <li>Revenue lineage unknown</li>
+              <li>Quality found in meetings</li>
+              <li>No table ownership</li>
+              </ul>
+            </section>
 
-<figure class="service-mock"><figcaption class="service-mock__caption">Quality rules — automated checks on silver tables</figcaption><div class="service-mock__frame"><div class="service-ph__schema-wrap"><p class="service-ph__schema-table">governance.quality_rules</p><div class="service-ph__schema"><div class="service-ph__schema-head"><span>Column</span><span>Type</span><span>Role</span></div><div class="service-ph__schema-row"><span>rule_id</span><span>STRING</span><span>PK</span></div><div class="service-ph__schema-row"><span>target_table</span><span>STRING</span><span></span></div><div class="service-ph__schema-row"><span>check_type</span><span>STRING</span><span></span></div><div class="service-ph__schema-row"><span>threshold</span><span>STRING</span><span></span></div></div></div></div></figure>
+            <section class="service-page__section" aria-labelledby="service-stack-heading">
+              <h2 id="service-stack-heading" class="service-page__label">Technology</h2>
+              <ul class="service-page__tools">
+              <li>Microsoft Purview</li>
+              <li>Fabric unified catalog</li>
+              <li>BigQuery policy tags &amp; DLP</li>
+              <li>dbt tests &amp; Fabric Data Quality</li>
+              <li>Azure AD / IAM</li>
+              <li>Power BI endorsements</li>
+              </ul>
+            </section>
           </div>
-        </section>
 
-        <div class="service-page__cta">
-          <a class="btn btn--ghost" href="../index.html#services">All services</a>
-          <a class="btn booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+          <section class="service-page__section service-page__section--deploy" aria-labelledby="service-cases-heading">
+            <h2 id="service-cases-heading" class="service-page__label">Deployments</h2>
+            <ul class="service-deploy-list">
+            <li class="service-deploy">
+              <span class="service-deploy__name">End-to-end lineage</span>
+              <div class="service-deploy__tech"><span>Purview</span><span>Fabric catalog</span><span>Power BI</span></div>
+            </li>
+            <li class="service-deploy">
+              <span class="service-deploy__name">Automated quality gates</span>
+              <div class="service-deploy__tech"><span>dbt tests</span><span>Fabric DQ</span><span>Alerts</span></div>
+            </li>
+            <li class="service-deploy">
+              <span class="service-deploy__name">Sensitivity and access</span>
+              <div class="service-deploy__tech"><span>Purview</span><span>RLS</span><span>IAM</span></div>
+            </li>
+            </ul>
+          </section>
+
+          <div class="service-page__duo">
+            <section class="service-page__section" aria-labelledby="service-detail-heading">
+              <h2 id="service-detail-heading" class="service-page__label">Deliverables</h2>
+              <ul class="service-kw-list">
+              <li>Report-to-source lineage</li>
+              <li>Freshness · null · referential alerts</li>
+              <li>Named ownership per asset</li>
+              <li>Sensitivity labels · access docs</li>
+              <li>Extensible quality rule catalog</li>
+              </ul>
+            </section>
+
+            <section class="service-page__section" aria-labelledby="service-compare-heading">
+              <h2 id="service-compare-heading" class="service-page__label">Standard</h2>
+              <ul class="service-page__compare-list">
+            <li class="service-page__compare-row">
+              <span class="service-page__compare-alt">Yearly audit governance</span>
+              <span class="service-page__compare-edge">Quality rules on every refresh</span>
+            </li>
+            <li class="service-page__compare-row">
+              <span class="service-page__compare-alt">Tribal ownership knowledge</span>
+              <span class="service-page__compare-edge">Purview metadata on every asset</span>
+            </li>
+            <li class="service-page__compare-row">
+              <span class="service-page__compare-alt">Slack lineage archaeology</span>
+              <span class="service-page__compare-edge">Click-through impact analysis</span>
+            </li>
+              </ul>
+            </section>
+          </div>
+
+          <div class="service-page__cta">
+            <a class="btn btn--ghost" href="../index.html#services">All services</a>
+            <a class="btn booking-link" href="https://calendly.com/adrienyvin/30min" target="_blank" rel="noopener noreferrer">Book a call</a>
+          </div>
         </div>
       </div>
     </main>

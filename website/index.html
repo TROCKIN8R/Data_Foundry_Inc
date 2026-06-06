@@ -85,7 +85,8 @@
           <div class="nav__dropdown-wrap">
             <a href="#services" class="nav__link" data-nav-data="#services" data-nav-automation="#auto-services">Services</a>
             <div class="nav__dropdown nav__dropdown--matrix" role="menu" aria-label="Services menu">
-              <a href="services/ingestion.html" class="nav__dropdown-item nav__dropdown-item--bronze" role="menuitem">
+              <p class="nav__dropdown-eyebrow nav__dropdown-eyebrow--data" role="presentation">Data</p>
+              <a href="services/ingestion.html" class="nav__dropdown-item nav__dropdown-item--bronze nav__dropdown-item--ingestion" role="menuitem">
                 <span class="nav__dropdown-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
                 </span>
@@ -94,7 +95,7 @@
                   <span class="nav__dropdown-desc">Reliable ingest — governed from the first load.</span>
                 </span>
               </a>
-              <a href="services/modeling.html" class="nav__dropdown-item nav__dropdown-item--silver" role="menuitem">
+              <a href="services/modeling.html" class="nav__dropdown-item nav__dropdown-item--silver nav__dropdown-item--modeling" role="menuitem">
                 <span class="nav__dropdown-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg>
                 </span>
@@ -103,16 +104,7 @@
                   <span class="nav__dropdown-desc">One model, one version of the truth.</span>
                 </span>
               </a>
-              <a href="services/automations.html" class="nav__dropdown-item nav__dropdown-item--platinum" role="menuitem">
-                <span class="nav__dropdown-icon" aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg>
-                </span>
-                <span class="nav__dropdown-copy">
-                  <span class="nav__dropdown-name">Automations</span>
-                  <span class="nav__dropdown-desc">Set-and-forget pipelines across your apps.</span>
-                </span>
-              </a>
-              <a href="services/reporting.html" class="nav__dropdown-item nav__dropdown-item--gold" role="menuitem">
+              <a href="services/reporting.html" class="nav__dropdown-item nav__dropdown-item--gold nav__dropdown-item--reporting" role="menuitem">
                 <span class="nav__dropdown-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16v-5"/><path d="M12 16V8"/><path d="M17 16v-3"/></svg>
                 </span>
@@ -121,7 +113,7 @@
                   <span class="nav__dropdown-desc">Dashboards and self-service on governed gold data.</span>
                 </span>
               </a>
-              <a href="services/governance.html" class="nav__dropdown-item nav__dropdown-item--governance" role="menuitem">
+              <a href="services/governance.html" class="nav__dropdown-item nav__dropdown-item--governance nav__dropdown-item--governance" role="menuitem">
                 <span class="nav__dropdown-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
                 </span>
@@ -130,7 +122,17 @@
                   <span class="nav__dropdown-desc">Lineage, quality, and ownership built in.</span>
                 </span>
               </a>
-              <a href="services/ai-agents.html" class="nav__dropdown-item nav__dropdown-item--platinum" role="menuitem">
+              <p class="nav__dropdown-eyebrow nav__dropdown-eyebrow--auto" role="presentation">Automation</p>
+              <a href="services/automations.html" class="nav__dropdown-item nav__dropdown-item--platinum nav__dropdown-item--automations" role="menuitem">
+                <span class="nav__dropdown-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="15" y="3" width="6" height="6" rx="1"/><rect x="15" y="15" width="6" height="6" rx="1"/><rect x="3" y="15" width="6" height="6" rx="1"/><path d="M9 6h6"/><path d="M18 9v6"/><path d="M15 18H9"/><path d="M6 15V9"/></svg>
+                </span>
+                <span class="nav__dropdown-copy">
+                  <span class="nav__dropdown-name">Automation Flows</span>
+                  <span class="nav__dropdown-desc">Set-and-forget pipelines across your apps.</span>
+                </span>
+              </a>
+              <a href="services/ai-agents.html" class="nav__dropdown-item nav__dropdown-item--platinum nav__dropdown-item--ai-agents" role="menuitem">
                 <span class="nav__dropdown-icon" aria-hidden="true">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
                 </span>
@@ -603,41 +605,6 @@
         </div>
       </div>
 
-      <section class="compare" id="why-us" data-page-gate data-path-section="data" aria-labelledby="compare-heading">
-        <header class="compare__header">
-          <p class="compare__eyebrow">Why Data Foundry</p>
-          <h2 id="compare-heading" class="compare__title">
-            The upside — without the trade-offs
-          </h2>
-          <p class="compare__intro">One senior specialist from first call to handoff.</p>
-        </header>
-
-        <div class="compare__panel">
-          <div class="compare__labels" aria-hidden="true">
-            <span>Instead of</span>
-            <span>You get</span>
-          </div>
-          <ul class="compare__list">
-            <li class="compare-row">
-              <span class="compare-row__alt">Big consultancy</span>
-              <span class="compare-row__edge">Same senior start to finish.</span>
-            </li>
-            <li class="compare-row">
-              <span class="compare-row__alt">Offshore delivery</span>
-              <span class="compare-row__edge">Built with you, handed over clean.</span>
-            </li>
-            <li class="compare-row">
-              <span class="compare-row__alt">Full-time hire</span>
-              <span class="compare-row__edge">Senior depth, no headcount.</span>
-            </li>
-            <li class="compare-row">
-              <span class="compare-row__alt">Tool rollout</span>
-              <span class="compare-row__edge">One owner, whole stack.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
       <!-- ═══ AUTOMATION PATH SECTIONS ═══ -->
 
       <section class="vision" id="auto-vision" data-page-gate data-path-section="automation" aria-labelledby="auto-vision-heading">
@@ -714,7 +681,7 @@
               </span>
               <span class="service-card__layer">Platinum</span>
             </div>
-            <span class="service-card__name">Automations</span>
+            <span class="service-card__name">Automation Flows</span>
             <span class="service-card__tagline">Set-and-forget pipelines across your apps.</span>
             <span class="service-card__footer">
               <span class="service-card__hint">Learn more</span>
