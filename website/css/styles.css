@@ -24,6 +24,8 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
 
   --nav-height: 4.25rem;
+  --viewport-h: 100vh;
+  --viewport-h: 100svh;
   --content-max: 72rem;
 }
 
@@ -278,7 +280,7 @@ body.nav-menu-open {
     align-items: stretch;
     gap: 0;
     width: 100%;
-    min-height: 100dvh;
+    min-height: var(--viewport-h);
     padding:
       calc(var(--nav-height) + 0.75rem)
       1.5rem
@@ -758,7 +760,7 @@ body.nav-menu-open {
   max-width: var(--content-max);
   margin: 0 auto;
   padding: clamp(3rem, 8vw, 6rem) 1.5rem clamp(3.5rem, 9vw, 6.5rem);
-  min-height: calc(100vh - var(--nav-height));
+  min-height: calc(var(--viewport-h) - var(--nav-height));
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -2418,9 +2420,11 @@ body[data-path="automation"] .path-toggle {
 .services__stack {
   --stack-count: 4;
   --stack-card-h: clamp(22rem, 66vh, 36rem);
+  --stack-card-h: clamp(22rem, 66svh, 36rem);
   --stack-step: clamp(26rem, 42vh, 34rem);
+  --stack-step: clamp(26rem, 42svh, 34rem);
   --stack-peek: 3.5rem;
-  --stack-stage-h: calc(100vh - var(--nav-height));
+  --stack-stage-h: calc(var(--viewport-h) - var(--nav-height));
   position: relative;
   z-index: 1;
   isolation: isolate;
@@ -2428,6 +2432,7 @@ body[data-path="automation"] .path-toggle {
   max-width: none;
   margin-inline: 0;
   overflow: clip;
+  overflow-anchor: none;
   height: calc(
     (var(--stack-count) - 1) * var(--stack-step) + var(--stack-stage-h)
   );
@@ -2436,6 +2441,7 @@ body[data-path="automation"] .path-toggle {
 .services__stack--duo {
   --stack-count: 2;
   --stack-step: clamp(28rem, 46vh, 36rem);
+  --stack-step: clamp(28rem, 46svh, 36rem);
 }
 
 .services__stack-stage {
@@ -4200,9 +4206,20 @@ body[data-path="automation"] .service-stack-card:hover .service-card__cta {
   }
 }
 
+@media (max-width: 959px) {
+  .hero {
+    min-height: calc(var(--app-height, var(--viewport-h)) - var(--nav-height));
+  }
+
+  .services__stack {
+    --stack-stage-h: calc(var(--app-height, var(--viewport-h)) - var(--nav-height));
+  }
+}
+
 @media (max-width: 640px) {
   .services__stack {
-    --stack-card-h: clamp(20rem, 72vh, 30rem);
+    --stack-card-h: clamp(20rem, 24rem, 30rem);
+    --stack-step: clamp(26rem, 30rem, 34rem);
   }
 
   .service-stack-card {

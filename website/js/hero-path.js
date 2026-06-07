@@ -43,28 +43,22 @@
     window.dispatchEvent(new Event('scroll'));
   }
 
-  function scrollToHero() {
-    var hero = document.getElementById('about');
-    if (!hero) {
-      window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
-      return;
-    }
-    hero.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
-    window.dispatchEvent(new Event('scroll'));
-  }
-
   function selectPath(pathName, shouldScroll) {
     var changed = activePath !== pathName;
+    var scrollY = window.scrollY;
+
     applyPath(pathName);
 
     if (shouldScroll) {
       requestAnimationFrame(function () { scrollToTrack(pathName); });
       var hash = '#' + PATH_TARGETS[pathName];
       if (window.location.hash !== hash) history.replaceState(null, '', hash);
-    } else {
-      if (changed) requestAnimationFrame(scrollToHero);
-      var heroHash = '#about';
-      if (window.location.hash !== heroHash) history.replaceState(null, '', heroHash);
+    } else if (changed) {
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          window.scrollTo(0, scrollY);
+        });
+      });
     }
   }
 
