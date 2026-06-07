@@ -218,8 +218,39 @@
     return;
   }
 
+  var layoutWidth = window.innerWidth;
+
+  function onViewportResize() {
+    var width = window.innerWidth;
+    if (width !== layoutWidth) {
+      layoutWidth = width;
+      if (window.matchMedia('(max-width: 959px)').matches) {
+        document.documentElement.style.setProperty(
+          '--app-height',
+          window.innerHeight + 'px'
+        );
+      }
+      remeasureAll();
+      return;
+    }
+
+    if (window.matchMedia('(min-width: 960px)').matches) {
+      remeasureAll();
+      return;
+    }
+
+    requestUpdate();
+  }
+
   window.addEventListener('scroll', requestUpdate, { passive: true });
-  window.addEventListener('resize', remeasureAll);
+  window.addEventListener('resize', onViewportResize);
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', function () {
+      if (window.matchMedia('(min-width: 960px)').matches) return;
+      requestUpdate();
+    });
+  }
   window.addEventListener('hashchange', function () {
     setTimeout(remeasureAll, 150);
   });

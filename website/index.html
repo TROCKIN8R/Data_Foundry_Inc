@@ -16,6 +16,12 @@
         if (hash === '#auto-vision') path = 'automation';
         else if (hash === '#schema') path = 'data';
         document.documentElement.dataset.pathInit = path;
+        if (window.matchMedia('(max-width: 959px)').matches) {
+          document.documentElement.style.setProperty(
+            '--app-height',
+            window.innerHeight + 'px'
+          );
+        }
       })();
     </script>
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
