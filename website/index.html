@@ -478,12 +478,12 @@
                   <li>Source-to-bronze lineage</li>
                   <li>Failure alerts and retry logic</li>
                 </ul>
+                <span class="service-card__footer">
+                  <span class="service-card__cta">Explore ingestion</span>
+                  <span class="service-card__arrow" aria-hidden="true">→</span>
+                </span>
               </div>
             </div>
-            <span class="service-card__footer">
-              <span class="service-card__cta">Explore ingestion</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
           </a>
 
           <a href="services/modeling.html" class="service-card service-stack-card service-stack-card--silver service-card--silver" aria-label="Transformation and Modeling — view service page">
@@ -536,12 +536,12 @@
                   <li>Slowly changing dimensions</li>
                   <li>One definition per metric</li>
                 </ul>
+                <span class="service-card__footer">
+                  <span class="service-card__cta">Explore modeling</span>
+                  <span class="service-card__arrow" aria-hidden="true">→</span>
+                </span>
               </div>
             </div>
-            <span class="service-card__footer">
-              <span class="service-card__cta">Explore modeling</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
           </a>
 
           <a href="services/reporting.html" class="service-card service-stack-card service-stack-card--gold service-card--gold" aria-label="Reporting and Analytics — view service page">
@@ -600,12 +600,12 @@
                   <li>DAX and semantic models</li>
                   <li>Adoption-focused report design</li>
                 </ul>
+                <span class="service-card__footer">
+                  <span class="service-card__cta">Explore reporting</span>
+                  <span class="service-card__arrow" aria-hidden="true">→</span>
+                </span>
               </div>
             </div>
-            <span class="service-card__footer">
-              <span class="service-card__cta">Explore reporting</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
           </a>
 
           <a href="services/governance.html" class="service-card service-stack-card service-stack-card--governance service-card--governance" aria-label="Governance and Quality — view service page">
@@ -674,12 +674,12 @@
                   <li>Automated quality checks</li>
                   <li>Named stewards per domain</li>
                 </ul>
+                <span class="service-card__footer">
+                  <span class="service-card__cta">Explore governance</span>
+                  <span class="service-card__arrow" aria-hidden="true">→</span>
+                </span>
               </div>
             </div>
-            <span class="service-card__footer">
-              <span class="service-card__cta">Explore governance</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
           </a>
             </div>
           </div>
@@ -954,12 +954,12 @@
                   <li>Dead-letter and fallback paths</li>
                   <li>Logged runs and monitoring hooks</li>
                 </ul>
+                <span class="service-card__footer">
+                  <span class="service-card__cta">Explore automation flows</span>
+                  <span class="service-card__arrow" aria-hidden="true">→</span>
+                </span>
               </div>
             </div>
-            <span class="service-card__footer">
-              <span class="service-card__cta">Explore automation flows</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
           </a>
 
           <a href="services/ai-agents.html" class="service-card service-stack-card service-stack-card--platinum-alt service-card--platinum" aria-label="AI Agents — view service page">
@@ -1019,12 +1019,12 @@
                   <li>Human-in-the-loop approvals</li>
                   <li>Trigger downstream automations</li>
                 </ul>
+                <span class="service-card__footer">
+                  <span class="service-card__cta">Explore AI agents</span>
+                  <span class="service-card__arrow" aria-hidden="true">→</span>
+                </span>
               </div>
             </div>
-            <span class="service-card__footer">
-              <span class="service-card__cta">Explore AI agents</span>
-              <span class="service-card__arrow" aria-hidden="true">→</span>
-            </span>
           </a>
             </div>
           </div>
@@ -1184,50 +1184,18 @@
         </div>
       </section>
 
-      <section class="compare section-flow section-flow--cool" id="auto-why-us" data-page-gate data-path-section="automation" aria-labelledby="auto-compare-heading">
-        <header class="compare__header">
-          <p class="compare__eyebrow">Implementation standard</p>
-          <h2 id="auto-compare-heading" class="compare__title">
-            Pipelines that survive schema changes
-          </h2>
-          <p class="compare__intro">Error handling, retry logic, and field mapping — not demo flows that break in production.</p>
-        </header>
-
-        <div class="compare__panel">
-          <div class="compare__labels" aria-hidden="true">
-            <span>Instead of</span>
-            <span>You get</span>
-          </div>
-          <ul class="compare__list">
-            <li class="compare-row">
-              <span class="compare-row__alt">Point-and-click zap with no error path</span>
-              <span class="compare-row__edge">Branching logic, dead-letter queues, and logged failures.</span>
-            </li>
-            <li class="compare-row">
-              <span class="compare-row__alt">Hard-coded field mappings</span>
-              <span class="compare-row__edge">Defensive transforms that handle nulls, duplicates, and type mismatches.</span>
-            </li>
-            <li class="compare-row">
-              <span class="compare-row__alt">Siloed tool configuration</span>
-              <span class="compare-row__edge">Documented runbooks with ownership and monitoring hooks.</span>
-            </li>
-            <li class="compare-row">
-              <span class="compare-row__alt">Fire-and-forget deployment</span>
-              <span class="compare-row__edge">Tested against real edge cases before handoff.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
       <!-- ═══ SHARED SECTIONS ═══ -->
 
       <section class="founder section-flow" id="founder" data-page-gate aria-labelledby="founder-heading">
-        <div class="founder__inner">
-
-          <div class="founder__bio">
+        <div class="founder__panel">
+          <header class="founder__header">
             <p class="founder__eyebrow">About the Founder</p>
             <h2 id="founder-heading" class="founder__name">Adrien Yvin</h2>
             <p class="founder__role">Data Platform Architect &amp; BI Leader</p>
+          </header>
+
+          <div class="founder__inner">
+            <div class="founder__bio">
             <p class="founder__text">
               Seven years immersed in data — from ETL pipelines at an energy
               utility to machine-learning pricing models inside a $4B packaging
@@ -1242,23 +1210,21 @@
             </p>
             <div class="founder__credentials">
               <span class="founder__cred">BBA, Business Intelligence · HEC Montréal · Cum Laude</span>
-              <div class="founder__links">
-                <a
-                  class="founder__social"
-                  href="https://www.linkedin.com/in/adrienyvin/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >LinkedIn</a>
-              </div>
-              <div class="founder__langs">
+              <a
+                class="founder__social"
+                href="https://www.linkedin.com/in/adrienyvin/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >LinkedIn</a>
+              <div class="founder__langs" aria-label="Languages">
                 <span class="lang-badge" title="French — native">FR</span>
                 <span class="lang-badge" title="English — full professional">EN</span>
                 <span class="lang-badge" title="Spanish — native">ES</span>
               </div>
             </div>
-          </div>
+            </div>
 
-          <div class="founder__details">
+            <div class="founder__details">
             <div class="founder__stats">
               <div class="founder__stat">
                 <span class="founder__stat-n" id="years-stat"></span>
@@ -1274,6 +1240,7 @@
               </div>
             </div>
 
+            <p class="founder__block-label">Experience</p>
             <ol class="founder__timeline">
               <li class="tl-item tl-item--current">
                 <span class="tl-item__dot" aria-hidden="true"></span>
@@ -1309,6 +1276,7 @@
               </li>
             </ol>
 
+            <p class="founder__block-label">Core stack</p>
             <div class="founder__stack">
               <span class="stack-tag">Power BI</span>
               <span class="stack-tag">Microsoft Fabric</span>
@@ -1323,8 +1291,8 @@
               <span class="stack-tag">Cursor</span>
               <span class="stack-tag">Copilot Agents</span>
             </div>
+            </div>
           </div>
-
         </div>
       </section>
 
@@ -1400,7 +1368,7 @@
                 Zapier for SaaS-to-SaaS connections, Microsoft Power Automate for
                 Microsoft 365 and Azure environments, and custom webhook endpoints for
                 systems without native connectors. Platform choice follows your stack —
-                the implementation standard does not.
+                not the other way around.
               </p>
             </div>
           </details>
